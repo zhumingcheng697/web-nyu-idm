@@ -3,13 +3,11 @@
 <head>
   <title>Here Come the Planes – McCoy</title>
   <style>
-  /* CSS goes here */
+  /* CSS STARTS here */
   body {
     background-color: plum;
     background-image: linear-gradient(to bottom,pink,plum);
-    /* background-image: url("https://images.assetsdelivery.com/compings_v2/ratanakhailee/ratanakhailee1602/ratanakhailee160200095.jpg"); */
     background-repeat: no-repeat;
-    background-size: cover;
     text-align: center;
     font-size: 32px;
   }
@@ -44,30 +42,38 @@
   }
 
   p {
-    line-height: 30px;
     margin-top: 0px;
     margin-bottom: 0px;
+    line-height: 30px;
     transition-duration: 0.15s;
     transition-property: font-size, font-weight, opacity, text-shadow;
     transition-timing-function: ease-in-out;
+    text-shadow: 0 0 5px rgba(127,127,127,0.3);
   }
 
   p:hover {
     font-size: 36px;
     font-weight: bold;
+    text-shadow: 0 0 5px rgba(127,127,127,0.8);
   }
 
   p:not(:hover) {
     opacity: 0.7;
   }
 
+  p:hover .emphasize {
+    text-shadow: 0 0 25px, 0 0 5px rgba(127,127,127,0.8);
+  }
+
   .emphasize {
-    text-shadow: 0 0 4px;
+    transition-duration: 0.15s;
+    transition-property: text-shadow;
+    transition-timing-function: ease-in-out;
+    text-shadow: 0 0 8px;
   }
 
   .words {
     font-family: serif;
-    text-shadow: 0 0 5px rgba(255,255,255,0.1);
   }
 
   #long {
@@ -106,7 +112,7 @@
   /* CSS STOPS here */
   </style>
 </head>
-<!-- HTML goes here! -->
+<!-- HTML STARTS here! -->
 <body>
   <h1>Here Come the Planes</h1>
   <div class="words">

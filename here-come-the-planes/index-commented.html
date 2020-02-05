@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<!-- where many things that are NOT directly displayed on the web page stays at -->
+<head>
+  <!-- what you want the browser to call your web by -->
+  <title>Here Come the Planes – McCoy</title>
+  <!-- where we are currently writing CSS at -->
+  <style>
+  /* CSS STARTS here */
+
+  /* CSS for everything within the <body> tag */
+  body {
+    background-color: plum;
+    /* create a gradient background that goes from top to bottom and fades from pink to plum */
+    background-image: linear-gradient(to bottom,pink,plum);
+    /* forbid a second background image to be inserted after the first one */
+    background-repeat: no-repeat;
+    /* see https://www.w3schools.com/css/css_background.asp for detail about background */
+    text-align: center;
+    font-size: 32px;
+  }
+
+  /* CSS for text with link */
+  a {
+    color: magenta;
+  }
+
+  /* CSS for text with link that is hovered by mouse */
+  a:hover {
+    color: indigo;
+    /* change the decoration color of the text (eg. the underline-line) */
+    text-decoration-color: midnightBlue;
+  }
+
+  /* CSS for heading with <h1> tag */
+  h1 {
+    /* specify the top margin to a fixed value so that it won’t change with the size of the text */
+    margin-top: 100px;
+    /* specify the bottom margin to a fixed value so that it won’t change with the size of the text */
+    margin-bottom: 70px;
+    /* specify the height of each line of text to a fixed value so that it won’t change with the size of the text */
+    line-height: 50px;
+    font-size: 54px;
+    /* use the browser’s default sans-serif typeface as text font */
+    font-family: sans-serif;
+    /* specify the duration of the transition */
+    transition-duration: 0.15s;
+    /* specify what properties to transition */
+    transition-property: font-size, opacity, text-shadow;
+    /* specify the time-curve of the transition (eg. ease-in, ease-out, linear, ...) */
+    transition-timing-function: ease-in-out;
+    color: white;
+  }
+
+  /* CSS for heading with <h1> tag that is hovered by mouse */
+  h1:hover {
+    font-size: 64px;
+  }
+
+  /* CSS for heading with <h1> tag that is NOT hovered by mouse */
+  h1:not(:hover) {
+    /* in this way, I don’t need to specify "opacity: 1" in "h1: hover{}" */
+    opacity: 0.7;
+  }
+
+  /* CSS for paragraphs with <p> tag */
+  p {
+    /* specify the top margin to a fixed value so that it won’t change with the size of the text */
+    margin-top: 0px;
+    /* specify the bottom margin to a fixed value so that it won’t change with the size of the text */
+    margin-bottom: 0px;
+    /* specify the height of each line of text to a fixed value so that it won’t change with the size of the text */
+    line-height: 30px;
+    /* specify the duration of the transition */
+    transition-duration: 0.15s;
+    /* specify what properties to transition */
+    transition-property: font-size, font-weight, opacity, text-shadow;
+    /* specify the time-curve of the transition (eg. ease-in, ease-out, linear, ...) */
+    transition-timing-function: ease-in-out;
+    /* have a text shadow right behind the text with 5px blur and a more translucent gray color */
+    text-shadow: 0 0 5px rgba(127,127,127,0.3);
+    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
+  }
+
+  /* CSS for paragraphs with <p> tag that is hovered by mouse */
+  p:hover {
+    font-size: 36px;
+    /* change how heavy the text is (eg. bold, light, normal, ...) */
+    font-weight: bold;
+    /* create a text shadow right behind the text with 5px blur and a less translucent gray color */
+    text-shadow: 0 0 5px rgba(127,127,127,0.8);
+    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
+  }
+
+  /* CSS for paragraphs with <p> tag that is NOT hovered by mouse */
+  p:not(:hover) {
+    /* in this way, I don’t need to specify "opacity: 1" in "p: hover{}" */
+    opacity: 0.7;
+  }
+
+  /* CSS for elements of "emphasize" class that is within a paragraph hovered by mouse */
+  p:hover .emphasize {
+    /* is this way, I can control elements inside a specific (hovered) <p> */
+    /* create two layers of text shadow right behind the text,
+    the first one with 25px blur and the default text color,
+    and the second one with 5px blur and a more translucent gray color */
+    text-shadow: 0 0 25px, 0 0 5px rgba(127,127,127,0.8);
+    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
+  }
+
+  /* CSS for elements of "emphasize" class */
+  .emphasize {
+    /* specify the duration of the transition */
+    transition-duration: 0.15s;
+    /* specify what properties to transition
+    (transition text-shadow only here so that it won’t override the <p> transition) */
+    transition-property: text-shadow;
+    /* specify the time-curve of the transition (eg. ease-in, ease-out, linear, ...) */
+    transition-timing-function: ease-in-out;
+    /* create a text shadow right behind the text with 8px blur and the default text color */
+    text-shadow: 0 0 8px;
+    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
+  }
+
+  /* CSS for elements of "words" class */
+  .words {
+    /* use the browser’s default serif typeface as text font */
+    font-family: serif;
+  }
+
+  /* CSS for elements with "long" id (ie. <span>long</span>) */
+  #long {
+    /* change the spacing between words (ie. where " " is) to 2px */
+    word-spacing: 2px;
+    /* change the spacing between each letter to 22px
+    (it adds some space after each letter, instead of equally adding space
+    before and after each letter, which is not very friendly) */
+    letter-spacing: 22px;
+  }
+
+  /* CSS for elements with "automatic" id (ie. <span>automatic</span>) */
+  #automatic {
+    /* use the browser’s default monospace typeface as text font */
+    font-family: monospace;
+  }
+
+  /* CSS for elements with "electronic" id (ie. <span>electronic</span>) */
+  #electronic {
+    /* use the browser’s default fantasy style typeface as text font */
+    font-family: fantasy;
+  }
+
+  /* CSS for elements with "first" id (ie. the first <p> inside <div class="words">) */
+  #first {
+    color: red;
+  }
+
+  /* CSS for elements with "second" id (ie. the second <p> inside <div class="words">) */
+  #second {
+    color: yellow;
+  }
+
+  /* CSS for elements with "third" id (ie. the third <p> inside <div class="words">) */
+  #third {
+    color: lightGreen;
+  }
+
+  /* CSS for elements with "forth" id (ie. the forth <p> inside <div class="words">) */
+  #forth {
+    color: paleTurquoise;
+  }
+
+  /* CSS for elements with "fifth" id (ie. the fifth <p> inside <div class="words">) */
+  #fifth {
+    color: magenta;
+  }
+
+  /* CSS STOPS here */
+  </style>
+</head>
+<!-- where many things that are directly displayed on the web page stays at -->
+<body>
+  <!-- the biggest type of heading -->
+  <h1>Here Come the Planes</h1>
+  <!-- a "container" (of the class "words" in this case)
+  that can wrap around all kinds of HTML elements -->
+  <div class="words">
+    <!-- a paragraph of text (with the id "first" in this case) -->
+    <p id="first">
+      So
+      <!-- HTML automatically adds " " between words -->
+      <!-- a bolded line of text of the class "emphasize" -->
+      <b class="emphasize">hold</b>
+      me, Mom 👩
+    </p>
+    <!-- adds a line break (ie. "\n") -->
+    <br>
+    <!-- a paragraph of text (with the id "second" in this case) -->
+    <p id="second">
+      In your
+      <!-- a line of text (that is a part of a paragraph)
+      of the class "emphasize" and with the id "long" -->
+      <span class="emphasize" id="long">&nbsplong</span>
+      <!-- I use "&nbsp" when " " doesn’t work -->
+      &nbsparms 💪
+    </p>
+    <!-- adds a line break (ie. "\n") -->
+    <br>
+    <!-- a paragraph of text (with the id "third" in this case) -->
+    <p id="third">
+      In your
+      <!-- a line of text (that is a part of a paragraph)
+      of the class "emphasize" and with the id "automatic" -->
+      <span class="emphasize" id="automatic">automatic</span>
+      arms 💪
+    </p>
+    <!-- adds a line break (ie. "\n") -->
+    <br>
+    <!-- a paragraph of text (with the id "forth" in this case) -->
+    <p id="forth">
+      Your
+      <!-- a line of text (that is a part of a paragraph)
+      of the class "emphasize" and with the id "electronic" -->
+      <span class="emphasize" id="electronic">electronic</span>
+      arms 💪
+    </p>
+    <!-- adds a line break (ie. "\n") -->
+    <br>
+    <!-- a paragraph of text (with the id "fifth" in this case) -->
+    <p id="fifth">
+      In
+      <!-- an italic line of text of the class "emphasize" -->
+      <i class="emphasize">your</i>
+      <!-- a text with link -->
+      <a href="https://yanxinnn.github.io/web-nyu-idm/here-come-the-planes">arms</a>
+      💪
+    </p>
+  </div>
+</body>
+</html>
