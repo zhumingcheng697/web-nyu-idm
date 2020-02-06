@@ -2,7 +2,7 @@
 <html>
 <!-- where many things that are NOT directly displayed on the web page stays at -->
 <head>
-  <!-- what you want the browser to call your web by -->
+  <!-- what you want the browser to call your page by -->
   <title>Here Come the Planes – McCoy</title>
   <!-- where we are currently writing CSS at -->
   <style>
@@ -10,6 +10,8 @@
 
   /* CSS for everything within the <body> tag */
   body {
+    /* specifying background color seperately makes sure that the lower half
+    of the page which is not covered by the background image is still colored */
     background-color: plum;
     /* create a gradient background that goes from top to bottom and fades from pink to plum */
     background-image: linear-gradient(to bottom,pink,plum);
@@ -22,6 +24,7 @@
 
   /* CSS for text with link */
   a {
+    /* see https://www.w3schools.com/colors/colors_groups.asp for named colors */
     color: magenta;
   }
 
@@ -89,7 +92,6 @@
     font-weight: bold;
     /* create a text shadow right behind the text with 5px blur and a less translucent gray color */
     text-shadow: 0 0 5px rgba(127,127,127,0.8);
-    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
   }
 
   /* CSS for paragraphs with <p> tag that is NOT hovered by mouse */
@@ -105,7 +107,6 @@
     the first one with 25px blur and the default text color,
     and the second one with 5px blur and a more translucent gray color */
     text-shadow: 0 0 25px, 0 0 5px rgba(127,127,127,0.8);
-    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
   }
 
   /* CSS for elements of "emphasize" class */
@@ -119,7 +120,6 @@
     transition-timing-function: ease-in-out;
     /* create a text shadow right behind the text with 8px blur and the default text color */
     text-shadow: 0 0 8px;
-    /* see https://www.w3schools.com/css/css3_shadows.asp about text shadow */
   }
 
   /* CSS for elements of "words" class */
