@@ -1,5 +1,5 @@
 
-/* This is default helpul CSS to include - dont edit this part unless... you want to */
+/* This is default helpful CSS to include - dont edit this part unless... you want to */
 html,
 body {
   margin: 0;
@@ -23,6 +23,7 @@ body {
   color: yellow;
   text-align: center;
   font-size: 2em;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .my-fun-class {
