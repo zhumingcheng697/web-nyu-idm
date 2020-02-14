@@ -42,16 +42,22 @@ body {
 } */
 
 @font-face {
-  font-family: "SF Mono";
-  font-weight: 400;
-  src: url("https://sf.abarba.me/SFMono-Regular.otf");
+  font-family: "SF Mono Medium";
+  font-weight: 500;
+  src: url("https://sf.abarba.me/SFMono-Medium.otf");
+}
+
+@font-face {
+  font-family: "SF Mono Light";
+  font-weight: 200;
+  src: url("https://sf.abarba.me/SFMono-Light.otf");
 }
 
 body {
   background-color: rgb(30, 30, 32);
   color: white;
   /* font-size: 1.5em; */
-  font-family: "SF Mono", sans-serif;
+  font-family: "SF Mono Medium", serif;
 }
 
 p {
@@ -70,7 +76,6 @@ p {
   margin: auto;
   width: 85%;
   text-align: left;
-  /* border: 2px solid forestgreen; */
   display: block;
 }
 
@@ -87,7 +92,7 @@ p {
 }
 
 .method {
-  color: PaleGreen;
+  color: PeachPuff;
 }
 
 .string {
@@ -95,9 +100,13 @@ p {
 }
 
 .number {
-  color: LightSkyBlue;
+  color: PowderBlue;
 }
 
 #self + .name {
   color: LimeGreen;
+}
+
+.keyword span:first-of-type {
+  font-family: "SF Mono Light", serif;
 }
