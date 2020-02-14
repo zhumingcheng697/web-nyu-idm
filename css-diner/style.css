@@ -11,15 +11,15 @@ body {
 }
 /* THE END of default helpful basic CSS to include. EDIT the stuff BELOW this line*/
 
-/* class Course: Talkable, Walkable {
+/* class Student: Person, Talkable, Walkable {
   var name: String
-  var time: DateInterval
+  var classTime: DateInterval
   var location: CLLocation
   var instructor: Person
 
-  init(name: String, time: DateInteral, location: CLLocation, instructor: Person) {
+  init(name: String, classTime: DateInteral, location: CLLocation, instructor: Person) {
     self.name = name
-    self.time = time
+    self.classTime = time
     self.location = location
     self.instructor = instructor
   }
@@ -29,7 +29,7 @@ body {
   }
 
   func goToClass(currentTime: Date = Date()) {
-    let interval = currentTime.timeIntervalSince(self.time.start)
+    let interval = currentTime.timeIntervalSince(self.classTime.start)
     if interval > 0 {
       self.walk(Pace.fast, to: self.location)
       print("Run fast! You are late!")
@@ -49,8 +49,8 @@ body {
 
 body {
   background-color: rgb(30, 30, 32);
-  color: yellow;
-  font-size: 1.5em;
+  color: white;
+  /* font-size: 1.5em; */
   font-family: "SF Mono", sans-serif;
 }
 
@@ -72,4 +72,28 @@ p {
   text-align: left;
   /* border: 2px solid forestgreen; */
   display: block;
+}
+
+.keyword {
+  color: MediumVioletRed;
+}
+
+.name {
+  color: DeepSkyBlue;
+}
+
+.type {
+  color: SlateBlue;
+}
+
+.method {
+  color: LimeGreen;
+}
+
+.string {
+  color: Crimson;
+}
+
+.number {
+  color: LightSkyBlue;
 }

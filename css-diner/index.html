@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-  <title>new Course()</title>
+  <title>new Student()</title>
 </head>
 
 <body>
   <div class="container">
     <div class="code">
       <p>
-        <span class="keyword">class</span> <span class="name">Course</span>: <span class="type">Talkable</span>, <span class="type">Walkable</span> {
+        <span class="keyword">class</span> <span class="name">Student</span>: <span class="type">Person</span>, <span class="type">Talkable</span>, <span class="type">Walkable</span> {
         </p>
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -20,11 +20,11 @@
         </p>
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">time</span>: <span class="type">DateInterval</span>
+          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">classTime</span>: <span class="type">DateInterval</span>
         </p>
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">location</span>: <span class="type">CLLocation</span>
+          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">classLocation</span>: <span class="type">CLLocation</span>
         </p>
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,7 +35,7 @@
         </p>
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="keyword">init</span>(<span class="name">name</span>: <span class="type">String</span>, <span class="name">time</span>: <span class="type">DateInterval</span>, <span class="name">location</span>: <span class="type">CLLocation</span>, <span class="name">instructor</span>: <span class="type">Person</span>) {
+          <span class="keyword">init</span>(<span class="name">name</span>: <span class="type">String</span>, <span class="name">classTime</span>: <span class="type">DateInterval</span>, <span class="name">classLocation</span>: <span class="type">CLLocation</span>, <span class="name">instructor</span>: <span class="type">Person</span>) {
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -43,11 +43,11 @@
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="keyword">self</span>.<span class="name">time</span> = <span class="name">time</span>
+            <span class="keyword">self</span>.<span class="name">classTime</span> = <span class="name">classTime</span>
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="keyword">self</span>.<span class="name">location</span> = <span class="name">location</span>
+            <span class="keyword">self</span>.<span class="name">classLocation</span> = <span class="name">classLocation</span>
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -81,7 +81,7 @@
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="keyword">let</span> <span class="name">interval</span> = <span class="type">Date</span>().<span class="method">timeIntervalSince</span>(<span class="keyword">self</span>.<span class="name">time</span>.<span class="name">start</span>)
+            <span class="keyword">let</span> <span class="name">interval</span> = <span class="type">Date</span>().<span class="method">timeIntervalSince</span>(<span class="keyword">self</span>.<span class="name">classTime</span>.<span class="name">start</span>)
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
