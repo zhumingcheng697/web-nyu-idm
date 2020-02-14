@@ -5,17 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-  <title>My Sweet Page</title>
+  <title>new Course()</title>
 </head>
 
 <body>
-  <h1>What is my title? 🤔</h2>
-    <div class="my-fun-class">
-      <p> 🦆edit this code so it is your own. use your own colors, fonts, styles, & images 🦜</p>
+  <div class="container">
+    <div class="code">
+      <p>
+        <span class="keyword">class</span> <span class="name">Course</span>: <span class="type">Talkable</span>, <span class="type">Walkable</span> {
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">public</span> <span class="keyword">var</span> <span class="name">name</span>: <span class="type">String</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">time</span>: <span class="type">DateInterval</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">location</span>: <span class="type">CLLocation</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">private</span> <span class="keyword">var</span> <span class="name">instructor</span>: <span class="type">Person</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">init</span>(<span class="name">name</span>: <span class="type">String</span>, <span class="name">time</span>: <span class="type">DateInterval</span>, <span class="name">location</span>: <span class="type">CLLocation</span>, <span class="name">instructor</span>: <span class="type">Person</span>) {
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">self</span>.<span class="name">name</span> = <span class="name">name</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">self</span>.<span class="name">time</span> = <span class="name">time</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">self</span>.<span class="name">location</span> = <span class="name">location</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">self</span>.<span class="name">instructor</span> = <span class="name">instructor</span>
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          }
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">func</span> <span class="name">greetInstructor</span>() {
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">self</span>.<span class="method">talk</span>(<span class="string">"Hi, </span>\(<span class="keyword">self</span>.<span class="name">instructor</span>.<span class="name">name</span>)<span class="string">"</span>)
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          }
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="keyword">func</span> <span class="name">goToClass</span>() {
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">let</span> <span class="name">interval</span> = <span class="type">Date</span>().<span class="method">timeIntervalSince</span>(<span class="keyword">self</span>.<span class="name">time</span>.<span class="name">start</span>)
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="keyword">if</span> <span class="name">interval</span> > <span class="number">0</span> {
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="keyword">self</span>.<span class="method">walk</span>(<span class="type">Pace</span>.<span class="name">fast</span>, <span class="name">to</span>: <span class="keyword">self</span>.<span class="name">location</span>)
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="method">print</span>(<span class="string">"Run fast! You are late!"</span>)
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            } <span class="keyword">else if</span> <span class="name">interval</span> < <span class="number">-1800</span> {
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="method">print</span>(<span class="string">"Do you want to leave this early?"</span>)
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            } <span class="keyword">else</span> {
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="keyword">self</span>.<span class="method">walk</span>(<span class="type">Pace</span>.<span class="name">normal</span>, <span class="name">to</span>: <span class="keyword">self</span>.<span class="name">location</span>)
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            }
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          }
+        </p>
+        <p>
+        }
+      </p>
     </div>
-    <img src="images/zap.png">
-
-
+  </div>
 </body>
 
 </html>

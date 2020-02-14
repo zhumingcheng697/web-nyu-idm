@@ -11,29 +11,65 @@ body {
 }
 /* THE END of default helpful basic CSS to include. EDIT the stuff BELOW this line*/
 
+/* class Course: Talkable, Walkable {
+  var name: String
+  var time: DateInterval
+  var location: CLLocation
+  var instructor: Person
+
+  init(name: String, time: DateInteral, location: CLLocation, instructor: Person) {
+    self.name = name
+    self.time = time
+    self.location = location
+    self.instructor = instructor
+  }
+
+  func greetInstructor() {
+    self.talk("Hi, \(self.instructor.name)")
+  }
+
+  func goToClass(currentTime: Date = Date()) {
+    let interval = currentTime.timeIntervalSince(self.time.start)
+    if interval > 0 {
+      self.walk(Pace.fast, to: self.location)
+      print("Run fast! You are late!")
+    } else if interval < -1800 {
+      print("Do you want to leave this early?")
+    } else {
+      self.walk(Pace.normal, to: self.Location)
+    }
+  }
+} */
+
 @font-face {
-  font-family: 'violet';
-  src: url('./fonts/VioletSans-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "SF Mono";
+  font-weight: 400;
+  src: url("https://sf.abarba.me/SFMono-Regular.otf");
 }
 
 body {
-  background-color: violet;
+  background-color: rgb(30, 30, 32);
   color: yellow;
+  font-size: 1.5em;
+  font-family: "SF Mono", sans-serif;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
   text-align: center;
-  font-size: 2em;
-  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 150%;
+  /* padding: none;
+  margin: none; */
 }
 
-.my-fun-class {
-  width: 40%;
-  border: 2px solid forestgreen;
-  display: block;
+.code {
   margin: auto;
-}
-
-img {
-  width: 40%;
-  padding: 2em;
+  width: 85%;
+  text-align: left;
+  /* border: 2px solid forestgreen; */
+  display: block;
 }
