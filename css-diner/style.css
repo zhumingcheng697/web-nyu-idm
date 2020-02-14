@@ -43,7 +43,7 @@ p {
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-  font-family: "SF Mono Light", serif;
+  font-family: "SF Mono Light", monospace;
 }
 
 .noTab {
@@ -107,7 +107,7 @@ p {
 /* Here, by using a combination of class selectors and comma combinor,
 I can select all HTML elements of type `keyword`, `type`, or `string`. */
 .keyword, .type, .string {
-  font-family: "SF Mono Semibold", serif;
+  font-family: "SF Mono Semibold", monospace;
 }
 
 /* Id selector (#id) is from level 3 in CSS Diner, and class selector (.className) is from level 6.
@@ -116,7 +116,7 @@ They select all HTML elements with id `id` or of class `className`, respectively
 /* Here, by using a combination of id selector, class selectors, and comma combinor,
 I can select all HTML elements with id `self` or of type `name`, `method`, or `number`. */
 #self, .name, .method, .number {
-  font-family: "SF Mono", serif;
+  font-family: "SF Mono", monospace;
 }
 
 /* Id selector (#id) is from level 3 in CSS Diner, and class selector (.className) is from level 6.
@@ -137,7 +137,7 @@ It selects all HTML elements of type `B` inside an HTML element of type `A`.*/
 /* Here, by using a combination of class selector, type selectors, descendant selector, and first of type selector,
 I can select each HTML elements of type `span` that is the first inside an HTML element of class `keyword`. */
 .keyword span:first-of-type {
-  font-family: "SF Mono Light", serif;
+  font-family: "SF Mono Light", monospace;
 }
 
 /* Type selector (A) is from level 1 and 2 in CSS Diner, and class selector (.className) is from level 6.
@@ -149,5 +149,5 @@ It selects the every B HTML element of type `A` from (and including) the C one. 
 /* Here, by using a combination of type selector, class selectors, descendant selector, and nth of type selector with formula,
 I can select each HTML elements of class `type` that is after the first element inside an HTML element of type `span`. */
 span .type:nth-of-type(n+2) {
-  font-family: "SF Mono", serif;
+  font-family: "SF Mono", monospace;
 }
