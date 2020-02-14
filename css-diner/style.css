@@ -11,36 +11,6 @@ body {
 }
 /* THE END of default helpful basic CSS to include. EDIT the stuff BELOW this line*/
 
-/* class Student: Person, Talkable, Walkable {
-  var name: String
-  var classTime: DateInterval
-  var classlocation: CLLocation
-  var instructor: Person
-
-  init(name: String, classTime: DateInteral, classLocation: CLLocation, instructor: Person) {
-    self.name = name
-    self.classTime = time
-    self.classLocation = location
-    self.instructor = instructor
-  }
-
-  func greetInstructor() {
-    self.talk("Hi, \(self.instructor.name)")
-  }
-
-  func goToClass(currentTime: Date = Date()) {
-    let interval = currentTime.timeIntervalSince(self.classTime.start)
-    if interval > 0 {
-      self.walk(Pace.fast, to: self.classLocation)
-      print("Run fast! You are late!")
-    } else if interval < -1800 {
-      print("Do you want to leave this early?")
-    } else {
-      self.walk(Pace.normal, to: self.classLocation)
-    }
-  }
-} */
-
 @font-face {
   font-family: "SF Mono";
   font-weight: 400;
@@ -59,8 +29,12 @@ body {
   src: url("https://sf.abarba.me/SFMono-Semibold.otf");
 }
 
+/* These selectors like `body` or `.container` are too simple, so I am not counting them as the "5 techniques" individually. */
+/* Type selector (A) is from level 1 and 2 in CSS Diner, and class selector (.className) is from level 6.
+They select all HTML elements of type `A` or of class `className`, respectively. */
+
 body {
-  background-color: rgb(30, 30, 32);
+  background-color: rgb(28, 28, 30);
   color: white;
 }
 
@@ -106,22 +80,52 @@ p {
   color: PowderBlue;
 }
 
+/* Class selector (.className) is from level 6 in CSS Diner. It selects all HTML elements of class `className`. */
+/* Comma combinor (A, B) is from level 9 in CSS Diner. It selects all HTML elements of type `A` or `B` together. */
+/* Here, by using a combination of class selectors and comma combinor,
+I can select all HTML elements of type `keyword`, `type`, or `string`. */
 .keyword, .type, .string {
   font-family: "SF Mono Semibold", serif;
 }
 
+/* Id selector (#id) is from level 3 in CSS Diner, and class selector (.className) is from level 6.
+They select all HTML elements with id `id` or of class `className`, respectively. */
+/* Comma combinor (A, B) is from level 9 in CSS Diner. It selects all HTML elements of type `A` or `B` together. */
+/* Here, by using a combination of id selector, class selectors, and comma combinor,
+I can select all HTML elements with id `self` or of type `name`, `method`, or `number`. */
 #self, .name, .method, .number {
   font-family: "SF Mono", serif;
 }
 
+/* Id selector (#id) is from level 3 in CSS Diner, and class selector (.className) is from level 6.
+They select all HTML elements with id `id` or of class `className`, respectively. */
+/* Adjacent sibling selector (A + B) is from level 12 in CSS Diner.
+It selects all HTML elements of type `B` that directly follows an HTML elements of type `A`. */
+/* Here, by using a combination of id selector, class selectors, and adjacent sibling selector,
+I can select all HTML elements with class `name` that directly follows an HTML elements with id `self`. */
 #self + .name {
   color: LimeGreen;
 }
 
+/* Type selector (A) is from level 1 and 2 in CSS Diner, and class selector (.className) is from level 6.
+They select all HTML elements of type `A` or of class `className`, respectively. */
+/* Descendant selector (A B) is from level 4 in CSS Diner.
+It selects all HTML elements of type `B` inside an HTML element of type `A`.*/
+/* First of type selector (A:first-of-type) is from level 20 in CSS Diner. It selects the first HTML elements of type `A`. */
+/* Here, by using a combination of class selector, type selectors, descendant selector, and first of type selector,
+I can select each HTML elements of type `span` that is the first inside an HTML element of class `keyword`. */
 .keyword span:first-of-type {
   font-family: "SF Mono Light", serif;
 }
 
+/* Type selector (A) is from level 1 and 2 in CSS Diner, and class selector (.className) is from level 6.
+They select all HTML elements of type `A` or of class `className`, respectively. */
+/* Descendant selector (A B) is from level 4 in CSS Diner.
+It selects all HTML elements of type `B` inside an HTML element of type `A`.*/
+/* Nth of type selector with formula (A:nth-of-type(Bn+C)) is from level 22 in CSS Diner.
+It selects the every B HTML element of type `A` from (and including) the C one. */
+/* Here, by using a combination of type selector, class selectors, descendant selector, and nth of type selector with formula,
+I can select each HTML elements of class `type` that is after the first element inside an HTML element of type `span`. */
 span .type:nth-of-type(n+2) {
   font-family: "SF Mono", serif;
 }
