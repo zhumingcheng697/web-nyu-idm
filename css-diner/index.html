@@ -11,130 +11,138 @@
 <body>
   <div class="container">
     <div class="code">
-      <br>
-      <p>
+      <p class="noTab">
+        <br>
+      </p>
+      <p class="noTab">
         <span class="keyword">class</span> <span class="name">Student</span>: <span><span class="type">Person</span>, <span class="type">Talkable</span>, <span class="type">Walkable</span></span> {
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword"><span>public</span> <span>var</span></span> <span class="name">name</span>: <span class="type">String</span>
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword"><span>private</span> <span>var</span></span> <span class="name">classTime</span>: <span class="type">DateInterval</span>
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword"><span>private</span> <span>var</span></span> <span class="name">classLocation</span>: <span class="type">CLLocation</span>
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp
           <span class="keyword"><span>private</span> <span>var</span></span> <span class="name">instructor</span>: <span class="type">Person</span>
         </p>
-        <p>
+        <!-- <p class="tab"><br></p> -->
+        <p class="tab">
           &nbsp;&nbsp;&nbsp;&nbsp;
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword">init</span>(<span class="name">name</span>: <span class="type">String</span>, <span class="name">classTime</span>: <span class="type">DateInterval</span>, <span class="name">classLocation</span>: <span class="type">CLLocation</span>, <span class="name">instructor</span>: <span class="type">Person</span>) {
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="name">name</span> = <span class="name">name</span>
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="name">classTime</span> = <span class="name">classTime</span>
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="name">classLocation</span> = <span class="name">classLocation</span>
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="name">instructor</span> = <span class="name">instructor</span>
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="tab">
+            &nbsp;&nbsp;&nbsp;
           }
         </p>
-        <p>
+        <!-- <p class="tab"><br></p> -->
+        <p class="tab">
           &nbsp;&nbsp;&nbsp;&nbsp;
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword">func</span> <span class="name">greetClassmate</span>(_ <span class="name">classmate</span>: <span class="type">Person</span>) {
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="method">talk</span>(<span class="string">"Hey, </span>\(<span class="name">classmate</span>.<span class="name">name</span>)<span class="string">!"</span>)
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="tab">
+            &nbsp;&nbsp;&nbsp;
           }
         </p>
-        <p>
+        <!-- <p class="tab"><br></p> -->
+        <p class="tab">
           &nbsp;&nbsp;&nbsp;&nbsp;
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword">func</span> <span class="name">greetInstructor</span>() {
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword" id="self">self</span>.<span class="method">talk</span>(<span class="string">"Hi, </span>\(<span class="keyword" id="self">self</span>.<span class="name">instructor</span>.<span class="name">name</span>)<span class="string">!"</span>)
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="tab">
+            &nbsp;&nbsp;&nbsp;
           }
         </p>
-        <p>
+        <!-- <p class="tab"><br></p> -->
+        <p class="tab">
           &nbsp;&nbsp;&nbsp;&nbsp;
         </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="tab">
+          &nbsp;&nbsp;&nbsp;
           <span class="keyword">func</span> <span class="name">goToClass</span>() {
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="twoTab">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="keyword">if</span> <span class="type">Date</span>().<span class="method">timeIntervalSince</span>(<span class="keyword" id="self">self</span>.<span class="name">classTime</span>.<span class="name">start</span>) > <span class="number">0</span> {
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="threeTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="keyword" id="self">self</span>.<span class="method">walk</span>(.<span class="name">fast</span>, to: <span class="keyword" id="self">self</span>.<span class="name">location</span>)
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="threeTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="method">print</span>(<span class="string">"Run fast! You are late!"</span>)
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="twoTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             } <span class="keyword">else if</span> <span class="type">Date</span>().<span class="method">timeIntervalSince</span>(<span class="keyword" id="self">self</span>.<span class="name">classTime</span>.<span class="name">start</span>) < <span class="number">-1800</span> {
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="threeTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="method">print</span>(<span class="string">"Do you really want to leave this early?"</span>)
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="twoTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             } <span class="keyword">else</span> {
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="threeTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="keyword" id="self">self</span>.<span class="method">walk</span>(.<span class="name">normal</span>, to: <span class="keyword" id="self">self</span>.<span class="name">location</span>)
             </p>
-            <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="twoTab">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             }
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="tab">
+            &nbsp;&nbsp;&nbsp;
           }
         </p>
-        <p>
+        <p class="noTab">
         }
       </p>
-      <br>
+      <p class="noTab">
+        <br>
+      </p>
     </div>
   </div>
 </body>
