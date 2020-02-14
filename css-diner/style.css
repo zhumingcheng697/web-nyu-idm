@@ -87,7 +87,7 @@ p {
 }
 
 .method {
-  color: LimeGreen;
+  color: PaleGreen;
 }
 
 .string {
@@ -96,4 +96,8 @@ p {
 
 .number {
   color: LightSkyBlue;
+}
+
+#self + .name {
+  color: LimeGreen;
 }
