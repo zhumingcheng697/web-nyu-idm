@@ -158,4 +158,9 @@ body {
   #footer {
     color: #777
   }
+
+  .icon:hover ~ #alt_text {
+    font-size: 1.2em;
+    top: 38%;
+  }
 }
