@@ -32,6 +32,11 @@ body {
   height: 40%;
   left: 30%;
   top: 33%;
+  transition: 0.3s
+}
+
+.big-container:hover {
+  background-color: #222;
 }
 
 .big-container:not(:hover) .icon {
@@ -139,6 +144,11 @@ body {
     width: 80%;
     left: 10%;
   }
+
+  .icon:hover ~ #alt_text {
+    font-size: 1.2em;
+    top: 38%;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -151,16 +161,15 @@ body {
     border: 2px dashed #999;
   }
 
+  .big-container:hover {
+    background-color: #ccc;
+  }
+
   #alt_text {
     color: #333;
   }
 
   #footer {
     color: #777
-  }
-
-  .icon:hover ~ #alt_text {
-    font-size: 1.2em;
-    top: 38%;
   }
 }
