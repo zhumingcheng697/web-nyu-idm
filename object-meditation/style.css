@@ -20,12 +20,12 @@ body {
   color: white;
   text-align: center;
   font-family: helvetica, sans-serif;
-  transition: 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .three-rows {
   display: grid;
-  grid-template-rows: 38% 30% 32%;
+  grid-template-rows: 35% 30% 35%;
   grid-template-columns: 100%;
   height: 100%;
 }
@@ -49,6 +49,18 @@ body {
   /* border: 2px dashed #444; */
 }
 
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 450px;
+  margin: auto;
+  /* border: 2px dashed #444; */
+}
+
 #center-container {
   position: absolute;
   width: 50%;
@@ -57,7 +69,7 @@ body {
   height: 50%;
   left: 25%;
   top: 28%;
-  transition: 0.3s
+  transition: ease-in-out 0.3s
 }
 
 #center-container:hover {
@@ -66,27 +78,6 @@ body {
 
 #center-container:not(:hover) .icon {
   opacity: 0;
-  bottom: 20%;
-}
-
-#center-container:not(:hover) #a {
-  left: 45%;
-  bottom: 20%;
-}
-
-#center-container:not(:hover) #c {
-  left: 45%;
-  /* bottom: 20%; */
-}
-
-#center-container:not(:hover) #f {
-  right: 45%;
-  /* bottom: 20%; */
-}
-
-#center-container:not(:hover) #r {
-  right: 45%;
-  /* bottom: 20%; */
 }
 
 #title {
@@ -102,8 +93,9 @@ body {
   margin: auto;
   grid-column: 1/span 1;
   grid-row: 2/span 1;
-  transition: 0.3s;
+  transition: ease-in-out 0.3s;
   font-size: 1.2em;
+  line-height: 1.5;
 }
 
 #alt_text.default-alt_text {
@@ -120,7 +112,6 @@ body {
 
 #two {
   background-color: red;
-  right: -5%;
 }
 
 .two {
@@ -129,45 +120,30 @@ body {
 
 #seven {
   background-color: mediumOrchid;
-  right: -10%;
 }
 
 .seven {
   color: mediumOrchid;
 }
 
-#a {
+#a, #c {
   background-color: dodgerBlue;
-  bottom: 10%;
-  left: 10%;
 }
 
 .ac {
   color: dodgerBlue;
 }
 
-#c {
-  background-color: dodgerBlue;
-  left: 33%;
-}
-
-#d {
+#d, #f {
   background-color: orange;
-  right: 40%;
 }
 
 .df {
   color: orange;
 }
 
-#f {
-  background-color: orange;
-  right: 33%;
-}
-
 #g {
   background-color: mediumAquaMarine;
-  right: 0%;
 }
 
 .g {
@@ -177,27 +153,26 @@ body {
 #r {
   background-color: yellow;
   color: black;
-  right: 10%;
 }
 
 .r {
   color: yellow;
 }
 
-.amtrak {
-  color: rgb(0,80,120);
-}
-
-.nj-transit {
-  color: rgb(50,100,150);
+.air-train {
+  color: white;
 }
 
 .path {
   color: rgb(20,100,250);
 }
 
-.air-train {
-  color: white;
+.nj-transit {
+  color: rgb(50,100,150);
+}
+
+.amtrak {
+  color: rgb(0,80,120);
 }
 
 #center-container:hover #alt_text {
@@ -205,19 +180,28 @@ body {
 }
 
 .icon {
-  position: absolute;
   color: white;
   width: 50px;
   line-height: 50px;
   height: 50px;
   border-radius: 50%;
   font-weight: bold;
-  transition: 0.5s;
-  bottom: 10%;
+  transition: ease-in-out 0.3s;
   cursor: pointer;
   font-size: 1.3em;
   object-fit: cover;
   z-index: 2;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+div.icon {
+  margin: 20px 12px;
+}
+
+div.icon.big-margin {
+  margin: 45px 12px;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -231,16 +215,28 @@ body {
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
   #center-container {
     width: 80%;
     left: 10%;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   #center-container:hover #alt_text {
     font-size: 1.4em;
+  }
+
+  .icon-grid {
+    width: 300px;
+  }
+
+  div.icon {
+    margin: 15px 12px;
+  }
+
+  div.icon.big-margin {
+    margin: 15px 12px;
   }
 }
 
