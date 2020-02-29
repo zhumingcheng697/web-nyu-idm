@@ -19,13 +19,13 @@ body {
   background-color: #111;
   color: white;
   text-align: center;
-  font-family: sans-serif;
+  font-family: helvetica, sans-serif;
   transition: 0.3s;
 }
 
 .three-rows {
   display: grid;
-  grid-template-rows: 35% 30% 35%;
+  grid-template-rows: 38% 30% 32%;
   grid-template-columns: 100%;
   height: 100%;
 }
@@ -99,14 +99,15 @@ body {
 }
 
 #alt_text {
-  --alt_text-color: #ccc;
-  color: var(--alt_text-color);
   margin: auto;
   grid-column: 1/span 1;
   grid-row: 2/span 1;
   transition: 0.3s;
   font-size: 1.2em;
-  /* border: 3px dotted red; */
+}
+
+#alt_text.default-alt_text {
+  color: #ccc;
 }
 
 #footer {
@@ -117,15 +118,46 @@ body {
   color: #aaa
 }
 
+#two {
+  background-color: red;
+  right: -5%;
+}
+
+.two {
+  color: red;
+}
+
+#seven {
+  background-color: mediumOrchid;
+  right: -10%;
+}
+
+.seven {
+  color: mediumOrchid;
+}
+
 #a {
-  background-color: blue;
+  background-color: dodgerBlue;
   bottom: 10%;
   left: 10%;
 }
 
+.ac {
+  color: dodgerBlue;
+}
+
 #c {
-  background-color: blue;
+  background-color: dodgerBlue;
   left: 33%;
+}
+
+#d {
+  background-color: orange;
+  right: 40%;
+}
+
+.df {
+  color: orange;
 }
 
 #f {
@@ -133,10 +165,39 @@ body {
   right: 33%;
 }
 
+#g {
+  background-color: mediumAquaMarine;
+  right: 0%;
+}
+
+.g {
+  color: mediumAquaMarine;
+}
+
 #r {
   background-color: yellow;
   color: black;
   right: 10%;
+}
+
+.r {
+  color: yellow;
+}
+
+.amtrak {
+  color: rgb(0,80,120);
+}
+
+.nj-transit {
+  color: rgb(50,100,150);
+}
+
+.path {
+  color: rgb(20,100,250);
+}
+
+.air-train {
+  color: white;
 }
 
 #center-container:hover #alt_text {
@@ -146,13 +207,16 @@ body {
 .icon {
   position: absolute;
   color: white;
-  width: 35px;
-  line-height: 35px;
+  width: 50px;
+  line-height: 50px;
+  height: 50px;
   border-radius: 50%;
   font-weight: bold;
   transition: 0.5s;
   bottom: 10%;
   cursor: pointer;
+  font-size: 1.3em;
+  object-fit: cover;
   z-index: 2;
 }
 
@@ -194,8 +258,8 @@ body {
     background-color: #ccc;
   }
 
-  #alt_text {
-    --alt_text-color: #333;
+  #alt_text.default-alt_text {
+    color: #333;
   }
 
   #footer {
