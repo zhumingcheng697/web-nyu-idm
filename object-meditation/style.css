@@ -23,7 +23,7 @@ body {
   transition: 0.3s;
 }
 
-.big-container {
+#center-container {
   position: absolute;
   width: 40%;
   border: 2px dashed #444;
@@ -35,31 +35,31 @@ body {
   transition: 0.3s
 }
 
-.big-container:hover {
+#center-container:hover {
   background-color: #222;
 }
 
-.big-container:not(:hover) .icon {
+#center-container:not(:hover) .icon {
   opacity: 0;
   bottom: 20%;
 }
 
-.big-container:not(:hover) #a {
+#center-container:not(:hover) #a {
   left: 45%;
   bottom: 20%;
 }
 
-.big-container:not(:hover) #c {
+#center-container:not(:hover) #c {
   left: 45%;
   /* bottom: 20%; */
 }
 
-.big-container:not(:hover) #f {
+#center-container:not(:hover) #f {
   right: 45%;
   /* bottom: 20%; */
 }
 
-.big-container:not(:hover) #r {
+#center-container:not(:hover) #r {
   right: 45%;
   /* bottom: 20%; */
 }
@@ -115,18 +115,6 @@ body {
   top: 30%;
 }
 
-#a:hover ~ #alt_text, #c:hover ~ #alt_text {
-  color: blue;
-}
-
-#f:hover ~ #alt_text {
-  color: orange;
-}
-
-#r:hover ~ #alt_text {
-  color: yellow;
-}
-
 .icon {
   position: absolute;
   color: white;
@@ -136,11 +124,12 @@ body {
   font-weight: bold;
   transition: 0.5s;
   bottom: 10%;
+  cursor: pointer;
   z-index: 2;
 }
 
 @media only screen and (max-width: 600px) {
-  .big-container {
+  .center-container {
     width: 80%;
     left: 10%;
   }
@@ -157,11 +146,11 @@ body {
     color: black;
   }
 
-  .big-container {
+  #center-container {
     border: 2px dashed #999;
   }
 
-  .big-container:hover {
+  #center-container:hover {
     background-color: #ccc;
   }
 
