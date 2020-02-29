@@ -1,26 +1,28 @@
+let alt_text_element = document.getElementById('alt_text');
+
 function selectA() {
-  document.getElementById('alt_text').style.color = "blue";
-  document.getElementById('alt_text').innerHTML = "You have selected the A train.";
+  alt_text_element.style.setProperty("--alt_text-color", "blue");
+  alt_text_element.innerHTML = "You have selected the A train.";
 }
 
 function selectC() {
-  document.getElementById('alt_text').style.color = "blue";
-  document.getElementById('alt_text').innerHTML = "You have selected the C train.";
+  alt_text_element.style.setProperty("--alt_text-color", "blue");
+  alt_text_element.innerHTML = "You have selected the C train.";
 }
 
 function selectF() {
-  document.getElementById('alt_text').style.color = "orange";
-  document.getElementById('alt_text').innerHTML = "You have selected the F train.";
+  alt_text_element.style.setProperty("--alt_text-color", "orange");
+  alt_text_element.innerHTML = "You have selected the F train.";
 }
 
 function selectR() {
-  document.getElementById('alt_text').style.color = "yellow";
-  document.getElementById('alt_text').innerHTML = "You have selected the R train.";
+  alt_text_element.style.setProperty("--alt_text-color", "yellow");
+  alt_text_element.innerHTML = "You have selected the R train.";
 }
 
 function deselect() {
-  document.getElementById('alt_text').style.color = "inherit";
-  document.getElementById('alt_text').innerHTML = "You have not selected anything.";
+  alt_text_element.style.setProperty("--alt_text-color", (window.matchMedia("(prefers-color-scheme: light)").matches ? "#333" : "#ccc"));
+  alt_text_element.innerHTML = "You have not selected anything.";
 }
 
 function firstElementDoesNotInclude(test) {
@@ -35,6 +37,14 @@ function firstElementDoesNotInclude(test) {
     return true;
   }
 }
+
+window.matchMedia("(prefers-color-scheme: light)").addListener(function() {
+    let color = getComputedStyle(alt_text_element).getPropertyValue("--alt_text-color");
+    if (color === "#ccc" || color === "#333") {
+      alt_text_element.style.setProperty("--alt_text-color", (window.matchMedia("(prefers-color-scheme: light)").matches ? "#333" : "#ccc"));
+    }
+  }
+);
 
 document.addEventListener("click", function(element) {
   let testElement = element.target;
