@@ -101,6 +101,7 @@ body {
 }
 
 #center-container:not(:hover) div.icon {
+  pointer-events: none;
   opacity: 0;
   margin: -8px 8px;
 }
