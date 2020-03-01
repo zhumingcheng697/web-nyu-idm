@@ -6,7 +6,9 @@ let currentSmallestOrder = -1;
 function selectA() {
   alt_text.className = "ac";
   alt_text_element.innerHTML = "You have selected A train.";
-  // center_container_element.style.left = "60%";
+  // center_container_element.classList.add("enlarged");
+  // center_container_element.parentNode.style.overflow = "hidden";
+  // center_container_element.style.transform = "translate(30%, 10%)";
 }
 
 function selectC() {
@@ -69,6 +71,9 @@ function deselect() {
   if (alt_text_element.innerHTML !== "This is where the image goes.") {
     alt_text_element.innerHTML = "You have not selected anything.";
   }
+  // center_container_element.classList.remove("enlarged");
+  // center_container_element.parentNode.style.overflow = "visible";
+  // center_container_element.style.transform = "translate(0%, 0%)";
 }
 
 document.addEventListener("click", function(element) {

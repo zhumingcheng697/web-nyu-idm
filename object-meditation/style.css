@@ -42,19 +42,16 @@ body {
 .whole {
   grid-column: 1/span 1;
   grid-row: 1/span 3;
-  /* border: 5px dashed #444; */
 }
 
 .top-div {
   grid-column: 1/span 1;
   grid-row: 1/span 1;
-  /* border: 2px dashed #444; */
 }
 
 .bottom-div {
   grid-column: 1/span 1;
   grid-row: 3/span 1;
-  /* border: 2px dashed #444; */
 }
 
 .icon-grid {
@@ -66,7 +63,6 @@ body {
   align-items: center;
   width: 450px;
   margin: auto;
-  /* border: 2px dashed #444; */
 }
 
 #center-container {
@@ -91,6 +87,12 @@ body {
 #center-container:not(:hover) div.icon {
   opacity: 0;
   margin: -8px 8px;
+}
+
+#center-container.enlarged {
+  width: 80%;
+  height: 80%;
+  left: 10%;
 }
 
 #title {
@@ -138,7 +140,7 @@ body {
   background-color: var(--ac-color);
 }
 
-.ac {
+p.ac {
   color: var(--ac-color);
 }
 
@@ -146,7 +148,7 @@ body {
   background-color: var(--df-color);
 }
 
-.df {
+p.df {
   color: var(--df-color);
 }
 
@@ -154,7 +156,7 @@ body {
   background-color: var(--g-color);
 }
 
-.g {
+p.g {
   color: var(--g-color);
 }
 
@@ -163,7 +165,7 @@ body {
   color: black;
 }
 
-.r {
+p.r {
   color: var(--r-color);
 }
 
@@ -171,7 +173,7 @@ body {
   background-color: var(--two-color);
 }
 
-.two {
+p.two {
   color: var(--two-color);
 }
 
@@ -179,23 +181,23 @@ body {
   background-color: var(--seven-color);
 }
 
-.seven {
+p.seven {
   color: var(--seven-color);
 }
 
-.air-train {
+p.air-train {
   color: var(--air-train-color);
 }
 
-.path {
+p.path {
   color: var(--path-color);
 }
 
-.nj-transit {
+p.nj-transit {
   color: var(--nj-transit-color);
 }
 
-.amtrak {
+p.amtrak {
   color: var(--amtrak-color);
 }
 
@@ -214,6 +216,10 @@ body {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+}
+
+img.icon {
+  filter: grayscale(11%);
 }
 
 div.icon {
@@ -248,6 +254,10 @@ div.icon.big-margin {
     filter: blur(2.5px);
   }
 
+  #center-container:not(:hover) div.icon {
+    margin: -10px 7px;
+  }
+
   .icon-grid {
     width: 300px;
   }
@@ -258,6 +268,34 @@ div.icon.big-margin {
 
   div.icon.big-margin {
     margin: 15px 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #center-container:not(:hover) div.icon {
+    margin: -12px 8px;
+  }
+
+  .icon-grid {
+    width: 250px;
+  }
+
+  div.icon {
+    margin: 8px 12px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  #center-container:not(:hover) div.icon {
+    margin: -15px 9px;
+  }
+
+  .icon-grid {
+    width: 200px;
+  }
+
+  div.icon {
+    margin: 6px 12px;
   }
 }
 
@@ -275,6 +313,10 @@ div.icon.big-margin {
     --amtrak-color: rgb(0,80,120);
     background-color: #ddd;
     color: black;
+  }
+
+  img.icon {
+    filter: grayscale(0%);
   }
 
   #center-container {
