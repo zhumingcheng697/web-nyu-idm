@@ -239,6 +239,7 @@ div.icon.big-margin {
   #center-container:hover #alt_text {
     font-size: 1.6em;
   }
+
 }
 
 @media only screen and (max-width: 850px) {
@@ -262,16 +263,17 @@ div.icon.big-margin {
     width: 300px;
   }
 
-  div.icon {
-    margin: 15px 12px;
-  }
-
-  div.icon.big-margin {
+  div.icon, div.icon.big-margin {
     margin: 15px 12px;
   }
 }
 
 @media only screen and (max-width: 450px) {
+  #center-container {
+    width: 90%;
+    left: 5%;
+  }
+
   #center-container:not(:hover) div.icon {
     margin: -12px 8px;
   }
@@ -280,22 +282,14 @@ div.icon.big-margin {
     width: 250px;
   }
 
-  div.icon {
+  div.icon, div.icon.big-margin {
     margin: 8px 12px;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  #center-container:not(:hover) div.icon {
-    margin: -15px 9px;
-  }
-
   .icon-grid {
-    width: 200px;
-  }
-
-  div.icon {
-    margin: 6px 12px;
+    width: 90%;
   }
 }
 
