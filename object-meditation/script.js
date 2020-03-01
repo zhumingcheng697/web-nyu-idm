@@ -1,10 +1,12 @@
-let alt_text_element = document.getElementById('alt_text');
+let alt_text_element = document.getElementById("alt_text");
+let center_container_element = document.getElementById("center-container");
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
 
 function selectA() {
   alt_text.className = "ac";
   alt_text_element.innerHTML = "You have selected A train.";
+  // center_container_element.style.left = "60%";
 }
 
 function selectC() {
