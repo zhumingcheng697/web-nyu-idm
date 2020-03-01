@@ -34,7 +34,6 @@ body {
   grid-column: 1/span 1;
   grid-row: 1/span 3;
   /* border: 5px dashed #444; */
-  z-index: 1;
 }
 
 .top-div {
@@ -83,10 +82,12 @@ body {
 #title {
   position: absolute;
   width: 90%;
-  /* border: 1px dashed white; */
-  display: block;
   left: 5%;
-  top: 11%;
+  top: 15%;
+}
+
+#title h1 {
+  margin: auto;
 }
 
 #alt_text {
@@ -98,32 +99,29 @@ body {
   line-height: 1.5;
 }
 
+#alt_text b {
+  font-family: serif;
+  /* font-size: 1.8em; */
+}
+
 #alt_text.default-alt_text {
   color: #ccc;
+}
+
+#center-container:hover #alt_text {
+  font-size: 1.8em;
 }
 
 #footer {
   position: absolute;
   width: 90%;
   left: 5%;
-  bottom: 6%;
+  bottom: 12%;
   color: #aaa
 }
 
-#two {
-  background-color: red;
-}
-
-.two {
-  color: red;
-}
-
-#seven {
-  background-color: mediumOrchid;
-}
-
-.seven {
-  color: mediumOrchid;
+#footer p {
+  margin: auto;
 }
 
 #a, #c {
@@ -159,6 +157,22 @@ body {
   color: yellow;
 }
 
+#two {
+  background-color: red;
+}
+
+.two {
+  color: red;
+}
+
+#seven {
+  background-color: mediumOrchid;
+}
+
+.seven {
+  color: mediumOrchid;
+}
+
 .air-train {
   color: white;
 }
@@ -173,10 +187,6 @@ body {
 
 .amtrak {
   color: rgb(0,80,120);
-}
-
-#center-container:hover #alt_text {
-  font-size: 1.8em;
 }
 
 .icon {
@@ -197,7 +207,7 @@ body {
 }
 
 div.icon {
-  margin: 20px 12px;
+  margin: 25px 12px;
 }
 
 div.icon.big-margin {
@@ -255,7 +265,7 @@ div.icon.big-margin {
   }
 
   #alt_text.default-alt_text {
-    color: #333;
+    color: #555;
   }
 
   #footer {

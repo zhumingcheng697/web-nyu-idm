@@ -2,16 +2,6 @@ let alt_text_element = document.getElementById('alt_text');
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
 
-function select2() {
-  alt_text.className = "two"
-  alt_text_element.innerHTML = "You have selected 2 train.";
-}
-
-function select7() {
-  alt_text.className = "seven";
-  alt_text_element.innerHTML = "You have selected 7 train.";
-}
-
 function selectA() {
   alt_text.className = "ac";
   alt_text_element.innerHTML = "You have selected A train.";
@@ -40,6 +30,16 @@ function selectG() {
 function selectR() {
   alt_text.className = "r";
   alt_text_element.innerHTML = "You have selected R train.";
+}
+
+function select2() {
+  alt_text.className = "two"
+  alt_text_element.innerHTML = "You have selected 2 train.";
+}
+
+function select7() {
+  alt_text.className = "seven";
+  alt_text_element.innerHTML = "You have selected 7 train.";
 }
 
 function selectAirTrain() {
@@ -80,7 +80,8 @@ document.addEventListener("click", function(element) {
         currentSmallestOrder--;
         (testElement.tagName === "IMG" ? testElement.parentNode.style.order = currentSmallestOrder : testElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
-        document.getElementById("footer").innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
+        alt_text.className = "default-alt_text";
+        document.getElementById("footer").children[0].innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
         for (element of document.getElementsByClassName("icon")) {
           if (element.tagName === "DIV") {
             element.classList.add("big-margin");
@@ -89,7 +90,7 @@ document.addEventListener("click", function(element) {
       }
     } else {
       parsedSelectedElement = testElement.id + "*";
-      document.getElementById("footer").innerHTML = "Hi. Welcome.";
+      document.getElementById("footer").children[0].innerHTML = "Hi. Welcome.";
       for (element of document.getElementsByClassName("icon")) {
         if (element.tagName === "DIV") {
           element.classList.remove("big-margin");
@@ -108,7 +109,7 @@ document.addEventListener("click", function(element) {
     }
   }
   deselect();
-  document.getElementById("footer").innerHTML = "Hi. Welcome.";
+  document.getElementById("footer").children[0].innerHTML = "Hi. Welcome.";
   for (element of document.getElementsByClassName("icon")) {
     if (element.tagName === "DIV") {
       element.classList.remove("big-margin");
