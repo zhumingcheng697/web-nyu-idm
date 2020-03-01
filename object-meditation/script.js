@@ -75,8 +75,8 @@ document.addEventListener("click", function(element) {
   if (testElement.id && testElement.classList.contains("icon")) {
     if (parsedSelectedElement.startsWith(testElement.id)) {
       parsedSelectedElement = parsedSelectedElement + "*";
-      if (parsedSelectedElement.startsWith(testElement.id + "***")) {
-        parsedSelectedElement = testElement.id + "***";
+      if (parsedSelectedElement.startsWith(testElement.id + "*****")) {
+        parsedSelectedElement = testElement.id + "*****";
         currentSmallestOrder--;
         (testElement.tagName === "IMG" ? testElement.parentNode.style.order = currentSmallestOrder : testElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";

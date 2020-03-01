@@ -75,8 +75,9 @@ body {
   background-color: #222;
 }
 
-#center-container:not(:hover) .icon {
+#center-container:not(:hover) div.icon {
   opacity: 0;
+  margin: -6px 8px;
 }
 
 #title {
@@ -101,7 +102,6 @@ body {
 
 #alt_text b {
   font-family: serif;
-  /* font-size: 1.8em; */
 }
 
 #alt_text.default-alt_text {
@@ -116,7 +116,7 @@ body {
   position: absolute;
   width: 90%;
   left: 5%;
-  bottom: 12%;
+  bottom: 11%;
   color: #aaa
 }
 
