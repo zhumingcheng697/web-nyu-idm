@@ -80,7 +80,7 @@ document.addEventListener("click", function(element) {
         currentSmallestOrder--;
         (testElement.tagName === "IMG" ? testElement.parentNode.style.order = currentSmallestOrder : testElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
-        document.getElementById("footer").innerHTML = "<b>Congratulations! You have found the easter egg!</b>"
+        document.getElementById("footer").innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
         for (element of document.getElementsByClassName("icon")) {
           if (element.tagName === "DIV") {
             element.classList.add("big-margin");
