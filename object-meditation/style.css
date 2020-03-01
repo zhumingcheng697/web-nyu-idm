@@ -1,5 +1,4 @@
-html,
-body {
+html {
   margin: 0;
   padding: 0;
 }
@@ -16,6 +15,16 @@ body {
 } */
 
 body {
+  --ac-color: rgb(50,140,230);
+  --df-color: rgb(240,150,40);
+  --g-color: rgb(90,180,140);
+  --r-color: rgb(240,200,80);
+  --two-color: rgb(220,70,70);
+  --seven-color: rgb(190,80,190);
+  --air-train-color: rgb(230,230,230);
+  --path-color: rgb(30,100,230);
+  --nj-transit-color: rgb(30,70,120);
+  --amtrak-color: rgb(0,50,90);
   background-color: #111;
   color: white;
   text-align: center;
@@ -75,20 +84,25 @@ body {
   background-color: #222;
 }
 
+#center-container:hover #alt_text {
+  font-size: 1.8em;
+}
+
 #center-container:not(:hover) div.icon {
   opacity: 0;
-  margin: -6px 8px;
+  margin: -8px 8px;
 }
 
 #title {
   position: absolute;
   width: 90%;
   left: 5%;
-  top: 15%;
+  top: 12%;
 }
 
 #title h1 {
   margin: auto;
+  font-size: 2.8em;
 }
 
 #alt_text {
@@ -108,10 +122,6 @@ body {
   color: #ccc;
 }
 
-#center-container:hover #alt_text {
-  font-size: 1.8em;
-}
-
 #footer {
   position: absolute;
   width: 90%;
@@ -125,68 +135,68 @@ body {
 }
 
 #a, #c {
-  background-color: dodgerBlue;
+  background-color: var(--ac-color);
 }
 
 .ac {
-  color: dodgerBlue;
+  color: var(--ac-color);
 }
 
 #d, #f {
-  background-color: orange;
+  background-color: var(--df-color);
 }
 
 .df {
-  color: orange;
+  color: var(--df-color);
 }
 
 #g {
-  background-color: mediumAquaMarine;
+  background-color: var(--g-color);
 }
 
 .g {
-  color: mediumAquaMarine;
+  color: var(--g-color);
 }
 
 #r {
-  background-color: yellow;
+  background-color: var(--r-color);
   color: black;
 }
 
 .r {
-  color: yellow;
+  color: var(--r-color);
 }
 
 #two {
-  background-color: red;
+  background-color: var(--two-color);
 }
 
 .two {
-  color: red;
+  color: var(--two-color);
 }
 
 #seven {
-  background-color: mediumOrchid;
+  background-color: var(--seven-color);
 }
 
 .seven {
-  color: mediumOrchid;
+  color: var(--seven-color);
 }
 
 .air-train {
-  color: white;
+  color: var(--air-train-color);
 }
 
 .path {
-  color: rgb(20,100,250);
+  color: var(--path-color);
 }
 
 .nj-transit {
-  color: rgb(50,100,150);
+  color: var(--nj-transit-color);
 }
 
 .amtrak {
-  color: rgb(0,80,120);
+  color: var(--amtrak-color);
 }
 
 .icon {
@@ -198,7 +208,7 @@ body {
   font-weight: bold;
   transition: ease-in-out 0.3s;
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 1.4em;
   object-fit: cover;
   z-index: 2;
   user-select: none;
@@ -235,6 +245,7 @@ div.icon.big-margin {
 @media only screen and (max-width: 600px) {
   #center-container:hover #alt_text {
     font-size: 1.4em;
+    filter: blur(2.5px);
   }
 
   .icon-grid {
@@ -252,6 +263,16 @@ div.icon.big-margin {
 
 @media (prefers-color-scheme: light) {
   body {
+    --ac-color: rgb(40,150,250);
+    --df-color: rgb(250,150,40);
+    --g-color: rgb(90,200,150);
+    --r-color: rgb(255,220,80);
+    --two-color: rgb(255,60,60);
+    --seven-color: rgb(200,100,200);
+    --air-train-color: rgb(255,255,255);
+    --path-color: rgb(20,100,250);
+    --nj-transit-color: rgb(50,100,150);
+    --amtrak-color: rgb(0,80,120);
     background-color: #ddd;
     color: black;
   }
