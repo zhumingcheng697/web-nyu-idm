@@ -241,6 +241,11 @@ img.icon {
 
 div.icon {
   margin: 25px 12px;
+  filter: brightness(0.9);
+}
+
+div.icon:hover {
+  filter: brightness(1.05);
 }
 
 div.icon.big-margin {
@@ -332,6 +337,14 @@ div.icon.big-margin {
     --amtrak-color: rgb(0,80,120);
     background-color: #ddd;
     color: black;
+  }
+
+  div.icon {
+    filter: brightness(1);
+  }
+
+  div.icon:hover {
+    filter: brightness(0.925);
   }
 
   img.icon {
