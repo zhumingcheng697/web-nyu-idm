@@ -1,5 +1,5 @@
-let alt_text_element = document.getElementById("alt_text");
-let center_container_element = document.getElementById("center-container");
+let alt_text_element = document.querySelector("#alt_text");
+let center_container_element = document.querySelector("#center-container");
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
 
@@ -82,44 +82,46 @@ document.addEventListener("click", function(element) {
   if (testElement.id && testElement.classList.contains("icon")) {
     if (parsedSelectedElement.startsWith(testElement.id)) {
       parsedSelectedElement = parsedSelectedElement + "*";
+      if (parsedSelectedElement.startsWith(testElement.id + "**********")) {
+        for (icon of document.querySelectorAll(".icon")) {
+          icon.style.opacity = "0.8";
+          icon.style.transform = "scale(1)";
+          icon.style.filter = "grayscale(1)";
+          icon.style.pointerEvents = "none";
+        }
+      }
+
       if (parsedSelectedElement.startsWith(testElement.id + "*****")) {
-        parsedSelectedElement = testElement.id + "*****";
+        // parsedSelectedElement = testElement.id + "*****";
         currentSmallestOrder--;
         (testElement.tagName === "IMG" ? testElement.parentNode.style.order = currentSmallestOrder : testElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
         alt_text.className = "default-alt_text";
-        document.getElementById("footer").children[0].innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
-        for (element of document.getElementsByClassName("icon")) {
-          if (element.tagName === "DIV") {
-            element.classList.add("big-margin");
-          }
+        document.querySelector("#footer p").innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
+        for (icon of document.querySelectorAll("div.icon")) {
+          icon.classList.add("big-margin");
         }
       }
     } else {
       parsedSelectedElement = testElement.id + "*";
-      document.getElementById("footer").children[0].innerHTML = "Hi. Welcome.";
-      for (element of document.getElementsByClassName("icon")) {
-        if (element.tagName === "DIV") {
-          element.classList.remove("big-margin");
-        }
+      document.querySelector("#footer p").innerHTML = "Hi. Welcome.";
+      for (icon of document.querySelectorAll("div.icon")) {
+        icon.classList.remove("big-margin");
       }
     }
-  } else {
-    parsedSelectedElement = "";
   }
 
   while (testElement) {
-    if (document.getElementById("center-container") === testElement) {
+    if (document.querySelector("#center-container") === testElement) {
       return;
     } else {
       testElement = testElement.parentNode;
     }
   }
   deselect();
-  document.getElementById("footer").children[0].innerHTML = "Hi. Welcome.";
-  for (element of document.getElementsByClassName("icon")) {
-    if (element.tagName === "DIV") {
-      element.classList.remove("big-margin");
-    }
+  document.querySelector("#footer p").innerHTML = "Hi. Welcome.";
+  for (icon of document.querySelectorAll("div.icon")) {
+    icon.classList.remove("big-margin");
   }
+  parsedSelectedElement = "";
 });

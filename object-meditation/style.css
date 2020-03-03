@@ -62,7 +62,7 @@ body {
   grid-row: 3/span 1;
 }
 
-.icon-grid {
+#icon-grid {
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -103,7 +103,8 @@ body {
 #center-container:not(:hover) div.icon {
   pointer-events: none;
   opacity: 0;
-  margin: -8px 8px;
+  margin: -25px 8px;
+  transform: scale(0);
 }
 
 #center-container.enlarged {
@@ -245,7 +246,8 @@ div.icon {
 }
 
 div.icon:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.1);
+  transform: scale(1.1);
 }
 
 div.icon.big-margin {
@@ -282,10 +284,10 @@ div.icon.big-margin {
   }
 
   #center-container:not(:hover) div.icon {
-    margin: -10px 7px;
+    margin: -25px 8px;
   }
 
-  .icon-grid {
+  #icon-grid {
     width: 300px;
   }
 
@@ -304,10 +306,6 @@ div.icon.big-margin {
     left: 5%;
   }
 
-  #center-container:not(:hover) div.icon {
-    margin: -12px 8px;
-  }
-
   div.icon, div.icon.big-margin {
     margin: 8px 8px;
   }
@@ -318,7 +316,7 @@ div.icon.big-margin {
     font-size: 1.6em;
   }
 
-  .icon-grid {
+  #icon-grid {
     width: 90%;
   }
 }
