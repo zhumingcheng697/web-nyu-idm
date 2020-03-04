@@ -78,7 +78,7 @@ body {
   width: 50%;
   border: 2px dashed #444;
   border-radius: 15px;
-  height: 50%;
+  height: 55%;
   left: 25%;
   top: 28%;
   transition: ease-in-out 0.3s
@@ -107,10 +107,9 @@ body {
   transform: scale(0);
 }
 
-#center-container.enlarged {
-  width: 80%;
-  height: 80%;
-  left: 10%;
+.enlarged {
+  transform: scale(2);
+  border: 2px dashed var(--ac-color);
 }
 
 #title {
@@ -146,7 +145,7 @@ body {
   position: absolute;
   width: 90%;
   left: 5%;
-  bottom: 11%;
+  bottom: 7%;
   color: #aaa
 }
 

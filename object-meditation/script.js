@@ -3,6 +3,24 @@ let center_container_element = document.querySelector("#center-container");
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
 
+function getPositionOf(selector) {
+  let box = document.querySelector(selector).getBoundingClientRect();
+  return {
+    left: box.left.toFixed(2),
+    right: box.right.toFixed(2),
+    top: box.top.toFixed(2),
+    bottom: box.bottom.toFixed(2),
+    centerX: ((box.left + box.right) / 2).toFixed(2),
+    centerY: ((box.top + box.bottom) / 2).toFixed(2),
+    width: (box.right - box.left).toFixed(2),
+    height: (box.bottom - box.top).toFixed(2)
+  };
+}
+
+function getWindowSize() {
+  document.querySelector("h1").innerHTML = `${window.innerWidth}, ${window.innerHeight}`;
+}
+
 function selectA() {
   alt_text.className = "ac";
   alt_text_element.innerHTML = "You have selected A train.";
