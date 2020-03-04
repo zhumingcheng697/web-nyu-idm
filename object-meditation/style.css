@@ -80,7 +80,7 @@ body {
   border-radius: 15px;
   height: 55%;
   left: 25%;
-  top: 28%;
+  top: 25%;
   transition: ease-in-out 0.3s
 }
 
@@ -103,7 +103,7 @@ body {
 #center-container:not(:hover) div.icon {
   pointer-events: none;
   opacity: 0;
-  margin: -25px 8px;
+  margin: -25px 10px;
   transform: scale(0);
 }
 
@@ -220,9 +220,9 @@ p.amtrak {
 
 .icon {
   color: white;
-  width: 50px;
-  line-height: 50px;
-  height: 50px;
+  width: 48px;
+  line-height: 48px;
+  height: 48px;
   border-radius: 50%;
   font-weight: bold;
   transition: ease-in-out 0.3s;
