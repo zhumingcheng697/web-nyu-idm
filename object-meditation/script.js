@@ -3,7 +3,7 @@ let center_container_element = document.querySelector("#center-container");
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
 
-function getPositionOf(selector) {
+function positionOfS(selector) {
   let box = document.querySelector(selector).getBoundingClientRect();
   return {
     left: box.left.toFixed(2),
@@ -17,16 +17,27 @@ function getPositionOf(selector) {
   };
 }
 
-function getWindowSize() {
-  document.querySelector("h1").innerHTML = `${window.innerWidth}, ${window.innerHeight}`;
+function positionOfE(element) {
+  let box = element.getBoundingClientRect();
+  return {
+    left: box.left.toFixed(2),
+    right: box.right.toFixed(2),
+    top: box.top.toFixed(2),
+    bottom: box.bottom.toFixed(2),
+    centerX: ((box.left + box.right) / 2).toFixed(2),
+    centerY: ((box.top + box.bottom) / 2).toFixed(2),
+    width: (box.right - box.left).toFixed(2),
+    height: (box.bottom - box.top).toFixed(2)
+  };
+}
+
+function windowSize() {
+  return {width: window.innerWidth, height: window.innerHeight};
 }
 
 function selectA() {
   alt_text.className = "ac";
   alt_text_element.innerHTML = "You have selected A train.";
-  // center_container_element.classList.add("enlarged");
-  // center_container_element.parentNode.style.overflow = "hidden";
-  // center_container_element.style.transform = "translate(30%, 10%)";
 }
 
 function selectC() {
@@ -89,18 +100,34 @@ function deselect() {
   if (alt_text_element.innerHTML !== "This is where the image goes.") {
     alt_text_element.innerHTML = "You have not selected anything.";
   }
-  // center_container_element.classList.remove("enlarged");
-  // center_container_element.parentNode.style.overflow = "visible";
-  // center_container_element.style.transform = "translate(0%, 0%)";
+  document.querySelector("#title").classList.remove("hide");
+  document.querySelector("#footer").classList.remove("hide");
+  center_container_element.parentNode.style.overflow = "visible";
+  center_container_element.style.transform = "translate(0%, 0%)";
 }
 
 document.addEventListener("click", function(element) {
-  let testElement = element.target;
+  let clickedElement = element.target;
 
-  if (testElement.id && testElement.classList.contains("icon")) {
-    if (parsedSelectedElement.startsWith(testElement.id)) {
+  if (clickedElement.id && clickedElement.classList.contains("icon")) {
+
+    document.querySelector("#title").classList.add("hide");
+    document.querySelector("#footer").classList.add("hide");
+    center_container_element.parentNode.style.overflow = "hidden";
+
+    let n = 3;
+
+    if (!window.matchMedia("(max-width: 600px)").matches) {
+      if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
+        center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;
+      } else {
+        center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${- positionOfE(center_container_element).centerY + 50 - positionOfE(center_container_element).height / 2}px)`;
+      }
+    }
+
+    if (parsedSelectedElement.startsWith(clickedElement.id)) {
       parsedSelectedElement = parsedSelectedElement + "*";
-      if (parsedSelectedElement.startsWith(testElement.id + "**********")) {
+      if (parsedSelectedElement.startsWith(clickedElement.id + "**********")) {
         for (icon of document.querySelectorAll(".icon")) {
           icon.style.opacity = "0.8";
           icon.style.transform = "scale(1)";
@@ -109,10 +136,9 @@ document.addEventListener("click", function(element) {
         }
       }
 
-      if (parsedSelectedElement.startsWith(testElement.id + "*****")) {
-        // parsedSelectedElement = testElement.id + "*****";
+      if (parsedSelectedElement.startsWith(clickedElement.id + "*****")) {
         currentSmallestOrder--;
-        (testElement.tagName === "IMG" ? testElement.parentNode.style.order = currentSmallestOrder : testElement.style.order = currentSmallestOrder);
+        (clickedElement.tagName === "IMG" ? clickedElement.parentNode.style.order = currentSmallestOrder : clickedElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
         alt_text.className = "default-alt_text";
         document.querySelector("#footer p").innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
@@ -121,7 +147,7 @@ document.addEventListener("click", function(element) {
         }
       }
     } else {
-      parsedSelectedElement = testElement.id + "*";
+      parsedSelectedElement = clickedElement.id + "*";
       document.querySelector("#footer p").innerHTML = "Hi. Welcome.";
       for (icon of document.querySelectorAll("div.icon")) {
         icon.classList.remove("big-margin");
@@ -129,11 +155,11 @@ document.addEventListener("click", function(element) {
     }
   }
 
-  while (testElement) {
-    if (document.querySelector("#center-container") === testElement) {
+  while (clickedElement) {
+    if (document.querySelector("#center-container") === clickedElement) {
       return;
     } else {
-      testElement = testElement.parentNode;
+      clickedElement = clickedElement.parentNode;
     }
   }
   deselect();
