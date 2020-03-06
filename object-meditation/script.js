@@ -2,6 +2,16 @@ let alt_text_element = document.querySelector("#alt_text");
 let center_container_element = document.querySelector("#center-container");
 let parsedSelectedElement = "";
 let currentSmallestOrder = -1;
+let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+
+function switchColorMode() {
+  isInLightMode = !isInLightMode;
+  document.body.classList.remove("forcedDarkMode");
+  document.body.classList.remove("forcedLightMode");
+  document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
+  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+}
 
 function positionOfS(selector) {
   let box = document.querySelector(selector).getBoundingClientRect();
@@ -101,12 +111,14 @@ function seeNoteMd() {
     document.querySelector("#center-container").classList.remove("hide");
     document.querySelector("#footer p").innerHTML = "see my notes.md";
     document.querySelector("#notes").classList.add("hide");
+    document.querySelector("#color-mode").classList.remove("hide");
   } else {
     document.querySelector("#title").classList.add("hide");
     document.querySelector("#notes").scrollTop = 0;
     document.querySelector("#center-container").classList.add("hide");
     document.querySelector("#footer p").innerHTML = "back to home";
     document.querySelector("#notes").classList.remove("hide");
+    document.querySelector("#color-mode").classList.add("hide");
   }
 }
 
@@ -117,11 +129,19 @@ function deselect() {
   }
   document.querySelector("#title").classList.remove("hide");
   document.querySelector("#footer").classList.remove("hide");
+  document.querySelector("#color-mode").classList.remove("hide");
   center_container_element.parentNode.style.overflow = "visible";
   center_container_element.style.transform = "translate(0%, 0%)";
 }
 
-document.addEventListener("click", function(element) {
+window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
+  isInLightMode = match.matches;
+  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+  document.body.classList.remove("forcedDarkMode");
+  document.body.classList.remove("forcedLightMode");
+});
+
+document.addEventListener("click", element => {
   let clickedElement = element.target;
 
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
@@ -131,6 +151,7 @@ document.addEventListener("click", function(element) {
     if (!window.matchMedia("(max-width: 600px)").matches) {
       document.querySelector("#title").classList.add("hide");
       document.querySelector("#footer").classList.add("hide");
+      document.querySelector("#color-mode").classList.add("hide");
       center_container_element.parentNode.style.overflow = "hidden";
       if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
         center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;

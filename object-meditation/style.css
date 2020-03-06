@@ -45,6 +45,42 @@ body {
   transition: 0.5s;
 }
 
+body.forcedDarkMode {
+  --ac-color: rgb(50,140,230);
+  --df-color: rgb(240,150,40);
+  --g-color: rgb(90,180,140);
+  --r-color: rgb(240,200,80);
+  --two-color: rgb(220,70,70);
+  --seven-color: rgb(190,80,190);
+  --air-train-color: rgb(230,230,230);
+  --path-color: rgb(30,100,230);
+  --nj-transit-color: rgb(30,70,120);
+  --amtrak-color: rgb(10,60,100);
+  --firstBgColor: #111;
+  --secondBgColor: #222;
+  --firstTxtColor: #ddd;
+  --secondTxtColor: #ccc;
+  --thirdTxtColor: #aaa;
+}
+
+body.forcedLightMode {
+  --ac-color: rgb(40,150,250);
+  --df-color: rgb(250,150,40);
+  --g-color: rgb(90,200,150);
+  --r-color: rgb(255,220,80);
+  --two-color: rgb(255,60,60);
+  --seven-color: rgb(200,100,200);
+  --air-train-color: rgb(255,255,255);
+  --path-color: rgb(20,100,250);
+  --nj-transit-color: rgb(50,100,150);
+  --amtrak-color: rgb(0,80,120);
+  --firstBgColor: #ddd;
+  --secondBgColor: #ccc;
+  --firstTxtColor: #222;
+  --secondTxtColor: #555;
+  --thirdTxtColor: #777;
+}
+
 .three-rows {
   display: grid;
   grid-template-rows: 35% 30% 35%;
@@ -65,6 +101,24 @@ body {
 .bottom-div {
   grid-column: 1/span 1;
   grid-row: 3/span 1;
+}
+
+#color-mode {
+  position: absolute;
+  height: 55px;
+  width: 55px;
+  right: 0px;
+  top: 0px;
+}
+
+#color-mode * {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  height: 55px;
+  width: 55px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 #icon-grid {
@@ -282,6 +336,30 @@ div.icon.big-margin {
   margin: 45px 12px;
 }
 
+body.forcedLightMode div.icon {
+  filter: brightness(1);
+}
+
+body.forcedLightMode div.icon:hover {
+  filter: brightness(0.925);
+}
+
+body.forcedLightMode img.icon {
+  filter: grayscale(0%);
+}
+
+body.forcedDarkMode div.icon {
+  filter: brightness(0.9);
+}
+
+body.forcedDarkMode div.icon:hover {
+  filter: brightness(1.1);
+}
+
+body.forcedDarkMode img.icon {
+  filter: grayscale(11%);
+}
+
 @media only screen and (max-width: 1100px) {
   #center-container {
     width: 60%;
@@ -304,6 +382,16 @@ div.icon.big-margin {
 @media only screen and (max-width: 600px) {
   #title h1 {
     font-size: 2.5em;
+  }
+
+  #color-mode img {
+    top: 24px;
+    right: 24px;
+  }
+
+  #color-mode, #color-mode img {
+    height: 40px;
+    width: 40px;
   }
 
   #center-container:hover #alt_text {
@@ -329,6 +417,16 @@ div.icon.big-margin {
     font-size: 2em;
   }
 
+  #color-mode img {
+    top: 20px;
+    right: 20px;
+  }
+
+  #color-mode, #color-mode img {
+    height: 35px;
+    width: 35px;
+  }
+
   #center-container {
     width: 90%;
     left: 5%;
@@ -342,6 +440,16 @@ div.icon.big-margin {
 @media only screen and (max-width: 350px) {
   #title h1 {
     font-size: 1.6em;
+  }
+
+  #color-mode img {
+    top: 20px;
+    right: 20px;
+  }
+
+  #color-mode, #color-mode img {
+    height: 30px;
+    width: 30px;
   }
 
   #icon-grid {
