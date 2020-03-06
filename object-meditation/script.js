@@ -107,6 +107,8 @@ function selectAmtrak() {
 function showIcons() {
   if (window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
     document.querySelector("#center-container").classList.add("tapped");
+  } else if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
+    document.querySelector("#center-container").classList.remove("tapped");
   }
 }
 

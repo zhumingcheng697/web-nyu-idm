@@ -443,7 +443,7 @@ body.forcedLightMode div.icon {
 }
 
 @media (prefers-color-scheme: light) {
-  body, body.forcedLightMode {
+  body {
     --ac-color: rgb(40,150,250);
     --df-color: rgb(250,150,40);
     --g-color: rgb(90,200,150);
@@ -461,47 +461,17 @@ body.forcedLightMode div.icon {
     --thirdTxtColor: #777;
   }
 
-  body.forcedDarkMode {
-    --ac-color: rgb(50,140,230);
-    --df-color: rgb(240,150,40);
-    --g-color: rgb(90,180,140);
-    --r-color: rgb(240,200,80);
-    --two-color: rgb(220,70,70);
-    --seven-color: rgb(190,80,190);
-    --air-train-color: rgb(230,230,230);
-    --path-color: rgb(30,100,230);
-    --nj-transit-color: rgb(30,70,120);
-    --amtrak-color: rgb(10,60,100);
-    --firstBgColor: #111;
-    --secondBgColor: #222;
-    --firstTxtColor: #ddd;
-    --secondTxtColor: #ccc;
-    --thirdTxtColor: #aaa;
-  }
-
-  div.icon, body.forcedLightMode div.icon {
+  div.icon {
     filter: brightness(1);
   }
 
-  body.forcedDarkMode div.icon {
-    filter: brightness(0.9);
-  }
-
-  img.icon, body.forcedLightMode img.icon  {
+  img.icon  {
     filter: grayscale(0%);
   }
 
-  body.forcedDarkMode img.icon {
-    filter: grayscale(11%);
-  }
-
   @media (hover: hover) {
-    div.icon:hover, body.forcedLightMode div.icon:hover {
+    div.icon:hover {
       filter: brightness(0.925);
-    }
-
-    body.forcedDarkMode div.icon:hover {
-      filter: brightness(1.1);
     }
   }
 }
