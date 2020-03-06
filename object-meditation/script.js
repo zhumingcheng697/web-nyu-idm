@@ -7,8 +7,7 @@ document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightM
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
-  document.body.classList.remove("forcedDarkMode");
-  document.body.classList.remove("forcedLightMode");
+  document.body.classList.remove(isInLightMode ? "forcedDarkMode" : "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
 }

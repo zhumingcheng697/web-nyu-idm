@@ -22,7 +22,7 @@ html {
   100% {transform: rotateY(360deg);}
 }
 
-body {
+body, body.forcedDarkMode {
   --ac-color: rgb(50,140,230);
   --df-color: rgb(240,150,40);
   --g-color: rgb(90,180,140);
@@ -43,24 +43,6 @@ body {
   text-align: center;
   font-family: helvetica, sans-serif;
   transition: 0.5s;
-}
-
-body.forcedDarkMode {
-  --ac-color: rgb(50,140,230);
-  --df-color: rgb(240,150,40);
-  --g-color: rgb(90,180,140);
-  --r-color: rgb(240,200,80);
-  --two-color: rgb(220,70,70);
-  --seven-color: rgb(190,80,190);
-  --air-train-color: rgb(230,230,230);
-  --path-color: rgb(30,100,230);
-  --nj-transit-color: rgb(30,70,120);
-  --amtrak-color: rgb(10,60,100);
-  --firstBgColor: #111;
-  --secondBgColor: #222;
-  --firstTxtColor: #ddd;
-  --secondTxtColor: #ccc;
-  --thirdTxtColor: #aaa;
 }
 
 body.forcedLightMode {
@@ -162,7 +144,6 @@ body.forcedLightMode {
   pointer-events: none;
 }
 
-
 #note-container {
   position: absolute;
   transition: 0.3s;
@@ -182,23 +163,6 @@ body.forcedLightMode {
   transition: 0.3s;
   margin: 1em 4%;
 }
-
-/* #note-container {
-  position: absolute;
-  color: var(--firstTxtColor);
-  transition: 0.3s;
-  left: 5%;
-  width: 80%;
-  text-align: left;
-  height: 78%;
-  bottom: 16%;
-  overflow: scroll;
-  background-color: var(--secondBgColor);
-  padding-left: 5%;
-  padding-right: 5%;
-  border-radius: 10px;
-  z-index: 5;
-} */
 
 #title {
   position: absolute;
@@ -328,34 +292,26 @@ p.amtrak {
   -webkit-user-select: none;
 }
 
-img.icon {
+img.icon, body.forcedDarkMode img.icon {
   filter: grayscale(11%);
-}
-
-div.icon {
-  margin: 25px 12px;
-  filter: brightness(0.9);
-}
-
-div.icon.big-margin {
-  margin: 45px 12px;
-}
-
-body.forcedLightMode div.icon {
-  filter: brightness(1);
 }
 
 body.forcedLightMode img.icon {
   filter: grayscale(0%);
 }
 
-body.forcedDarkMode div.icon {
+div.icon, body.forcedDarkMode div.icon {
+  margin: 25px 12px;
   filter: brightness(0.9);
 }
 
-body.forcedDarkMode img.icon {
-  filter: grayscale(11%);
+body.forcedLightMode div.icon {
+  filter: brightness(1);
 }
+
+/* div.icon.big-margin {
+  margin: 45px 12px;
+} */
 
 @media (hover: none) {
   #center-container:not(.tapped) div.icon {
@@ -374,17 +330,13 @@ body.forcedDarkMode img.icon {
     transform: scale(0);
   }
 
-  div.icon:hover {
+  div.icon:hover, body.forcedDarkMode div.icon:hover {
     filter: brightness(1.1);
     transform: scale(1.1);
   }
 
   body.forcedLightMode div.icon:hover {
     filter: brightness(0.925);
-  }
-
-  body.forcedDarkMode div.icon:hover {
-    filter: brightness(1.1);
   }
 }
 
@@ -492,7 +444,7 @@ body.forcedDarkMode img.icon {
 }
 
 @media (prefers-color-scheme: light) {
-  body {
+  body, body.forcedLightMode {
     --ac-color: rgb(40,150,250);
     --df-color: rgb(250,150,40);
     --g-color: rgb(90,200,150);
@@ -510,27 +462,47 @@ body.forcedDarkMode img.icon {
     --thirdTxtColor: #777;
   }
 
-  div.icon {
+  body.forcedDarkMode {
+    --ac-color: rgb(50,140,230);
+    --df-color: rgb(240,150,40);
+    --g-color: rgb(90,180,140);
+    --r-color: rgb(240,200,80);
+    --two-color: rgb(220,70,70);
+    --seven-color: rgb(190,80,190);
+    --air-train-color: rgb(230,230,230);
+    --path-color: rgb(30,100,230);
+    --nj-transit-color: rgb(30,70,120);
+    --amtrak-color: rgb(10,60,100);
+    --firstBgColor: #111;
+    --secondBgColor: #222;
+    --firstTxtColor: #ddd;
+    --secondTxtColor: #ccc;
+    --thirdTxtColor: #aaa;
+  }
+
+  div.icon, body.forcedLightMode div.icon {
     filter: brightness(1);
   }
 
-  @media (hover: none) {
-    div.icon.tapped {
-      filter: brightness(0.925);
-    }
+  body.forcedDarkMode div.icon {
+    filter: brightness(0.9);
   }
 
-  @media (hover: hover) {
-    div.icon:hover {
-      filter: brightness(0.925);
-    }
-  }
-
-  img.icon {
+  img.icon, body.forcedLightMode img.icon  {
     filter: grayscale(0%);
   }
 
-  /* #center-container {
-    border: 2px dashed #999;
-  } */
+  body.forcedDarkMode img.icon {
+    filter: grayscale(11%);
+  }
+
+  @media (hover: hover) {
+    div.icon:hover, body.forcedLightMode div.icon:hover {
+      filter: brightness(0.925);
+    }
+
+    body.forcedDarkMode div.icon:hover {
+      filter: brightness(1.1);
+    }
+  }
 }
