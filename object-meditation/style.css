@@ -146,7 +146,6 @@ body.forcedLightMode {
 
 #note-container {
   position: absolute;
-  transition: 0.3s;
   left: 5%;
   width: 90%;
   text-align: left;
