@@ -113,14 +113,12 @@ function showIcons() {
 }
 
 function seeNoteMd() {
-  if (document.querySelector("#title").classList.contains("hide")) {
-    document.querySelector("#title").classList.remove("hide");
+  if (!document.querySelector("#note-container").classList.contains("hide")) {
     document.querySelector("#center-container").classList.remove("hide");
     document.querySelector("#footer p").innerHTML = "see my notes.md";
     document.querySelector("#note-container").classList.add("hide");
     document.querySelector("#color-mode").classList.remove("hide");
   } else {
-    document.querySelector("#title").classList.add("hide");
     document.querySelector("#note-container").scrollTop = 0;
     document.querySelector("#center-container").classList.add("hide");
     document.querySelector("#footer p").innerHTML = "back to home";

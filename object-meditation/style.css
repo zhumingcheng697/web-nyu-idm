@@ -117,14 +117,16 @@ body.forcedLightMode {
 #center-container {
   position: absolute;
   width: 50%;
+  margin-bottom: 4.5em;
   /* border: 2px dashed #444; */
-  border-radius: 15px;
-  height: 55%;
+  /* border-radius: 15px; */
   left: 25%;
-  top: 25%;
+  top: 20%;
+  bottom: 12%;
   /* transition: 0.3s; */
+  grid-column: 1/span 1;
+  grid-row: 2/span 1;
   transition: 1s;
-  margin: 0;
 }
 
 /* #center-container:hover {
@@ -145,14 +147,16 @@ body.forcedLightMode {
 }
 
 #note-container {
+  transition: opacity 0.3s;
+  margin-bottom: 5em;
   position: absolute;
   left: 5%;
   width: 90%;
+  top: 2em;
   text-align: left;
-  height: 78%;
-  bottom: 16%;
+  bottom: 10%;
   background-color: var(--secondBgColor);
-  overflow: scroll;
+  overflow: auto;
   border-radius: 10px;
   z-index: 5;
 }
@@ -160,19 +164,20 @@ body.forcedLightMode {
 #notes {
   color: var(--firstTxtColor);
   transition: 0.3s;
-  margin: 1em 4%;
+  margin: 2em;
 }
 
 #title {
   position: absolute;
   transition: 0.3s;
-  width: 90%;
-  left: 5%;
-  top: 11%;
+  width: 100%;
+  left: 0%;
+  bottom: 6%;
+  margin-bottom: 1.6em;
 }
 
 #title h1 {
-  margin: auto;
+  margin: 0;
   font-size: 3em;
   color: var(--firstTxtColor);
 }
@@ -197,15 +202,16 @@ body.forcedLightMode {
 #footer {
   position: absolute;
   transition: 0.3s;
-  width: 90%;
-  left: 5%;
-  bottom: 7%;
+  width: 100%;
+  left: 0%;
+  bottom: 3%;
+  margin-bottom: 1em;
   color: var(--thirdTxtColor);
 }
 
 #footer p {
   display: inline;
-  margin: auto;
+  font-size: 1.5em;
   cursor: pointer;
 }
 
@@ -299,8 +305,11 @@ body.forcedLightMode img.icon {
   filter: grayscale(0%);
 }
 
-div.icon, body.forcedDarkMode div.icon {
+div.icon {
   margin: 25px 12px;
+}
+
+div.icon, body.forcedDarkMode div.icon {
   filter: brightness(0.9);
 }
 
@@ -321,6 +330,15 @@ body.forcedLightMode div.icon {
   }
 }
 
+@media (hover: none) {
+  #center-container:not(.tapped) div.icon {
+    pointer-events: none;
+    opacity: 0;
+    margin: -25px 10px;
+    transform: scale(0);
+  }
+}
+
 @media (hover: hover) {
   #center-container:not(:hover) div.icon {
     pointer-events: none;
@@ -329,9 +347,12 @@ body.forcedLightMode div.icon {
     transform: scale(0);
   }
 
+  div.icon:hover {
+    transform: scale(1.1);
+  }
+
   div.icon:hover, body.forcedDarkMode div.icon:hover {
     filter: brightness(1.1);
-    transform: scale(1.1);
   }
 
   body.forcedLightMode div.icon:hover {
