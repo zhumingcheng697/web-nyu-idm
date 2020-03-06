@@ -99,12 +99,13 @@ function seeNoteMd() {
   if (document.querySelector("#title").classList.contains("hide")) {
     document.querySelector("#title").classList.remove("hide");
     document.querySelector("#center-container").classList.remove("hide");
-    document.querySelector("#footer p").innerHTML = "See my notes.md";
+    document.querySelector("#footer p").innerHTML = "see my notes.md";
     document.querySelector("#notes").classList.add("hide");
   } else {
     document.querySelector("#title").classList.add("hide");
+    document.querySelector("#notes").scrollTop = 0;
     document.querySelector("#center-container").classList.add("hide");
-    document.querySelector("#footer p").innerHTML = "Get me back to home";
+    document.querySelector("#footer p").innerHTML = "back to home";
     document.querySelector("#notes").classList.remove("hide");
   }
 }
@@ -125,13 +126,12 @@ document.addEventListener("click", function(element) {
 
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
 
-    document.querySelector("#title").classList.add("hide");
-    document.querySelector("#footer").classList.add("hide");
-    center_container_element.parentNode.style.overflow = "hidden";
-
     let n = 3;
 
     if (!window.matchMedia("(max-width: 600px)").matches) {
+      document.querySelector("#title").classList.add("hide");
+      document.querySelector("#footer").classList.add("hide");
+      center_container_element.parentNode.style.overflow = "hidden";
       if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
         center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;
       } else {
