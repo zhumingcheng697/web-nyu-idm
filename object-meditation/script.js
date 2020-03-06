@@ -95,6 +95,20 @@ function selectAmtrak() {
   alt_text_element.innerHTML = "You have selected Amtrak.";
 }
 
+function seeNoteMd() {
+  if (document.querySelector("#title").classList.contains("hide")) {
+    document.querySelector("#title").classList.remove("hide");
+    document.querySelector("#center-container").classList.remove("hide");
+    document.querySelector("#footer p").innerHTML = "See my notes.md";
+    document.querySelector("#notes").classList.add("hide");
+  } else {
+    document.querySelector("#title").classList.add("hide");
+    document.querySelector("#center-container").classList.add("hide");
+    document.querySelector("#footer p").innerHTML = "Get me back to home";
+    document.querySelector("#notes").classList.remove("hide");
+  }
+}
+
 function deselect() {
   alt_text.className = "default-alt_text";
   if (alt_text_element.innerHTML !== "This is where the image goes.") {
@@ -141,29 +155,30 @@ document.addEventListener("click", function(element) {
         (clickedElement.tagName === "IMG" ? clickedElement.parentNode.style.order = currentSmallestOrder : clickedElement.style.order = currentSmallestOrder);
         alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
         alt_text.className = "default-alt_text";
-        document.querySelector("#footer p").innerHTML = "<b>Congratulations!<br>You have found the easter egg!</b>"
         for (icon of document.querySelectorAll("div.icon")) {
           icon.classList.add("big-margin");
         }
       }
     } else {
       parsedSelectedElement = clickedElement.id + "*";
-      document.querySelector("#footer p").innerHTML = "Hi. Welcome.";
       for (icon of document.querySelectorAll("div.icon")) {
         icon.classList.remove("big-margin");
       }
     }
   }
 
-  while (clickedElement) {
-    if (document.querySelector("#center-container") === clickedElement) {
-      return;
-    } else {
-      clickedElement = clickedElement.parentNode;
+  if (document.querySelector("#notes").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
+    while (clickedElement) {
+      if (document.querySelector("#center-container") === clickedElement) {
+        return;
+      } else {
+        clickedElement = clickedElement.parentNode;
+      }
     }
+
+    deselect();
   }
-  deselect();
-  document.querySelector("#footer p").innerHTML = "Hi. Welcome.";
+
   for (icon of document.querySelectorAll("div.icon")) {
     icon.classList.remove("big-margin");
   }

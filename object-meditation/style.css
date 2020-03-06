@@ -112,6 +112,22 @@ body {
   pointer-events: none;
 }
 
+#notes {
+  transition: 0.3s;
+  position: absolute;
+  left: 5%;
+  width: 80%;
+  text-align: left;
+  height: 78%;
+  bottom: 16%;
+  overflow: scroll;
+  background-color: #ccc;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 10px;
+  z-index: 5;
+}
+
 #title {
   position: absolute;
   width: 90%;
@@ -152,7 +168,9 @@ body {
 }
 
 #footer p {
+  display: inline;
   margin: auto;
+  cursor: pointer;
 }
 
 #a, #c {
