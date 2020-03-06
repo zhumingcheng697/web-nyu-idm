@@ -157,17 +157,6 @@ body.forcedLightMode {
   animation-iteration-count: infinite;
 } */
 
-#center-container:hover #alt_text {
-  font-size: 1.8em;
-}
-
-#center-container:not(:hover) div.icon {
-  pointer-events: none;
-  opacity: 0;
-  margin: -25px 10px;
-  transform: scale(0);
-}
-
 .hide {
   opacity: 0;
   pointer-events: none;
@@ -327,21 +316,12 @@ div.icon {
   filter: brightness(0.9);
 }
 
-div.icon:hover {
-  filter: brightness(1.1);
-  transform: scale(1.1);
-}
-
 div.icon.big-margin {
   margin: 45px 12px;
 }
 
 body.forcedLightMode div.icon {
   filter: brightness(1);
-}
-
-body.forcedLightMode div.icon:hover {
-  filter: brightness(0.925);
 }
 
 body.forcedLightMode img.icon {
@@ -352,12 +332,39 @@ body.forcedDarkMode div.icon {
   filter: brightness(0.9);
 }
 
-body.forcedDarkMode div.icon:hover {
-  filter: brightness(1.1);
-}
-
 body.forcedDarkMode img.icon {
   filter: grayscale(11%);
+}
+
+@media (hover: none) {
+  #center-container:not(.tapped) div.icon {
+    pointer-events: none;
+    opacity: 0;
+    margin: -25px 10px;
+    transform: scale(0);
+  }
+}
+
+@media (hover: hover) {
+  #center-container:not(:hover) div.icon {
+    pointer-events: none;
+    opacity: 0;
+    margin: -25px 10px;
+    transform: scale(0);
+  }
+
+  div.icon:hover {
+    filter: brightness(1.1);
+    transform: scale(1.1);
+  }
+
+  body.forcedLightMode div.icon:hover {
+    filter: brightness(0.925);
+  }
+
+  body.forcedDarkMode div.icon:hover {
+    filter: brightness(1.1);
+  }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -365,11 +372,6 @@ body.forcedDarkMode img.icon {
     width: 60%;
     left: 20%;
   }
-
-  #center-container:hover #alt_text {
-    font-size: 1.6em;
-  }
-
 }
 
 @media only screen and (max-width: 850px) {
@@ -394,13 +396,24 @@ body.forcedDarkMode img.icon {
     width: 40px;
   }
 
-  #center-container:hover #alt_text {
-    font-size: 1.4em;
-    filter: blur(2.5px);
+  @media (hover: none) {
+    #center-container.tapped #alt_text {
+     filter: blur(2.5px);
+   }
+
+    #center-container:not(.tapped) div.icon {
+      margin: -25px 8px;
+    }
   }
 
-  #center-container:not(:hover) div.icon {
-    margin: -25px 8px;
+  @media (hover: hover) {
+    #center-container:hover #alt_text {
+     filter: blur(2.5px);
+   }
+
+    #center-container:not(:hover) div.icon {
+      margin: -25px 8px;
+    }
   }
 
   #icon-grid {
@@ -480,8 +493,16 @@ body.forcedDarkMode img.icon {
     filter: brightness(1);
   }
 
-  div.icon:hover {
-    filter: brightness(0.925);
+  @media (hover: none) {
+    div.icon.tapped {
+      filter: brightness(0.925);
+    }
+  }
+
+  @media (hover: hover) {
+    div.icon:hover {
+      filter: brightness(0.925);
+    }
   }
 
   img.icon {

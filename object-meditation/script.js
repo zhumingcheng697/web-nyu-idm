@@ -1,7 +1,7 @@
 let alt_text_element = document.querySelector("#alt_text");
 let center_container_element = document.querySelector("#center-container");
-let parsedSelectedElement = "";
-let currentSmallestOrder = -1;
+// let parsedSelectedElement = "";
+// let currentSmallestOrder = -1;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
 
@@ -105,6 +105,12 @@ function selectAmtrak() {
   alt_text_element.innerHTML = "You have selected Amtrak.";
 }
 
+function showIcons() {
+  if (window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
+    document.querySelector("#center-container").classList.add("tapped");
+  }
+}
+
 function seeNoteMd() {
   if (document.querySelector("#title").classList.contains("hide")) {
     document.querySelector("#title").classList.remove("hide");
@@ -132,6 +138,10 @@ function deselect() {
   document.querySelector("#color-mode").classList.remove("hide");
   center_container_element.parentNode.style.overflow = "visible";
   center_container_element.style.transform = "translate(0%, 0%)";
+
+  if (window.matchMedia("(hover: none)").matches) {
+    document.querySelector("#center-container").classList.remove("tapped");
+  }
 }
 
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
@@ -141,10 +151,13 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   document.body.classList.remove("forcedLightMode");
 });
 
-document.addEventListener("click", element => {
-  let clickedElement = element.target;
+document.addEventListener("click", click => {
+  let clickedElement = click.target;
 
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
+    if (window.matchMedia("(hover: none)").matches) {
+      document.querySelector("#center-container").classList.remove("tapped");
+    }
 
     let n = 3;
 
@@ -160,32 +173,32 @@ document.addEventListener("click", element => {
       }
     }
 
-    if (parsedSelectedElement.startsWith(clickedElement.id)) {
-      parsedSelectedElement = parsedSelectedElement + "*";
-      if (parsedSelectedElement.startsWith(clickedElement.id + "**********")) {
-        for (icon of document.querySelectorAll(".icon")) {
-          icon.style.opacity = "0.8";
-          icon.style.transform = "scale(1)";
-          icon.style.filter = "grayscale(1)";
-          icon.style.pointerEvents = "none";
-        }
-      }
-
-      if (parsedSelectedElement.startsWith(clickedElement.id + "*****")) {
-        currentSmallestOrder--;
-        (clickedElement.tagName === "IMG" ? clickedElement.parentNode.style.order = currentSmallestOrder : clickedElement.style.order = currentSmallestOrder);
-        alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
-        alt_text.className = "default-alt_text";
-        for (icon of document.querySelectorAll("div.icon")) {
-          icon.classList.add("big-margin");
-        }
-      }
-    } else {
-      parsedSelectedElement = clickedElement.id + "*";
-      for (icon of document.querySelectorAll("div.icon")) {
-        icon.classList.remove("big-margin");
-      }
-    }
+    // if (parsedSelectedElement.startsWith(clickedElement.id)) {
+    //   parsedSelectedElement = parsedSelectedElement + "*";
+    //   if (parsedSelectedElement.startsWith(clickedElement.id + "**********")) {
+    //     for (icon of document.querySelectorAll(".icon")) {
+    //       icon.style.opacity = "0.8";
+    //       icon.style.transform = "scale(1)";
+    //       icon.style.filter = "grayscale(1)";
+    //       icon.style.pointerEvents = "none";
+    //     }
+    //   }
+    //
+    //   if (parsedSelectedElement.startsWith(clickedElement.id + "*****")) {
+    //     currentSmallestOrder--;
+    //     (clickedElement.tagName === "IMG" ? clickedElement.parentNode.style.order = currentSmallestOrder : clickedElement.style.order = currentSmallestOrder);
+    //     alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
+    //     alt_text.className = "default-alt_text";
+    //     for (icon of document.querySelectorAll("div.icon")) {
+    //       icon.classList.add("big-margin");
+    //     }
+    //   }
+    // } else {
+    //   parsedSelectedElement = clickedElement.id + "*";
+    //   for (icon of document.querySelectorAll("div.icon")) {
+    //     icon.classList.remove("big-margin");
+    //   }
+    // }
   }
 
   if (document.querySelector("#notes").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
@@ -200,8 +213,8 @@ document.addEventListener("click", element => {
     deselect();
   }
 
-  for (icon of document.querySelectorAll("div.icon")) {
-    icon.classList.remove("big-margin");
-  }
-  parsedSelectedElement = "";
+  // for (icon of document.querySelectorAll("div.icon")) {
+  //   icon.classList.remove("big-margin");
+  // }
+  // parsedSelectedElement = "";
 });
