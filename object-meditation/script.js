@@ -160,17 +160,17 @@ document.addEventListener("click", click => {
 
     let n = 3;
 
-    if (!window.matchMedia("(max-width: 600px)").matches) {
-      document.querySelector("#title").classList.add("hide");
-      document.querySelector("#footer").classList.add("hide");
-      document.querySelector("#color-mode").classList.add("hide");
-      center_container_element.parentNode.style.overflow = "hidden";
-      if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
-        center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;
-      } else {
-        center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${- positionOfE(center_container_element).centerY + 50 - positionOfE(center_container_element).height / 2}px)`;
-      }
-    }
+    // if (!window.matchMedia("(max-width: 600px)").matches) {
+    //   document.querySelector("#title").classList.add("hide");
+    //   document.querySelector("#footer").classList.add("hide");
+    //   document.querySelector("#color-mode").classList.add("hide");
+    //   center_container_element.parentNode.style.overflow = "hidden";
+    //   if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
+    //     center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;
+    //   } else {
+    //     center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${- positionOfE(center_container_element).centerY + 50 - positionOfE(center_container_element).height / 2}px)`;
+    //   }
+    // }
 
     // if (parsedSelectedElement.startsWith(clickedElement.id)) {
     //   parsedSelectedElement = parsedSelectedElement + "*";
