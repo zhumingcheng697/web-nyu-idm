@@ -116,14 +116,14 @@ function seeNoteMd() {
     document.querySelector("#title").classList.remove("hide");
     document.querySelector("#center-container").classList.remove("hide");
     document.querySelector("#footer p").innerHTML = "see my notes.md";
-    document.querySelector("#notes").classList.add("hide");
+    document.querySelector("#note-container").classList.add("hide");
     document.querySelector("#color-mode").classList.remove("hide");
   } else {
     document.querySelector("#title").classList.add("hide");
-    document.querySelector("#notes").scrollTop = 0;
+    document.querySelector("#note-container").scrollTop = 0;
     document.querySelector("#center-container").classList.add("hide");
     document.querySelector("#footer p").innerHTML = "back to home";
-    document.querySelector("#notes").classList.remove("hide");
+    document.querySelector("#note-container").classList.remove("hide");
     document.querySelector("#color-mode").classList.add("hide");
   }
 }
@@ -201,7 +201,7 @@ document.addEventListener("click", click => {
     // }
   }
 
-  if (document.querySelector("#notes").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
+  if (document.querySelector("#note-container").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
     while (clickedElement) {
       if (document.querySelector("#center-container") === clickedElement) {
         return;

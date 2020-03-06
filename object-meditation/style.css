@@ -162,7 +162,28 @@ body.forcedLightMode {
   pointer-events: none;
 }
 
+
+#note-container {
+  position: absolute;
+  transition: 0.3s;
+  left: 5%;
+  width: 90%;
+  text-align: left;
+  height: 78%;
+  bottom: 16%;
+  background-color: var(--secondBgColor);
+  overflow: scroll;
+  border-radius: 10px;
+  z-index: 5;
+}
+
 #notes {
+  color: var(--firstTxtColor);
+  transition: 0.3s;
+  margin: 1em 4%;
+}
+
+/* #note-container {
   position: absolute;
   color: var(--firstTxtColor);
   transition: 0.3s;
@@ -177,7 +198,7 @@ body.forcedLightMode {
   padding-right: 5%;
   border-radius: 10px;
   z-index: 5;
-}
+} */
 
 #title {
   position: absolute;
