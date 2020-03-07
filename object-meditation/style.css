@@ -177,6 +177,7 @@ body.forcedLightMode {
   align-items: center;
   width: 450px;
   margin: auto;
+  transition: 0.3s;
 }
 
 #metro-card-container {
