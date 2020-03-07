@@ -140,6 +140,41 @@ function deselect() {
   }
 }
 
+document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
+  element.addEventListener("touchstart", () => {
+    element.classList.add("tapped");
+  });
+});
+
+document.addEventListener("touchend", touchend => {
+  document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
+    element.classList.remove("tapped");
+  });
+});
+
+document.querySelector("#metro-card-container").addEventListener("dragstart", element => {
+  element.preventDefault();
+  if (!document.querySelector("#dragImg")) {
+    var dragImg = document.querySelector("#metro-card-container").cloneNode(true);
+    dragImg.style.display = "none";
+    document.body.appendChild(dragImg);
+    dragImg.id = "dragImg"
+    element.dataTransfer.setDragImage(dragImg, 0, 0);
+  } else {
+    element.dataTransfer.setDragImage(document.querySelector("#dragImg"), 0, 0);
+  }
+
+  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    document.querySelector((Math.random() <= 0.45 ? "#one_beep" : "#two_beep")).play();
+  }
+});
+
+document.querySelector("#metro-card-container").addEventListener("touchmove", element => {
+  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    document.querySelector((Math.random() <= 0.45 ? "#one_beep" : "#two_beep")).play();
+  }
+});
+
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   isInLightMode = match.matches;
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
