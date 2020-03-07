@@ -1,4 +1,4 @@
-let alt_text_element = document.querySelector("#alt_text");
+// let alt_text_element = document.querySelector("#alt_text");
 let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
@@ -44,53 +44,53 @@ function windowSize() {
   return {width: window.innerWidth, height: window.innerHeight};
 }
 
-function selectA() {
-  alt_text.className = "a";
-}
-
-function selectC() {
-  alt_text.className = "c";
-}
-
-function selectD() {
-  alt_text.className = "d";
-}
-
-function selectF() {
-  alt_text.className = "f";
-}
-
-function selectG() {
-  alt_text.className = "g";
-}
-
-function selectR() {
-  alt_text.className = "r";
-}
-
-function select2() {
-  alt_text.className = "two"
-}
-
-function select7() {
-  alt_text.className = "seven";
-}
-
-function selectAirTrain() {
-  alt_text.className = "air-train";
-}
-
-function selectPath() {
-  alt_text.className = "path";
-}
-
-function selectNJTransit() {
-  alt_text.className = "nj-transit";
-}
-
-function selectAmtrak() {
-  alt_text.className = "amtrak";
-}
+// function selectA() {
+//   alt_text.className = "a";
+// }
+//
+// function selectC() {
+//   alt_text.className = "c";
+// }
+//
+// function selectD() {
+//   alt_text.className = "d";
+// }
+//
+// function selectF() {
+//   alt_text.className = "f";
+// }
+//
+// function selectG() {
+//   alt_text.className = "g";
+// }
+//
+// function selectR() {
+//   alt_text.className = "r";
+// }
+//
+// function select2() {
+//   alt_text.className = "two"
+// }
+//
+// function select7() {
+//   alt_text.className = "seven";
+// }
+//
+// function selectAirTrain() {
+//   alt_text.className = "air-train";
+// }
+//
+// function selectPath() {
+//   alt_text.className = "path";
+// }
+//
+// function selectNJTransit() {
+//   alt_text.className = "nj-transit";
+// }
+//
+// function selectAmtrak() {
+//   alt_text.className = "amtrak";
+// }
 
 function showIcons() {
   if (window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
@@ -116,10 +116,10 @@ function seeNoteMd() {
 }
 
 function deselect() {
-  alt_text.className = "default-alt_text";
-  if (alt_text_element.innerHTML !== "This is where the image goes.") {
-    alt_text_element.innerHTML = "You have not selected anything.";
-  }
+  // alt_text.className = "default-alt_text";
+  // if (alt_text_element.innerHTML !== "This is where the image goes.") {
+  //   alt_text_element.innerHTML = "You have not selected anything.";
+  // }
   document.querySelector("#title").classList.remove("hide");
   document.querySelector("#footer").classList.remove("hide");
   document.querySelector("#color-mode").classList.remove("hide");
@@ -141,6 +141,17 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
 document.addEventListener("click", click => {
   let clickedElement = click.target;
 
+  if (document.querySelector("#metro-card-container").classList.contains("hide")) {
+    document.querySelector("#title").classList.remove("hide");
+    document.querySelector("#footer").classList.remove("hide");
+    document.querySelector("#icon-grid").classList.remove("hide");
+    document.querySelector("#metro-card-container").classList.remove("hide");
+    document.querySelectorAll("#memories > div").forEach(element => {
+      element.classList.add("hide")
+    });
+
+  }
+
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
     if (window.matchMedia("(hover: none)").matches) {
       document.querySelector("#center-container").classList.remove("tapped");
@@ -151,6 +162,7 @@ document.addEventListener("click", click => {
       document.querySelector("#footer").classList.add("hide");
       document.querySelector("#icon-grid").classList.add("hide");
       document.querySelector("#metro-card-container").classList.add("hide");
+      document.querySelector(`#memories div.${clickedElement.id}`).classList.remove("hide");
     }
 
 
