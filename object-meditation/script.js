@@ -45,63 +45,51 @@ function windowSize() {
 }
 
 function selectA() {
-  alt_text.className = "ac";
-  alt_text_element.innerHTML = "You have selected A train.";
+  alt_text.className = "a";
 }
 
 function selectC() {
-  alt_text.className = "ac";
-  alt_text_element.innerHTML = "You have selected C train.";
+  alt_text.className = "c";
 }
 
 function selectD() {
-  alt_text.className = "df";
-  alt_text_element.innerHTML = "You have selected D train.";
+  alt_text.className = "d";
 }
 
 function selectF() {
-  alt_text.className = "df";
-  alt_text_element.innerHTML = "You have selected F train.";
+  alt_text.className = "f";
 }
 
 function selectG() {
   alt_text.className = "g";
-  alt_text_element.innerHTML = "You have selected G train.";
 }
 
 function selectR() {
   alt_text.className = "r";
-  alt_text_element.innerHTML = "You have selected R train.";
 }
 
 function select2() {
   alt_text.className = "two"
-  alt_text_element.innerHTML = "You have selected 2 train.";
 }
 
 function select7() {
   alt_text.className = "seven";
-  alt_text_element.innerHTML = "You have selected 7 train.";
 }
 
 function selectAirTrain() {
   alt_text.className = "air-train";
-  alt_text_element.innerHTML = "You have selected AirTrain.";
 }
 
 function selectPath() {
   alt_text.className = "path";
-  alt_text_element.innerHTML = "You have selected PATH.";
 }
 
 function selectNJTransit() {
   alt_text.className = "nj-transit";
-  alt_text_element.innerHTML = "You have selected NJ Transit.";
 }
 
 function selectAmtrak() {
   alt_text.className = "amtrak";
-  alt_text_element.innerHTML = "You have selected Amtrak.";
 }
 
 function showIcons() {
@@ -115,7 +103,7 @@ function showIcons() {
 function seeNoteMd() {
   if (!document.querySelector("#note-container").classList.contains("hide")) {
     document.querySelector("#center-container").classList.remove("hide");
-    document.querySelector("#footer p").innerHTML = "see my notes.md";
+    document.querySelector("#footer p").innerHTML = "view my notes.md";
     document.querySelector("#note-container").classList.add("hide");
     document.querySelector("#color-mode").classList.remove("hide");
   } else {
@@ -158,8 +146,16 @@ document.addEventListener("click", click => {
       document.querySelector("#center-container").classList.remove("tapped");
     }
 
-    let n = 3;
+    if (!document.querySelector("#title").classList.contains("hide")) {
+      document.querySelector("#title").classList.add("hide");
+      document.querySelector("#footer").classList.add("hide");
+      document.querySelector("#icon-grid").classList.add("hide");
+      document.querySelector("#metro-card-container").classList.add("hide");
+    }
 
+
+
+    // let n = 3;
     // if (!window.matchMedia("(max-width: 600px)").matches) {
     //   document.querySelector("#title").classList.add("hide");
     //   document.querySelector("#footer").classList.add("hide");
