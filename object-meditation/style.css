@@ -27,15 +27,15 @@ body, body.forcedDarkMode {
   --r-color: rgb(240,200,80);
   --two-color: rgb(220,70,70);
   --seven-color: rgb(190,80,190);
-  --air-train-color: rgb(230,230,230);
+  --air-train-color: rgb(10,130,170);
   --path-color: rgb(30,100,230);
   --nj-transit-color: rgb(30,70,120);
   --amtrak-color: rgb(10,60,100);
-  --firstBgColor: #111;
-  --secondBgColor: #222;
-  --firstTxtColor: #ddd;
-  --secondTxtColor: #ccc;
-  --thirdTxtColor: #aaa;
+  --firstBgColor: #113;
+  --secondBgColor: #224;
+  --firstTxtColor: #dde;
+  --secondTxtColor: #cce;
+  --thirdTxtColor: #aad;
   overflow-wrap: break-word;
   background-color: var(--firstBgColor);
   color: red;
@@ -51,15 +51,15 @@ body.forcedLightMode {
   --r-color: rgb(255,220,80);
   --two-color: rgb(255,60,60);
   --seven-color: rgb(200,100,200);
-  --air-train-color: rgb(255,255,255);
+  --air-train-color: rgb(0,150,200);
   --path-color: rgb(20,100,250);
   --nj-transit-color: rgb(50,100,150);
   --amtrak-color: rgb(0,80,120);
-  --firstBgColor: #ddd;
-  --secondBgColor: #ccc;
-  --firstTxtColor: #222;
-  --secondTxtColor: #555;
-  --thirdTxtColor: #777;
+  --firstBgColor: #ffe;
+  --secondBgColor: #eec;
+  --firstTxtColor: #332;
+  --secondTxtColor: #553;
+  --thirdTxtColor: #774;
 }
 
 /* .three-rows {
@@ -116,7 +116,7 @@ body.forcedLightMode {
   position: absolute;
   margin-top: 110px;
   margin-right: 50px;
-  right: 60%;
+  right: 65%;
   top: 5%;
   color: white;
   width: 85px;
@@ -127,6 +127,7 @@ body.forcedLightMode {
   font-size: 2.8em;
   object-fit: cover;
   z-index: 9;
+  transition: 0.3s;
 }
 
 #memories .big-logo img {
@@ -146,7 +147,7 @@ body.forcedLightMode {
   margin-right: 30px;
   text-align: center;
   width: 125px;
-  right: 60%;
+  right: 65%;
   top: 5%;
   font-size: 1.4em;
   font-weight: bold;
@@ -158,12 +159,12 @@ body.forcedLightMode {
   position: absolute;
   margin-top: 4em;
   top: 5%;
-  left: 40%;
+  left: 35%;
   right: 20%;
   bottom: 2.5em;
   overflow: scroll;
   text-align: left;
-  color: var(--firstTxtColor);
+  /* color: var(--firstTxtColor); */
   font-size: 1.2em;
   z-index: 8;
 }
@@ -197,7 +198,7 @@ body.forcedLightMode {
   object-fit: contain;
   transition: filter 0.3s;
   animation-name: scaling;
-  animation-duration: 2s;
+  animation-duration: 1.6s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -279,6 +280,10 @@ body.forcedLightMode {
   color: var(--secondTxtColor);
 } */
 
+#title:not(.hide) ~ #footer {
+  animation-play-state: paused;
+}
+
 #footer {
   position: absolute;
   transition: 0.3s;
@@ -287,6 +292,11 @@ body.forcedLightMode {
   bottom: 3%;
   margin-bottom: 1em;
   color: var(--thirdTxtColor);
+  animation-name: scaling;
+  animation-duration: 1.2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 #footer p {
@@ -299,7 +309,7 @@ body.forcedLightMode {
   background-color: var(--ac-color);
 }
 
-p.a, p.c, #memories .a .name, #memories .c .name {
+p.a, p.c, #memories .a :not(.big-logo), #memories .c :not(.big-logo) {
   color: var(--ac-color);
 }
 
@@ -307,7 +317,7 @@ p.a, p.c, #memories .a .name, #memories .c .name {
   background-color: var(--df-color);
 }
 
-p.d, p.f, #memories .d .name, #memories .f .name {
+p.d, p.f, #memories .d :not(.big-logo), #memories .f :not(.big-logo) {
   color: var(--df-color);
 }
 
@@ -315,7 +325,7 @@ p.d, p.f, #memories .d .name, #memories .f .name {
   background-color: var(--g-color);
 }
 
-p.g, #memories .g .name {
+p.g, #memories .g :not(.big-logo) {
   color: var(--g-color);
 }
 
@@ -324,7 +334,7 @@ p.g, #memories .g .name {
   color: black;
 }
 
-p.r, #memories .r .name {
+p.r, #memories .r :not(.big-logo) {
   color: var(--r-color);
 }
 
@@ -332,7 +342,7 @@ p.r, #memories .r .name {
   background-color: var(--two-color);
 }
 
-p.two, #memories .two .name {
+p.two, #memories .two :not(.big-logo) {
   color: var(--two-color);
 }
 
@@ -340,23 +350,23 @@ p.two, #memories .two .name {
   background-color: var(--seven-color);
 }
 
-p.seven, #memories .seven .name {
+p.seven, #memories .seven :not(.big-logo) {
   color: var(--seven-color);
 }
 
-p.air-train, #memories .air-train .name {
+p.air-train, #memories .air-train :not(.big-logo) {
   color: var(--air-train-color);
 }
 
-p.path, #memories .path .name {
+p.path, #memories .path :not(.big-logo) {
   color: var(--path-color);
 }
 
-p.nj-transit, #memories .nj-transit .name {
+p.nj-transit, #memories .nj-transit :not(.big-logo) {
   color: var(--nj-transit-color);
 }
 
-p.amtrak, #memories .amtrak .name {
+p.amtrak, #memories .amtrak :not(.big-logo) {
   color: var(--amtrak-color);
 }
 
@@ -379,6 +389,7 @@ p.amtrak, #memories .amtrak .name {
   cursor: pointer;
   font-size: 1.4em;
   object-fit: cover;
+  flex-shrink: 0;
   z-index: 4;
 }
 
@@ -394,11 +405,11 @@ div.icon {
   margin: 25px 12px;
 }
 
-div.icon, body.forcedDarkMode div.icon {
+div.icon, body.forcedDarkMode div.icon, #memories .big-logo, body.forcedDarkMode #memories .big-logo {
   filter: brightness(0.9);
 }
 
-body.forcedLightMode div.icon {
+body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   filter: brightness(1);
 }
 
@@ -450,16 +461,16 @@ body.forcedLightMode div.icon {
   #footer p:hover {
     color: var(--secondTxtColor);
   }
-
+  
   div.icon:hover {
     transform: scale(1.1);
   }
 
-  div.icon:hover, body.forcedDarkMode div.icon:hover {
+  div.icon:hover, body.forcedDarkMode div.icon:hover, #memories .big-logo:hover, body.forcedDarkMode #memories .big-logo:hover {
     filter: brightness(1.1);
   }
 
-  body.forcedLightMode div.icon:hover {
+  body.forcedLightMode div.icon:hover, body.forcedLightMode #memories .big-logo:hover {
     filter: brightness(0.925);
   }
 }
@@ -608,18 +619,18 @@ body.forcedLightMode div.icon {
     --r-color: rgb(255,220,80);
     --two-color: rgb(255,60,60);
     --seven-color: rgb(200,100,200);
-    --air-train-color: rgb(255,255,255);
+    --air-train-color: rgb(0,150,200);
     --path-color: rgb(20,100,250);
     --nj-transit-color: rgb(50,100,150);
     --amtrak-color: rgb(0,80,120);
-    --firstBgColor: #ddd;
-    --secondBgColor: #ccc;
-    --firstTxtColor: #222;
-    --secondTxtColor: #555;
-    --thirdTxtColor: #777;
+    --firstBgColor: #ffe;
+    --secondBgColor: #eec;
+    --firstTxtColor: #332;
+    --secondTxtColor: #553;
+    --thirdTxtColor: #774;
   }
 
-  div.icon {
+  div.icon, #memories .big-logo {
     filter: brightness(1);
   }
 
@@ -628,7 +639,7 @@ body.forcedLightMode div.icon {
   }
 
   @media (hover: hover) {
-    div.icon:hover {
+    div.icon:hover, #memories .big-logo:hover {
       filter: brightness(0.925);
     }
   }

@@ -3,46 +3,47 @@ let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
-document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
   document.body.classList.remove(isInLightMode ? "forcedDarkMode" : "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
-  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 }
 
-function positionOfS(selector) {
-  let box = document.querySelector(selector).getBoundingClientRect();
-  return {
-    left: box.left.toFixed(2),
-    right: box.right.toFixed(2),
-    top: box.top.toFixed(2),
-    bottom: box.bottom.toFixed(2),
-    centerX: ((box.left + box.right) / 2).toFixed(2),
-    centerY: ((box.top + box.bottom) / 2).toFixed(2),
-    width: (box.right - box.left).toFixed(2),
-    height: (box.bottom - box.top).toFixed(2)
-  };
-}
-
-function positionOfE(element) {
-  let box = element.getBoundingClientRect();
-  return {
-    left: box.left.toFixed(2),
-    right: box.right.toFixed(2),
-    top: box.top.toFixed(2),
-    bottom: box.bottom.toFixed(2),
-    centerX: ((box.left + box.right) / 2).toFixed(2),
-    centerY: ((box.top + box.bottom) / 2).toFixed(2),
-    width: (box.right - box.left).toFixed(2),
-    height: (box.bottom - box.top).toFixed(2)
-  };
-}
-
-function windowSize() {
-  return {width: window.innerWidth, height: window.innerHeight};
-}
+/*
+// function positionOfS(selector) {
+//   let box = document.querySelector(selector).getBoundingClientRect();
+//   return {
+//     left: box.left.toFixed(2),
+//     right: box.right.toFixed(2),
+//     top: box.top.toFixed(2),
+//     bottom: box.bottom.toFixed(2),
+//     centerX: ((box.left + box.right) / 2).toFixed(2),
+//     centerY: ((box.top + box.bottom) / 2).toFixed(2),
+//     width: (box.right - box.left).toFixed(2),
+//     height: (box.bottom - box.top).toFixed(2)
+//   };
+// }
+//
+// function positionOfE(element) {
+//   let box = element.getBoundingClientRect();
+//   return {
+//     left: box.left.toFixed(2),
+//     right: box.right.toFixed(2),
+//     top: box.top.toFixed(2),
+//     bottom: box.bottom.toFixed(2),
+//     centerX: ((box.left + box.right) / 2).toFixed(2),
+//     centerY: ((box.top + box.bottom) / 2).toFixed(2),
+//     width: (box.right - box.left).toFixed(2),
+//     height: (box.bottom - box.top).toFixed(2)
+//   };
+// }
+//
+// function windowSize() {
+//   return {width: window.innerWidth, height: window.innerHeight};
+// }
 
 // function selectA() {
 //   alt_text.className = "a";
@@ -91,6 +92,7 @@ function windowSize() {
 // function selectAmtrak() {
 //   alt_text.className = "amtrak";
 // }
+*/
 
 function showIcons() {
   if (window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
@@ -100,12 +102,19 @@ function showIcons() {
   }
 }
 
-function seeNoteMd() {
+function footerClick() {
   if (!document.querySelector("#note-container").classList.contains("hide")) {
     document.querySelector("#center-container").classList.remove("hide");
     document.querySelector("#footer p").innerHTML = "view my notes.md";
     document.querySelector("#note-container").classList.add("hide");
     document.querySelector("#color-mode").classList.remove("hide");
+  } else if (document.querySelector("#title").classList.contains("hide")) {
+    document.querySelector("#footer p").innerHTML = "view my notes.md";
+    document.querySelector("#title").classList.remove("hide");
+    document.querySelector("#center-container").classList.remove("hide");
+    document.querySelectorAll("#memories > div").forEach(element => {
+      element.classList.add("hide")
+    });
   } else {
     document.querySelector("#note-container").scrollTop = 0;
     document.querySelector("#center-container").classList.add("hide");
@@ -133,7 +142,7 @@ function deselect() {
 
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   isInLightMode = match.matches;
-  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png" onclick="switchColorMode()">`;
+  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.body.classList.remove("forcedDarkMode");
   document.body.classList.remove("forcedLightMode");
 });
@@ -141,16 +150,14 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
 document.addEventListener("click", click => {
   let clickedElement = click.target;
 
-  if (document.querySelector("#metro-card-container").classList.contains("hide")) {
-    document.querySelector("#title").classList.remove("hide");
-    document.querySelector("#footer").classList.remove("hide");
-    document.querySelector("#icon-grid").classList.remove("hide");
-    document.querySelector("#metro-card-container").classList.remove("hide");
-    document.querySelectorAll("#memories > div").forEach(element => {
-      element.classList.add("hide")
-    });
-
-  }
+  // if (document.querySelector("#title").classList.contains("hide")) {
+  //   document.querySelector("#title").classList.remove("hide");
+  //   // document.querySelector("#footer").classList.remove("hide");
+  //   document.querySelector("#center-container").classList.remove("hide");
+  //   document.querySelectorAll("#memories > div").forEach(element => {
+  //     element.classList.add("hide")
+  //   });
+  // }
 
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
     if (window.matchMedia("(hover: none)").matches) {
@@ -159,14 +166,12 @@ document.addEventListener("click", click => {
 
     if (!document.querySelector("#title").classList.contains("hide")) {
       document.querySelector("#title").classList.add("hide");
-      document.querySelector("#footer").classList.add("hide");
-      document.querySelector("#icon-grid").classList.add("hide");
-      document.querySelector("#metro-card-container").classList.add("hide");
+      document.querySelector("#center-container").classList.add("hide");
       document.querySelector(`#memories div.${clickedElement.id}`).classList.remove("hide");
+      document.querySelector("#footer p").innerHTML = "click anywhere to go back";
     }
 
-
-
+    /*
     // let n = 3;
     // if (!window.matchMedia("(max-width: 600px)").matches) {
     //   document.querySelector("#title").classList.add("hide");
@@ -206,22 +211,53 @@ document.addEventListener("click", click => {
     //     icon.classList.remove("big-margin");
     //   }
     // }
-  }
 
-  if (document.querySelector("#note-container").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
-    while (clickedElement) {
-      if (document.querySelector("#center-container") === clickedElement) {
-        return;
-      } else {
-        clickedElement = clickedElement.parentNode;
+    */
+
+  } else {
+    if (clickedElement === document.querySelector("#color-mode img")) {
+      switchColorMode();
+    } else {
+      if (document.querySelector("#title").classList.contains("hide") && !Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p")).includes(clickedElement)) {
+        document.querySelector("#footer p").innerHTML = "view my notes.md";
+        document.querySelector("#title").classList.remove("hide");
+        document.querySelector("#center-container").classList.remove("hide");
+        document.querySelectorAll("#memories > div").forEach(element => {
+          element.classList.add("hide")
+        });
+      }
+
+      if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
+
+        while (clickedElement) {
+          if (document.querySelector("#center-container") === clickedElement) {
+            return;
+          } else {
+            clickedElement = clickedElement.parentNode;
+          }
+        }
+
+        document.querySelector("#center-container").classList.remove("tapped");
       }
     }
-
-    deselect();
   }
+
+  /*
+  // if (document.querySelector("#note-container").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
+  //   while (clickedElement) {
+  //     if (document.querySelector("#center-container") === clickedElement) {
+  //       return;
+  //     } else {
+  //       clickedElement = clickedElement.parentNode;
+  //     }
+  //   }
+  //
+  //   deselect();
+  // }
 
   // for (icon of document.querySelectorAll("div.icon")) {
   //   icon.classList.remove("big-margin");
   // }
   // parsedSelectedElement = "";
+  */
 });
