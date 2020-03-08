@@ -100,7 +100,7 @@ document.addEventListener("touchend", touchend => {
 
 document.querySelector("#metro-card-container").addEventListener("mousedown", mousedown => {
   mousedown.preventDefault();
-  if (isInRect(mousedown.clientX, mousedown.clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+  if (isInRect(mousedown.clientX, mousedown.clientY)) {
     xCord = mousedown.clientX;
     yCord = mousedown.clientY;
     pageY = mousedown.pageY;
@@ -110,7 +110,7 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
 });
 
 document.querySelector("#metro-card-container").addEventListener("touchstart", touchstart => {
-  if (touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+  if (touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY)) {
     xCord = touchstart.touches[0].clientX;
     yCord = touchstart.touches[0].clientY;
     pageY = touchstart.touches[0].pageY;
@@ -124,7 +124,7 @@ document.addEventListener("mouseup", mouseup => {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - mouseup.clientX) <= 60 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 10)) {
+    } else if (Math.abs(xCord - mouseup.clientX) <= 65 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 10)) {
       shouldPlay = false;
       return;
     } else {
@@ -148,7 +148,7 @@ document.addEventListener("touchend", touchend => {
     let shouldWork;
     if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 60 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 10)) {
+    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 65 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 10)) {
       shouldPlay = false;
       return;
     } else {
