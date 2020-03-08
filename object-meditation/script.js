@@ -5,13 +5,26 @@ let center_container_element = document.querySelector("#center-container");
 let xCord, yCord, startTime;
 let shouldPlay = false;
 let audioLoaded = false;
-let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+
+// let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+//
+let isInLightMode;
+if (document.cookie && (document.cookie.slice(10) === "forcedDarkMode" || document.cookie.slice(10) === "forcedLightMode")) {
+  isInLightMode = document.cookie.slice(10) === "forcedLightMode" ? true : false;
+  document.body.classList.add(document.cookie.slice(10));
+} else {
+  isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+}
+//
 document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
   document.body.classList.remove(isInLightMode ? "forcedDarkMode" : "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
+  //
+  document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}`;
+  //
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 }
 
@@ -227,6 +240,9 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.body.classList.remove("forcedDarkMode");
   document.body.classList.remove("forcedLightMode");
+  //
+  document.cookie = "colorMode=default";
+  //
 });
 
 document.addEventListener("mousedown", () => {
