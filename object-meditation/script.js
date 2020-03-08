@@ -2,7 +2,7 @@
 let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
-let xCord, yCord;
+let xCord, yCord, startTime;
 let shouldPlay = false;
 let audioLoaded = false;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
@@ -161,6 +161,7 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
     xCord = mousedown.screenX;
     yCord = mousedown.screenY;
     shouldPlay = true;
+    startTime = new Date();
   }
 });
 
@@ -169,13 +170,14 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
     xCord = touchstart.touches[0].screenX;
     yCord = touchstart.touches[0].screenY;
     shouldPlay = true;
+    startTime = new Date();
   }
 });
 
 document.addEventListener("mouseup", mouseup => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - mouseup.screenX >= 80 && Math.abs(yCord - mouseup.screenY) <= 40) {
+    if (xCord - mouseup.screenX >= 80 && Math.abs(yCord - mouseup.screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
     } else if (Math.abs(xCord - mouseup.screenX) <= 30 && Math.abs(yCord - mouseup.screenY) <= 20) {
       shouldPlay = false;
@@ -199,7 +201,7 @@ document.addEventListener("mouseup", mouseup => {
 document.addEventListener("touchend", touchend => {
   if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40) {
+    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
     } else if (Math.abs(xCord - touchend.changedTouches[0].screenX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 20) {
       shouldPlay = false;
