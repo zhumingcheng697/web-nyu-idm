@@ -165,7 +165,6 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
 });
 
 document.querySelector("#metro-card-container").addEventListener("touchstart", touchstart => {
-  touchstart.preventDefault();
   if (touchstart.touches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
     xCord = touchstart.touches[0].screenX;
     yCord = touchstart.touches[0].screenY;
