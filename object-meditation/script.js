@@ -2,6 +2,7 @@
 let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
+let xCord, yCord;
 let shouldPlay = false;
 let audioLoaded = false;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
@@ -154,44 +155,64 @@ document.addEventListener("touchend", touchend => {
   });
 });
 
-document.querySelector("#metro-card-container").addEventListener("dragstart", element => {
-  element.preventDefault();
-  if (!document.querySelector("#dragImg")) {
-    var dragImg = document.querySelector("#metro-card-container").cloneNode(true);
-    dragImg.style.display = "none";
-    document.body.appendChild(dragImg);
-    dragImg.id = "dragImg"
-    element.dataTransfer.setDragImage(dragImg, 0, 0);
-  } else {
-    element.dataTransfer.setDragImage(document.querySelector("#dragImg"), 0, 0);
-  }
-
+document.querySelector("#metro-card-container").addEventListener("mousedown", mousedown => {
+  mousedown.preventDefault();
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
-    let rand = (Math.random() <= 0.45);
-    let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
+    xCord = mousedown.screenX;
+    yCord = mousedown.screenY;
+    shouldPlay = true;
+  }
+});
+
+document.querySelector("#metro-card-container").addEventListener("touchstart", touchstart => {
+  touchstart.preventDefault();
+  if (touchstart.touches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    xCord = touchstart.touches[0].screenX;
+    yCord = touchstart.touches[0].screenY;
+    shouldPlay = true;
+  }
+});
+
+document.addEventListener("mouseup", mouseup => {
+  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
+    let shouldWork;
+    if (xCord - mouseup.screenX >= 80 && Math.abs(yCord - mouseup.screenY) <= 40) {
+      shouldWork = (Math.random() <= 0.9);
+    } else if (Math.abs(xCord - mouseup.screenX) <= 30 && Math.abs(yCord - mouseup.screenY) <= 20) {
+      shouldPlay = false;
+      return;
+    } else {
+      shouldWork = false;
+    }
+
+    let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(rand ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
     }
   }
+  shouldPlay = false;
 });
 
-document.querySelector("#metro-card-container").addEventListener("touchmove", element => {
-  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
-    shouldPlay = true;
-  }
-});
+document.addEventListener("touchend", touchend => {
+  if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
+    let shouldWork;
+    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40) {
+      shouldWork = (Math.random() <= 0.9);
+    } else if (Math.abs(xCord - touchend.changedTouches[0].screenX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 20) {
+      shouldPlay = false;
+      return;
+    } else {
+      shouldWork = false;
+    }
 
-document.querySelector("#metro-card-container").addEventListener("touchend", element => {
-  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
-    let rand = (Math.random() <= 0.45);
-    let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
+    let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(rand ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
