@@ -172,7 +172,7 @@ document.addEventListener("mouseup", mouseup => {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - mouseup.clientX) <= 30 && Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 40) {
+    } else if (Math.abs(xCord - mouseup.clientX) <= 30 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) > 30)) {
       shouldPlay = false;
       return;
     } else {
@@ -196,7 +196,7 @@ document.addEventListener("touchend", touchend => {
     let shouldWork;
     if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 40) {
+    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 30 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) > 30)) {
       shouldPlay = false;
       return;
     } else {
