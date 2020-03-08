@@ -1,6 +1,8 @@
 let xCord, yCord, pageY, startTime;
 let shouldPlay = false;
-let audioLoaded = false;
+let isAudioLoaded = false;
+let isCookieWarned = false;
+let isAutoPlayWarned = false;
 
 let isInLightMode;
 if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") || document.cookie.includes("colorMode=forcedDarkMode"))) {
@@ -13,10 +15,15 @@ document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightM
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
-  document.body.classList.remove(isInLightMode ? "forcedDarkMode" : "forcedLightMode");
+  document.body.classList.remove("forcedDarkMode", "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
+  console.log(document.cookie);
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+  if (!isCookieWarned && !document.cookie.includes("colorMode=forcedLightMode") && !document.cookie.includes("colorMode=forcedDarkMode")) {
+    alert("Your browser has disabled cookies. Turn it on to explore all features.");
+    isCookieWarned = true;
+  }
 }
 
 function isInRect(x, y) {
@@ -122,7 +129,7 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
 document.addEventListener("mouseup", mouseup => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
+    if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 500 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
     } else if (Math.abs(xCord - mouseup.clientX) <= 65 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 10)) {
       shouldPlay = false;
@@ -136,7 +143,10 @@ document.addEventListener("mouseup", mouseup => {
       playPromise.then(() => {
         alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
-        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
+        if (!isAutoPlayWarned) {
+          alert("Your browser has disabled auto-play. Turn it on to explore all features.");
+          isAutoPlayWarned = true;
+        }
       });
     }
   }
@@ -146,7 +156,7 @@ document.addEventListener("mouseup", mouseup => {
 document.addEventListener("touchend", touchend => {
   if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
+    if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 500 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
     } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 65 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 10)) {
       shouldPlay = false;
@@ -160,7 +170,10 @@ document.addEventListener("touchend", touchend => {
       playPromise.then(() => {
         alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
-        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
+        if (!isAutoPlayWarned) {
+          alert("Your browser has disabled auto-play. Turn it on to explore all features.");
+          isAutoPlayWarned = true;
+        }
       });
     }
   }
@@ -170,25 +183,24 @@ document.addEventListener("touchend", touchend => {
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   isInLightMode = match.matches;
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
-  document.body.classList.remove("forcedDarkMode");
-  document.body.classList.remove("forcedLightMode");
+  document.body.classList.remove("forcedLightMode", "forcedDarkMode");
   document.cookie = "colorMode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 });
 
 document.addEventListener("mousedown", () => {
-  if (!audioLoaded) {
+  if (!isAudioLoaded) {
     document.querySelector("#one_beep").load();
     document.querySelector("#two_beep").load();
   }
-  audioLoaded = true;
+  isAudioLoaded = true;
 });
 
 document.addEventListener("touchstart", () => {
-  if (!audioLoaded) {
+  if (!isAudioLoaded) {
     document.querySelector("#one_beep").load();
     document.querySelector("#two_beep").load();
   }
-  audioLoaded = true;
+  isAudioLoaded = true;
 });
 
 document.addEventListener("click", click => {
