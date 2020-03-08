@@ -6,25 +6,20 @@ let xCord, yCord, startTime;
 let shouldPlay = false;
 let audioLoaded = false;
 
-// let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
-//
 let isInLightMode;
-if (document.cookie && (document.cookie.slice(10) === "forcedDarkMode" || document.cookie.slice(10) === "forcedLightMode")) {
-  isInLightMode = document.cookie.slice(10) === "forcedLightMode" ? true : false;
-  document.body.classList.add(document.cookie.slice(10));
+if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode;") || document.cookie.includes("colorMode=forcedDarkMode;")) {
+  isInLightMode = document.cookie.includes("colorMode=forcedLightMode;") ? true : false;
+  document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
 } else {
   isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 }
-//
 document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
   document.body.classList.remove(isInLightMode ? "forcedDarkMode" : "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
-  //
-  document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}`;
-  //
+  document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 }
 
@@ -140,6 +135,7 @@ function footerClick() {
   }
 }
 
+/*
 function deselect() {
   // alt_text.className = "default-alt_text";
   // if (alt_text_element.innerHTML !== "This is where the image goes.") {
@@ -155,6 +151,7 @@ function deselect() {
     document.querySelector("#center-container").classList.remove("tapped");
   }
 }
+*/
 
 document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
   element.addEventListener("touchstart", () => {
@@ -240,9 +237,7 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.body.classList.remove("forcedDarkMode");
   document.body.classList.remove("forcedLightMode");
-  //
-  document.cookie = "colorMode=default";
-  //
+  document.cookie = "colorMode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 });
 
 document.addEventListener("mousedown", () => {
