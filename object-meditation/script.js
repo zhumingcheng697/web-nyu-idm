@@ -168,10 +168,10 @@ document.querySelector("#metro-card-container").addEventListener("dragstart", el
     let rand = (Math.random() <= 0.5);
     let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
-      }).then(() => {
+      playPromise.then(() => {
         alert(rand ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+      }).catch(() => {
+        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
     }
   }
@@ -182,10 +182,10 @@ document.querySelector("#metro-card-container").addEventListener("touchmove", el
     let rand = (Math.random() <= 0.5);
     let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
-      }).then(() => {
+      playPromise.then(() => {
         alert(rand ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+      }).catch(() => {
+        alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
     }
   }
