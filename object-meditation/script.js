@@ -84,54 +84,6 @@ function isInRect(x, y) {
 // function windowSize() {
 //   return {width: window.innerWidth, height: window.innerHeight};
 // }
-
-// function selectA() {
-//   alt_text.className = "a";
-// }
-//
-// function selectC() {
-//   alt_text.className = "c";
-// }
-//
-// function selectD() {
-//   alt_text.className = "d";
-// }
-//
-// function selectF() {
-//   alt_text.className = "f";
-// }
-//
-// function selectG() {
-//   alt_text.className = "g";
-// }
-//
-// function selectR() {
-//   alt_text.className = "r";
-// }
-//
-// function select2() {
-//   alt_text.className = "two"
-// }
-//
-// function select7() {
-//   alt_text.className = "seven";
-// }
-//
-// function selectAirTrain() {
-//   alt_text.className = "air-train";
-// }
-//
-// function selectPath() {
-//   alt_text.className = "path";
-// }
-//
-// function selectNJTransit() {
-//   alt_text.className = "nj-transit";
-// }
-//
-// function selectAmtrak() {
-//   alt_text.className = "amtrak";
-// }
 */
 
 document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
@@ -172,7 +124,7 @@ document.addEventListener("mouseup", mouseup => {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - mouseup.clientX) <= 50 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 15)) {
+    } else if (Math.abs(xCord - mouseup.clientX) <= 60 && (Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 10)) {
       shouldPlay = false;
       return;
     } else {
@@ -196,7 +148,7 @@ document.addEventListener("touchend", touchend => {
     let shouldWork;
     if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 50 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 15)) {
+    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 60 && (Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 10)) {
       shouldPlay = false;
       return;
     } else {
