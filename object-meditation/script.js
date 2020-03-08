@@ -7,8 +7,8 @@ let shouldPlay = false;
 let audioLoaded = false;
 
 let isInLightMode;
-if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode;") || document.cookie.includes("colorMode=forcedDarkMode;"))) {
-  isInLightMode = document.cookie.includes("colorMode=forcedLightMode;") ? true : false;
+if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") || document.cookie.includes("colorMode=forcedDarkMode"))) {
+  isInLightMode = document.cookie.includes("colorMode=forcedLightMode") ? true : false;
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
 } else {
   isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
