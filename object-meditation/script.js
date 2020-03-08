@@ -207,15 +207,13 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   document.body.classList.remove("forcedLightMode");
 });
 
-document.addEventListener("touchstart", touchstart => {
+document.addEventListener("click", click => {
   if (!audioLoaded) {
     document.querySelector("#one_beep").load();
     document.querySelector("#two_beep").load();
   }
   audioLoaded = true;
-});
 
-document.addEventListener("click", click => {
   let clickedElement = click.target;
 
   // if (document.querySelector("#title").classList.contains("hide")) {
