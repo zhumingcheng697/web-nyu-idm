@@ -199,7 +199,7 @@ document.addEventListener("mouseup", mouseup => {
     let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(shouldWork ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
@@ -211,7 +211,7 @@ document.addEventListener("mouseup", mouseup => {
 document.addEventListener("touchend", touchend => {
   if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
+    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
     } else if (Math.abs(xCord - touchend.changedTouches[0].screenX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 20) {
       shouldPlay = false;
@@ -223,7 +223,7 @@ document.addEventListener("touchend", touchend => {
     let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(shouldWork ? `Paid $2.75\nBal $${(2.7 - Math.random()*0.5).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         alert("Your browser has disabled auto-play. Turn it on to explore all features.");
       });
