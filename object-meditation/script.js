@@ -3,6 +3,7 @@ let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
 let shouldPlay = false;
+let audioLoaded = false;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 
@@ -166,7 +167,7 @@ document.querySelector("#metro-card-container").addEventListener("dragstart", el
   }
 
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
-    let rand = (Math.random() <= 0.5);
+    let rand = (Math.random() <= 0.45);
     let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
@@ -186,7 +187,7 @@ document.querySelector("#metro-card-container").addEventListener("touchmove", el
 
 document.querySelector("#metro-card-container").addEventListener("touchend", element => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
-    let rand = (Math.random() <= 0.5);
+    let rand = (Math.random() <= 0.45);
     let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
@@ -204,6 +205,14 @@ window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.body.classList.remove("forcedDarkMode");
   document.body.classList.remove("forcedLightMode");
+});
+
+document.addEventListener("touchstart", touchstart => {
+  if (!audioLoaded) {
+    document.querySelector("#one_beep").load();
+    document.querySelector("#two_beep").load();
+  }
+  audioLoaded = true;
 });
 
 document.addEventListener("click", click => {
