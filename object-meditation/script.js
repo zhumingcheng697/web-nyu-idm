@@ -2,6 +2,7 @@
 let center_container_element = document.querySelector("#center-container");
 // let parsedSelectedElement = "";
 // let currentSmallestOrder = -1;
+let shouldPlay = false;
 let isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 
@@ -179,6 +180,12 @@ document.querySelector("#metro-card-container").addEventListener("dragstart", el
 
 document.querySelector("#metro-card-container").addEventListener("touchmove", element => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    shouldPlay = true;
+  }
+});
+
+document.querySelector("#metro-card-container").addEventListener("touchend", element => {
+  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let rand = (Math.random() <= 0.5);
     let playPromise = document.querySelector(rand ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
@@ -189,6 +196,7 @@ document.querySelector("#metro-card-container").addEventListener("touchmove", el
       });
     }
   }
+  shouldPlay = false;
 });
 
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
