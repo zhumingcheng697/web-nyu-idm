@@ -1,7 +1,3 @@
-// let alt_text_element = document.querySelector("#alt_text");
-let center_container_element = document.querySelector("#center-container");
-// let parsedSelectedElement = "";
-// let currentSmallestOrder = -1;
 let xCord, yCord, startTime;
 let shouldPlay = false;
 let audioLoaded = false;
@@ -21,6 +17,39 @@ function switchColorMode() {
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+}
+
+function isInRect(x, y) {
+  function pos() {
+    let box = document.querySelector("img#metro-card").getBoundingClientRect();
+    return {
+      left: box.left,
+      right: box.right,
+      top: box.top,
+      bottom: box.bottom,
+      centerX: ((box.left + box.right) / 2),
+      centerY: ((box.top + box.bottom) / 2),
+      width: (box.right - box.left),
+      height: (box.bottom - box.top)
+    };
+  }
+
+  let nW = document.querySelector("img#metro-card").naturalWidth;
+  let nH = document.querySelector("img#metro-card").naturalHeight;
+
+  if ((pos().width / pos().height) >= (nW / nH)) {
+    if (y >= pos().top && y <= pos().bottom && x >= pos().centerX - (pos().height / nH * nW / 2) && x <= pos().centerX + (pos().height / nH * nW / 2)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    if (x >= pos().left && x <= pos().right && y >= pos().centerY - (pos().width / nW * nH / 2) && y <= pos().centerY + (pos().width / nW * nH / 2)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 /*
@@ -105,54 +134,6 @@ function switchColorMode() {
 // }
 */
 
-function showIcons() {
-  if (window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
-    document.querySelector("#center-container").classList.add("tapped");
-  } else if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
-    document.querySelector("#center-container").classList.remove("tapped");
-  }
-}
-
-function footerClick() {
-  if (!document.querySelector("#note-container").classList.contains("hide")) {
-    document.querySelector("#center-container").classList.remove("hide");
-    document.querySelector("#footer p").innerHTML = "view my notes.md";
-    document.querySelector("#note-container").classList.add("hide");
-    document.querySelector("#color-mode").classList.remove("hide");
-  } else if (document.querySelector("#title").classList.contains("hide")) {
-    document.querySelector("#footer p").innerHTML = "view my notes.md";
-    document.querySelector("#title").classList.remove("hide");
-    document.querySelector("#center-container").classList.remove("hide");
-    document.querySelectorAll("#memories > div").forEach(element => {
-      element.classList.add("hide")
-    });
-  } else {
-    document.querySelector("#note-container").scrollTop = 0;
-    document.querySelector("#center-container").classList.add("hide");
-    document.querySelector("#footer p").innerHTML = "back to home";
-    document.querySelector("#note-container").classList.remove("hide");
-    document.querySelector("#color-mode").classList.add("hide");
-  }
-}
-
-/*
-function deselect() {
-  // alt_text.className = "default-alt_text";
-  // if (alt_text_element.innerHTML !== "This is where the image goes.") {
-  //   alt_text_element.innerHTML = "You have not selected anything.";
-  // }
-  document.querySelector("#title").classList.remove("hide");
-  document.querySelector("#footer").classList.remove("hide");
-  document.querySelector("#color-mode").classList.remove("hide");
-  center_container_element.parentNode.style.overflow = "visible";
-  center_container_element.style.transform = "translate(0%, 0%)";
-
-  if (window.matchMedia("(hover: none)").matches) {
-    document.querySelector("#center-container").classList.remove("tapped");
-  }
-}
-*/
-
 document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
   element.addEventListener("touchstart", () => {
     element.classList.add("tapped");
@@ -167,18 +148,18 @@ document.addEventListener("touchend", touchend => {
 
 document.querySelector("#metro-card-container").addEventListener("mousedown", mousedown => {
   mousedown.preventDefault();
-  if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
-    xCord = mousedown.screenX;
-    yCord = mousedown.screenY;
+  if (isInRect(mousedown.clientX, mousedown.clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    xCord = mousedown.clientX;
+    yCord = mousedown.clientY;
     shouldPlay = true;
     startTime = new Date();
   }
 });
 
 document.querySelector("#metro-card-container").addEventListener("touchstart", touchstart => {
-  if (touchstart.touches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
-    xCord = touchstart.touches[0].screenX;
-    yCord = touchstart.touches[0].screenY;
+  if (touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
+    xCord = touchstart.touches[0].clientX;
+    yCord = touchstart.touches[0].clientY;
     shouldPlay = true;
     startTime = new Date();
   }
@@ -187,9 +168,9 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
 document.addEventListener("mouseup", mouseup => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - mouseup.screenX >= 80 && Math.abs(yCord - mouseup.screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
+    if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - mouseup.screenX) <= 30 && Math.abs(yCord - mouseup.screenY) <= 20) {
+    } else if (Math.abs(xCord - mouseup.clientX) <= 30 && Math.abs(yCord - mouseup.clientY) <= 20) {
       shouldPlay = false;
       return;
     } else {
@@ -211,9 +192,9 @@ document.addEventListener("mouseup", mouseup => {
 document.addEventListener("touchend", touchend => {
   if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - touchend.changedTouches[0].screenX >= 80 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
+    if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - touchend.changedTouches[0].screenX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].screenY) <= 20) {
+    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) {
       shouldPlay = false;
       return;
     } else {
@@ -259,15 +240,6 @@ document.addEventListener("touchstart", () => {
 document.addEventListener("click", click => {
   let clickedElement = click.target;
 
-  // if (document.querySelector("#title").classList.contains("hide")) {
-  //   document.querySelector("#title").classList.remove("hide");
-  //   // document.querySelector("#footer").classList.remove("hide");
-  //   document.querySelector("#center-container").classList.remove("hide");
-  //   document.querySelectorAll("#memories > div").forEach(element => {
-  //     element.classList.add("hide")
-  //   });
-  // }
-
   if (clickedElement.id && clickedElement.classList.contains("icon")) {
     if (window.matchMedia("(hover: none)").matches) {
       document.querySelector("#center-container").classList.remove("tapped");
@@ -280,52 +252,29 @@ document.addEventListener("click", click => {
       document.querySelector("#footer p").innerHTML = "click anywhere to go back";
     }
 
-    /*
-    // let n = 3;
-    // if (!window.matchMedia("(max-width: 600px)").matches) {
-    //   document.querySelector("#title").classList.add("hide");
-    //   document.querySelector("#footer").classList.add("hide");
-    //   document.querySelector("#color-mode").classList.add("hide");
-    //   center_container_element.parentNode.style.overflow = "hidden";
-    //   if (positionOfE(clickedElement).centerY - windowSize().height / 2 < 0) {
-    //     center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${windowSize().height - positionOfE(center_container_element).centerY - 50 + positionOfE(center_container_element).height / 2}px)`;
-    //   } else {
-    //     center_container_element.style.transform = `translate(${n * (windowSize().width / 2 - positionOfE(clickedElement).centerX)}px, ${- positionOfE(center_container_element).centerY + 50 - positionOfE(center_container_element).height / 2}px)`;
-    //   }
-    // }
-
-    // if (parsedSelectedElement.startsWith(clickedElement.id)) {
-    //   parsedSelectedElement = parsedSelectedElement + "*";
-    //   if (parsedSelectedElement.startsWith(clickedElement.id + "**********")) {
-    //     for (icon of document.querySelectorAll(".icon")) {
-    //       icon.style.opacity = "0.8";
-    //       icon.style.transform = "scale(1)";
-    //       icon.style.filter = "grayscale(1)";
-    //       icon.style.pointerEvents = "none";
-    //     }
-    //   }
-    //
-    //   if (parsedSelectedElement.startsWith(clickedElement.id + "*****")) {
-    //     currentSmallestOrder--;
-    //     (clickedElement.tagName === "IMG" ? clickedElement.parentNode.style.order = currentSmallestOrder : clickedElement.style.order = currentSmallestOrder);
-    //     alt_text_element.innerHTML = "<b> ALRIGHT!!! I ALREADY KNOW<br>" + alt_text_element.innerHTML.slice(0,-1).toUpperCase() + "!!!</b>";
-    //     alt_text.className = "default-alt_text";
-    //     for (icon of document.querySelectorAll("div.icon")) {
-    //       icon.classList.add("big-margin");
-    //     }
-    //   }
-    // } else {
-    //   parsedSelectedElement = clickedElement.id + "*";
-    //   for (icon of document.querySelectorAll("div.icon")) {
-    //     icon.classList.remove("big-margin");
-    //   }
-    // }
-
-    */
-
   } else {
     if (clickedElement === document.querySelector("#color-mode img")) {
       switchColorMode();
+    } else if (clickedElement === document.querySelector("#footer p")) {
+      if (!document.querySelector("#note-container").classList.contains("hide")) {
+        document.querySelector("#center-container").classList.remove("hide");
+        document.querySelector("#footer p").innerHTML = "view my notes.md";
+        document.querySelector("#note-container").classList.add("hide");
+        document.querySelector("#color-mode").classList.remove("hide");
+      } else if (document.querySelector("#title").classList.contains("hide")) {
+        document.querySelector("#footer p").innerHTML = "view my notes.md";
+        document.querySelector("#title").classList.remove("hide");
+        document.querySelector("#center-container").classList.remove("hide");
+        document.querySelectorAll("#memories > div").forEach(element => {
+          element.classList.add("hide")
+        });
+      } else {
+        document.querySelector("#note-container").scrollTop = 0;
+        document.querySelector("#center-container").classList.add("hide");
+        document.querySelector("#footer p").innerHTML = "back to home";
+        document.querySelector("#note-container").classList.remove("hide");
+        document.querySelector("#color-mode").classList.add("hide");
+      }
     } else {
       if (document.querySelector("#title").classList.contains("hide") && !Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p")).includes(clickedElement)) {
         document.querySelector("#footer p").innerHTML = "view my notes.md";
@@ -334,39 +283,13 @@ document.addEventListener("click", click => {
         document.querySelectorAll("#memories > div").forEach(element => {
           element.classList.add("hide")
         });
-      }
-
-      if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
-
-        while (clickedElement) {
-          if (document.querySelector("#center-container") === clickedElement) {
-            return;
-          } else {
-            clickedElement = clickedElement.parentNode;
-          }
+      } else {
+        if (isInRect(click.clientX, click.clientY) && window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
+          document.querySelector("#center-container").classList.add("tapped");
+        } else if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
+          document.querySelector("#center-container").classList.remove("tapped");
         }
-
-        document.querySelector("#center-container").classList.remove("tapped");
       }
     }
   }
-
-  /*
-  // if (document.querySelector("#note-container").classList.contains("hide") && clickedElement.parentNode && clickedElement.parentNode.id !== "footer") {
-  //   while (clickedElement) {
-  //     if (document.querySelector("#center-container") === clickedElement) {
-  //       return;
-  //     } else {
-  //       clickedElement = clickedElement.parentNode;
-  //     }
-  //   }
-  //
-  //   deselect();
-  // }
-
-  // for (icon of document.querySelectorAll("div.icon")) {
-  //   icon.classList.remove("big-margin");
-  // }
-  // parsedSelectedElement = "";
-  */
 });
