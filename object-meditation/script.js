@@ -1,4 +1,4 @@
-let xCord, yCord, startTime;
+let xCord, yCord, pageY, startTime;
 let shouldPlay = false;
 let audioLoaded = false;
 
@@ -151,6 +151,7 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
   if (isInRect(mousedown.clientX, mousedown.clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
     xCord = mousedown.clientX;
     yCord = mousedown.clientY;
+    pageY = mousedown.pageY;
     shouldPlay = true;
     startTime = new Date();
   }
@@ -160,6 +161,7 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
   if (touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY) && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused) {
     xCord = touchstart.touches[0].clientX;
     yCord = touchstart.touches[0].clientY;
+    pageY = touchstart.touches[0].pageY;
     shouldPlay = true;
     startTime = new Date();
   }
@@ -168,9 +170,9 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
 document.addEventListener("mouseup", mouseup => {
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
+    if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - mouseup.clientX) <= 30 && Math.abs(yCord - mouseup.clientY) <= 20) {
+    } else if (Math.abs(xCord - mouseup.clientX) <= 30 && Math.abs(yCord - mouseup.clientY) <= 20 || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 40) {
       shouldPlay = false;
       return;
     } else {
@@ -192,9 +194,9 @@ document.addEventListener("mouseup", mouseup => {
 document.addEventListener("touchend", touchend => {
   if (touchend.changedTouches.length === 1 && document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
-    if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
+    if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 1000 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) {
+    } else if (Math.abs(xCord - touchend.changedTouches[0].clientX) <= 30 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20 || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 40) {
       shouldPlay = false;
       return;
     } else {
@@ -284,9 +286,9 @@ document.addEventListener("click", click => {
           element.classList.add("hide")
         });
       } else {
-        if (isInRect(click.clientX, click.clientY) && window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped")) {
+        if (isInRect(click.clientX, click.clientY) && window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped") && !document.querySelector("#center-container").classList.contains("hide")) {
           document.querySelector("#center-container").classList.add("tapped");
-        } else if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped")) {
+        } else if (window.matchMedia("(hover: none)").matches && document.querySelector("#center-container").classList.contains("tapped") && !document.querySelector("#center-container").classList.contains("hide")) {
           document.querySelector("#center-container").classList.remove("tapped");
         }
       }
