@@ -4,6 +4,9 @@ let isAudioLoaded = false;
 let isCookieWarned = false;
 let isAutoPlayWarned = false;
 
+// Currently the swipe game is disabled.
+let isSwipeGameEnabled = false;
+
 let isInLightMode;
 if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") || document.cookie.includes("colorMode=forcedDarkMode"))) {
   isInLightMode = document.cookie.includes("colorMode=forcedLightMode") ? true : false;
@@ -107,7 +110,7 @@ document.addEventListener("touchend", touchend => {
 
 document.querySelector("#metro-card-container").addEventListener("mousedown", mousedown => {
   mousedown.preventDefault();
-  if (isInRect(mousedown.clientX, mousedown.clientY)) {
+  if (isSwipeGameEnabled && isInRect(mousedown.clientX, mousedown.clientY)) {
     xCord = mousedown.clientX;
     yCord = mousedown.clientY;
     pageY = mousedown.pageY;
@@ -117,7 +120,7 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
 });
 
 document.querySelector("#metro-card-container").addEventListener("touchstart", touchstart => {
-  if (touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY)) {
+  if (isSwipeGameEnabled && touchstart.touches.length === 1 && isInRect(touchstart.touches[0].clientX, touchstart.touches[0].clientY)) {
     xCord = touchstart.touches[0].clientX;
     yCord = touchstart.touches[0].clientY;
     pageY = touchstart.touches[0].pageY;
