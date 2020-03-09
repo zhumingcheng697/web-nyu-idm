@@ -4,14 +4,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-64.png" sizes="64x64">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-128.png" sizes="128x128">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-196.png" sizes="196x196">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="assets/favicons/favicon-167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180.png">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-32.png?v=2" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-64.png?v=2" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-128.png?v=2" sizes="128x128">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-192.png?v=2" sizes="192x192">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-196.png?v=2" sizes="196x196">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png?v=2">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/favicons/favicon-167.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180.png?v=2">
   <title>My MetroCard</title>
 </head>
 
@@ -23,7 +23,7 @@
   <audio src="assets/one_beep.mp3" id="one_beep"></audio>
   <audio src="assets/two_beep.mp3" id="two_beep"></audio>
 
-  <div id="color-mode">
+  <div class="unselectable" id="color-mode">
   </div>
 
   <div id="memories">
@@ -204,11 +204,11 @@
       <div class="top-div"></div>
       <div class="whole"> -->
 
-        <div id="metro-card-container">
+        <div class="unselectable" id="metro-card-container">
           <img id="metro-card" src="assets/metro-card.png">
         </div>
 
-        <div id="icon-grid">
+        <div class="unselectable" id="icon-grid">
           <div class="icon" id="a">A</div>
           <div class="icon" id="c">C</div>
           <div class="icon" id="d">D</div>
@@ -236,7 +236,7 @@
     <!-- </div> -->
   </div>
 
-  <div id="footer">
+  <div class="unselectable" id="footer">
     <p>view my notes.md</p>
   </div>
 

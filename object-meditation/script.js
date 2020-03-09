@@ -114,6 +114,7 @@ document.querySelector("#metro-card-container").addEventListener("mousedown", mo
     xCord = mousedown.clientX;
     yCord = mousedown.clientY;
     pageY = mousedown.pageY;
+    document.body.classList.add("grabbing");
     shouldPlay = true;
     startTime = new Date();
   }
@@ -130,6 +131,7 @@ document.querySelector("#metro-card-container").addEventListener("touchstart", t
 });
 
 document.addEventListener("mouseup", mouseup => {
+  document.body.classList.remove("grabbing");
   if (document.querySelector("#one_beep").paused && document.querySelector("#two_beep").paused && shouldPlay) {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 500 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {

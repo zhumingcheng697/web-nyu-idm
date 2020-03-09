@@ -372,6 +372,14 @@ p.amtrak, #memories .amtrak :not(.big-logo) {
   color: var(--amtrak-color);
 }
 
+body.grabbing .icon, body.grabbing #center-container {
+  cursor: grabbing;
+}
+
+body.grabbing #color-mode *, body.grabbing #footer p {
+  cursor: not-allowed;
+}
+
 .unselectable, img, .icon, .big-logo {
   user-drag: none;
   -webkit-user-drag: none;
@@ -414,10 +422,6 @@ div.icon, body.forcedDarkMode div.icon, #memories .big-logo, body.forcedDarkMode
 body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   filter: brightness(1);
 }
-
-/* div.icon.big-margin {
-  margin: 45px 12px;
-} */
 
 @media (hover: none) {
   #center-container:not(.tapped) div.icon {
@@ -476,19 +480,19 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     animation-play-state: paused;
   }
 
-  #footer p:hover {
+  body:not(.grabbing) #footer p:hover {
     color: var(--secondTxtColor);
   }
 
-  div.icon:hover {
+  body:not(.grabbing) div.icon:hover {
     transform: scale(1.1);
   }
 
-  div.icon:hover, body.forcedDarkMode div.icon:hover, #memories .big-logo:hover, body.forcedDarkMode #memories .big-logo:hover {
+  body:not(.grabbing) div.icon:hover, body.forcedDarkMode:not(.grabbing) div.icon:hover, #memories .big-logo:hover, body.forcedDarkMode #memories .big-logo:hover {
     filter: brightness(1.1);
   }
 
-  body.forcedLightMode div.icon:hover, body.forcedLightMode #memories .big-logo:hover {
+  body.forcedLightMode:not(.grabbing) div.icon:hover, body.forcedLightMode #memories .big-logo:hover {
     filter: brightness(0.925);
   }
 }
@@ -716,7 +720,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   @media (hover: hover) {
-    div.icon:hover, #memories .big-logo:hover {
+    body:not(.grabbing) div.icon:hover, #memories .big-logo:hover {
       filter: brightness(0.925);
     }
   }
