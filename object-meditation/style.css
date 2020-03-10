@@ -54,7 +54,7 @@ body.forcedLightMode {
   --path-color: rgb(20,100,250);
   --nj-transit-color: rgb(50,100,150);
   --amtrak-color: rgb(0,80,120);
-  --firstBgColor: #ffc;
+  --firstBgColor: #ffd;
   --secondBgColor: #eeb;
   --firstTxtColor: #332;
   --secondTxtColor: #553;
@@ -684,7 +684,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     --path-color: rgb(20,100,250);
     --nj-transit-color: rgb(50,100,150);
     --amtrak-color: rgb(0,80,120);
-    --firstBgColor: #ffc;
+    --firstBgColor: #ffd;
     --secondBgColor: #eeb;
     --firstTxtColor: #332;
     --secondTxtColor: #553;
