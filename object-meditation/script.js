@@ -5,7 +5,7 @@ let isCookieWarned = false;
 let isAutoPlayWarned = false;
 
 // Currently the swipe game is disabled.
-let isSwipeGameEnabled = true;
+let isSwipeGameEnabled = false;
 
 let isInLightMode;
 if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") || document.cookie.includes("colorMode=forcedDarkMode"))) {
@@ -136,7 +136,7 @@ document.addEventListener("mouseup", mouseup => {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 500 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if ((Math.abs(xCord - mouseup.clientX) <= 40 && Math.abs(yCord - mouseup.clientY) <= 20) || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 20) {
+    } else if ((Math.abs(xCord - mouseup.clientX) <= 40 && Math.abs(yCord - mouseup.clientY) <= 20) || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 15) {
       shouldPlay = false;
       return;
     } else {
@@ -163,7 +163,7 @@ document.addEventListener("touchend", touchend => {
     let shouldWork;
     if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 500 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if ((Math.abs(xCord - touchend.changedTouches[0].clientX) <= 40 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 20) {
+    } else if ((Math.abs(xCord - touchend.changedTouches[0].clientX) <= 40 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 15) {
       shouldPlay = false;
       return;
     } else {
