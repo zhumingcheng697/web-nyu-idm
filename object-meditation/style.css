@@ -15,9 +15,8 @@ html {
 } */
 
 @keyframes scaling {
-  0% {transform: scale(1);}
-  /* 50% {transform: scale(1.025);} */
-  100% {transform: scale(1.05);}
+  from {transform: scale(1);}
+  to {transform: scale(1.05);}
 }
 
 body, body.forcedDarkMode {
@@ -55,8 +54,8 @@ body.forcedLightMode {
   --path-color: rgb(20,100,250);
   --nj-transit-color: rgb(50,100,150);
   --amtrak-color: rgb(0,80,120);
-  --firstBgColor: #ffe;
-  --secondBgColor: #eec;
+  --firstBgColor: #ffc;
+  --secondBgColor: #eeb;
   --firstTxtColor: #332;
   --secondTxtColor: #553;
   --thirdTxtColor: #774;
@@ -162,14 +161,8 @@ audio {
   /* color: var(--firstTxtColor); */
   font-size: 1.2em;
   z-index: 8;
-  line-height: 1.4em;
+  line-height: 1.55em;
 }
-
-/* #memories .words p {
-  position: relative;
-  left: 5%;
-  width: 90%;
-} */
 
 #icon-grid {
   display: flex;
@@ -186,8 +179,6 @@ audio {
 #metro-card-container {
   position: absolute;
   width: 100%;
-  /* left: -10%; */
-  /* right: -10%; */
   transform: scale(0.8);
   height: 100%;
   transition: 0.3s;
@@ -403,14 +394,6 @@ body.grabbing #color-mode *, body.grabbing #footer p {
   z-index: 4;
 }
 
-img:not(#color-mode img), body.forcedDarkMode img:not(#color-mode img) {
-  filter: grayscale(11%);
-}
-
-body.forcedLightMode img:not(#color-mode img) {
-  filter: grayscale(0%);
-}
-
 div.icon {
   margin: 25px 12px;
 }
@@ -452,7 +435,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   div.icon.tapped, body.forcedDarkMode div.icon.tapped, #memories .big-logo.tapped, body.forcedDarkMode #memories .big-logo.tapped {
-    filter: brightness(1.1);
+    filter: brightness(1);
   }
 
   body.forcedLightMode div.icon.tapped, body.forcedLightMode #memories .big-logo.tapped {
@@ -489,7 +472,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   body:not(.grabbing) div.icon:hover, body.forcedDarkMode:not(.grabbing) div.icon:hover, #memories .big-logo:hover, body.forcedDarkMode #memories .big-logo:hover {
-    filter: brightness(1.1);
+    filter: brightness(1);
   }
 
   body.forcedLightMode:not(.grabbing) div.icon:hover, body.forcedLightMode #memories .big-logo:hover {
@@ -516,6 +499,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   #memories .words {
     left: 30%;
     right: 15%;
+    line-height: 1.45em;
   }
 
   #note-container {
@@ -552,6 +536,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   #memories .words {
     margin-top: 2.5em;
     right: 10%;
+    line-height: 1.35em;
   }
 
   #note-container {
@@ -617,6 +602,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     left: 35%;
     right: 5%;
     font-size: 1.1em;
+    line-height: 1.3em;
   }
 
   #note-container {
@@ -698,8 +684,8 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     --path-color: rgb(20,100,250);
     --nj-transit-color: rgb(50,100,150);
     --amtrak-color: rgb(0,80,120);
-    --firstBgColor: #ffe;
-    --secondBgColor: #eec;
+    --firstBgColor: #ffc;
+    --secondBgColor: #eeb;
     --firstTxtColor: #332;
     --secondTxtColor: #553;
     --thirdTxtColor: #774;
@@ -707,10 +693,6 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   div.icon, #memories .big-logo {
     filter: brightness(1);
-  }
-
-  img:not(#color-mode img)  {
-    filter: grayscale(0%);
   }
 
   @media (hover: none) {
