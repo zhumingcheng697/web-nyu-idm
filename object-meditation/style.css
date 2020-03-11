@@ -7,13 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-/* @font-face {
-  font-family: "violet";
-  src: url("./fonts/VioletSans-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-} */
-
 @keyframes scaling {
   from {transform: scale(1);}
   to {transform: scale(1.05);}
@@ -30,8 +23,8 @@ body, body.forcedDarkMode {
   --path-color: rgb(30,100,230);
   --nj-transit-color: rgb(30,70,120);
   --amtrak-color: rgb(10,60,100);
-  --firstBgColor: #112;
-  --secondBgColor: #224;
+  --firstBgColor: #012;
+  --secondBgColor: #124;
   --firstTxtColor: #dde;
   --secondTxtColor: #cce;
   --thirdTxtColor: #aad;
@@ -91,15 +84,15 @@ audio {
   position: absolute;
   height: 55px;
   width: 55px;
-  right: 0px;
-  top: 0px;
+  right: 30px;
+  top: 30px;
   transition: 0.3s;
 }
 
-#color-mode * {
+#color-mode img {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  right: 0px;
+  top: 0px;
   height: 55px;
   width: 55px;
   object-fit: contain;
@@ -233,8 +226,8 @@ audio {
   color: var(--firstTxtColor);
   transition: 0.3s;
   margin: 1.8em 2em;
-  font-family: monospace;
-  font-size: 1.2em;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
 }
 
 #notes * {
@@ -293,6 +286,7 @@ audio {
 }
 
 #footer p {
+  font-family: Georgia, serif;
   display: inline;
   font-size: 1.45em;
   cursor: pointer;
@@ -540,14 +534,15 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   #note-container {
-    margin-bottom: 4.5em;
+    margin-bottom: 4em;
   }
 
   #notes {
     margin: 3% 4%;
+    font-size: 0.95em;
   }
 
-  #color-mode img {
+  #color-mode {
     top: 24px;
     right: 24px;
   }
@@ -588,28 +583,35 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   #memories .big-logo {
-    margin-top: 60px;
-    right: 65%;
+    margin-top: 25px;
+    margin-right: 0px;
+    left: 10%;
   }
 
   #memories .name {
-    margin-top: 160px;
-    right: 65%;
+    margin-top: 125px;
+    margin-right: 0px;
+    left: 10%;
+    text-align: left;
   }
 
   #memories .words {
-    margin-top: 1.5em;
-    left: 35%;
-    right: 5%;
+    margin-top: 155px;
+    left: 10%;
+    right: 10%;
     font-size: 1.1em;
     line-height: 1.3em;
   }
 
   #note-container {
-    margin-bottom: 4em;
+    margin-bottom: 3.5em;
   }
 
-  #color-mode img {
+  #notes {
+    font-size: 0.9em;
+  }
+
+  #color-mode {
     top: 20px;
     right: 20px;
   }
@@ -643,23 +645,28 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   #memories .big-logo {
-    margin-right: 20px;
-    right: 60%;
+    margin-top: 10px;
+    left: 25px;
   }
 
   #memories .name {
-    margin-right: 10px;
-    right: 60%;
+    margin-top: 110px;
+    left: 25px;
   }
 
   #memories .words {
-    left: 40%;
+    margin-top: 140px;
     font-size: 1.05em;
+    left: 25px;
+    right: 25px;
   }
 
-  #color-mode img {
-    top: 20px;
-    right: 20px;
+  #note-container {
+    margin-bottom: 3em;
+  }
+
+  #notes {
+    font-size: 0.85em;
   }
 
   #color-mode, #color-mode img {
