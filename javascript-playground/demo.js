@@ -8,7 +8,7 @@ function getRandom(amount) {
   return Math.floor(Math.random() * Math.floor(amount));
 }
 
-console.log(namesArray[getRandom(namesArray.length)]);
+// console.log(namesArray[getRandom(namesArray.length)]);
 
 function getRandomName(names) {
   return names[Math.floor(Math.random() * Math.floor(names.length))];
@@ -22,8 +22,8 @@ document.querySelector("#name").innerHTML = randomName;
 
 document.querySelector("#names").innerHTML = namesInString;
 
-console.log(randomName);
-
-console.log(namesArray);
-
-console.log(namesInString);
+// console.log(randomName);
+// 
+// console.log(namesArray);
+//
+// console.log(namesInString);
