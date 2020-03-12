@@ -1,9 +1,10 @@
 //Welcome to the in-class challenge!
 
-let myAlphabet = ['A', 'B', 'C', 'D','E','F','G'];
+let myAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
 // 1. What is the length of the array?
-// push your edits to github!!
+console.log(myAlphabet.length);
+// 7
 
 // 2. Write a function called myAlphabetLength which console.logs the length of the array
 // push your edits to github!!

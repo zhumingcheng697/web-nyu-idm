@@ -3,3 +3,27 @@
 // watch later: https://www.youtube.com/watch?v=XgSjoHgy3Rk
 
 let namesArray = ['Kevin','McCoy','Emily','Frederic','Alisha','Ashli','Simon','Ty','Fiona','Prismo','Sammy','Caroline','Francesca','Karl','Esther','Irene','Martin','Yanxin','Katrina','Kiana'];
+
+function getRandom(amount) {
+  return Math.floor(Math.random() * Math.floor(amount));
+}
+
+console.log(namesArray[getRandom(namesArray.length)]);
+
+function getRandomName(names) {
+  return names[Math.floor(Math.random() * Math.floor(names.length))];
+}
+
+let namesInString = namesArray.join(", ");
+
+let randomName = getRandomName(namesArray);
+
+document.querySelector("#name").innerHTML = randomName;
+
+document.querySelector("#names").innerHTML = namesInString;
+
+console.log(randomName);
+
+console.log(namesArray);
+
+console.log(namesInString);
