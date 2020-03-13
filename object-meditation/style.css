@@ -160,7 +160,6 @@ audio {
 #memories .words a, body.forcedDarkMode #memories .words a {
   overflow: visible;
   display: inline-block;
-  position: relative;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
