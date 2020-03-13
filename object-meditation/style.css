@@ -67,28 +67,6 @@ audio {
   transition-delay: 0.12s;
 }
 
-/* .three-rows {
-  display: grid;
-  grid-template-rows: 35% 30% 35%;
-  grid-template-columns: 100%;
-  height: 100%;
-}
-
-.whole {
-  grid-column: 1/span 1;
-  grid-row: 1/span 3;
-}
-
-.top-div {
-  grid-column: 1/span 1;
-  grid-row: 1/span 1;
-}
-
-.bottom-div {
-  grid-column: 1/span 1;
-  grid-row: 3/span 1;
-} */
-
 #mask {
   transition-duration: 0.3s;
   position: absolute;
@@ -120,7 +98,7 @@ audio {
 
 body.forcedLightMode #cancel {
   color: #444;
-  background-color: #eeec;
+  background-color: #fffc;
 }
 
 #color-mode {
@@ -215,7 +193,7 @@ body.forcedLightMode #memories .words .station {
   filter: brightness(0.925);
 }
 
-#memories .map, #map {
+#map-container {
   position: absolute;
   left: 16%;
   right: 16%;
@@ -223,20 +201,23 @@ body.forcedLightMode #memories .words .station {
   margin-top: 4.25em;
   bottom: 4.5em;
   z-index: 20;
+}
+
+#map {
+  position: relative;
   overflow: hidden;
   overflow-x: hidden;
   overflow-y: hidden;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
 }
 
-#memories .map iframe, #map iframe {
-  position: relative;
-  border-radius: 10px;
+#map iframe {
   border: none;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 #icon-grid {
@@ -325,23 +306,6 @@ body.forcedLightMode #memories .words .station {
   font-size: 3em;
   color: var(--firstTxtColor);
 }
-
-/* #alt_text {
-  margin: auto;
-  grid-column: 1/span 1;
-  grid-row: 2/span 1;
-  transition-duration: 0.3s;
-  font-size: 1.2em;
-  line-height: 1.5;
-}
-
-#alt_text b {
-  font-family: serif;
-}
-
-#alt_text.default-alt_text {
-  color: var(--secondTxtColor);
-} */
 
 #title:not(.hide) ~ #footer {
   animation-play-state: paused;
@@ -483,7 +447,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   body.forcedLightMode #cancel.tapped {
-    background-color: #fffd;
+    background-color: #fffe;
   }
 
   #center-container:not(.tapped) div.icon {
@@ -536,7 +500,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   body.forcedLightMode #cancel:hover {
-    background-color: #fffd;
+    background-color: #fffe;
   }
 
   #center-container:not(:hover) div.icon {
@@ -605,7 +569,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.45em;
   }
 
-  #memories .map, #map {
+  #map-container {
     left: 8%;
     right: 8%;
   }
@@ -651,7 +615,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.35em;
   }
 
-  #memories .map, #map {
+  #map-container {
     margin-top: 2em;
     left: 5%;
     right: 5%;
@@ -732,7 +696,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.3em;
   }
 
-  #memories .map, #map {
+  #map-container {
     margin-top: 150px;
   }
 
@@ -798,7 +762,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     right: 25px;
   }
 
-  #memories .map, #map {
+  #map-container {
     margin-top: 135px;
   }
 
@@ -845,7 +809,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #cancel {
     color: #444;
-    background-color: #eeec;
+    background-color: #fffc;
   }
 
   div.icon, #memories .big-logo {
@@ -858,7 +822,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   @media (hover: none) {
     #cancel.tapped {
-      background-color: #fffd;
+      background-color: #fffe;
     }
 
     div.icon.tapped, #memories .big-logo.tapped {
@@ -872,7 +836,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   @media (hover: hover) {
     #cancel:hover {
-      background-color: #fffd;
+      background-color: #fffe;
     }
 
     body:not(.grabbing) div.icon:hover, #memories .big-logo:hover {

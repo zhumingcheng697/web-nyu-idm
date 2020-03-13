@@ -247,10 +247,7 @@ document.addEventListener('keydown', key => {
       } else {
         document.querySelector("#mask").classList.add("hide");
         document.querySelector("#cancel").classList.add("hide");
-        document.querySelector("#map").classList.add("hide");
-        document.querySelectorAll("#memories .map").forEach(element => {
-          element.classList.add("hide")
-        });
+        document.querySelector("#map-container").classList.add("hide");
       }
     }
   }
@@ -296,7 +293,7 @@ document.addEventListener("click", click => {
       }
     } else {
       if (document.querySelector("#title").classList.contains("hide")) {
-        if (!Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words .station, #memories .map, #cancel, #map")).includes(clickedElement) && document.querySelector("#mask").classList.contains("hide")) {
+        if (!Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words .station, #cancel, #map-container, #map, #map iframe")).includes(clickedElement) && document.querySelector("#mask").classList.contains("hide")) {
           document.querySelector("#footer p").innerHTML = "view my notes.md";
           document.querySelector("#title").classList.remove("hide");
           document.querySelector("#center-container").classList.remove("hide");
@@ -308,16 +305,12 @@ document.addEventListener("click", click => {
             document.querySelector("#map").innerHTML = "<iframe src=\"" + mapUrls[clickedElement.id] + "\" allowfullscreen></iframe>";
             document.querySelector("#mask").classList.remove("hide");
             document.querySelector("#cancel").classList.remove("hide");
-            document.querySelector("#map").classList.remove("hide");
-            // document.querySelector(`#memories .map.${clickedElement.id}`).classList.remove("hide");
+            document.querySelector("#map-container").classList.remove("hide");
           } else {
             document.querySelector("#map").innerHTML = "";
             document.querySelector("#mask").classList.add("hide");
             document.querySelector("#cancel").classList.add("hide");
-            document.querySelector("#map").classList.add("hide");
-            document.querySelectorAll("#memories .map").forEach(element => {
-              element.classList.add("hide")
-            });
+            document.querySelector("#map-container").classList.add("hide");
           }
         }
       } else {
