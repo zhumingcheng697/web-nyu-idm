@@ -58,6 +58,11 @@ audio {
   display: none;
 }
 
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* .three-rows {
   display: grid;
   grid-template-rows: 35% 30% 35%;
@@ -212,11 +217,6 @@ body.forcedLightMode #memories .words a {
   top: 15%;
   bottom: 12%;
   transition: 0.3s;
-}
-
-.hide {
-  opacity: 0;
-  pointer-events: none;
 }
 
 #note-container {
