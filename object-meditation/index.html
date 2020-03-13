@@ -64,6 +64,10 @@
     <!-- </div> -->
   </div>
 
+  <div id="mask" class="hide"></div>
+
+  <span id="cancel" class="unselectable hide">&#x2715;</span>
+
   <div id="memories">
     <div class="a hide">
       <a href="https://new.mta.info/document/9466" target="_blank">
@@ -71,7 +75,18 @@
       </a>
       <div class="name">A Train</div>
       <div class="words">
-        <p>A train is the line I took when I first came to New York on our move-in day August last year. I got on an A train at <a href="https://goo.gl/maps/fNS6hgD28rHsaXLv9" target="_blank">Howard Beach&ndash;JFK</a> carrying my two suitcases and rode for about an hour until I finally arrived at <a href="https://goo.gl/maps/TV7QWNKHZxqHDRLY7" target="_blank">Jay St&ndash;MetroTech</a>. Because the train I took was one of the older models that doesn&rsquo;t automatically announce the stop, and I wasn&rsquo;t familiar with all the names of the stations (and I&rsquo;m still not), I had to keep checking the map on my phone to make sure I haven&rsquo;t missed my stop. I also got out of the station from the wrong exit that day and it took me quite some time to realize that I had been walking in the wrong direction.</p>
+        <!-- <p>A train is the line I took when I first came to New York on our move-in day August last year. I got on an A train at <a href="https://goo.gl/maps/fNS6hgD28rHsaXLv9" target="_blank">Howard Beach&ndash;JFK</a> carrying my two suitcases and rode for about an hour until I finally arrived at <a href="https://goo.gl/maps/TV7QWNKHZxqHDRLY7" target="_blank">Jay St&ndash;MetroTech</a>. Because the train I took was one of the older models that doesn&rsquo;t automatically announce the stop, and I wasn&rsquo;t familiar with all the names of the stations (and I&rsquo;m still not), I had to keep checking the map on my phone to make sure I haven&rsquo;t missed my stop. I also got out of the station from the wrong exit that day and it took me quite some time to realize that I had been walking in the wrong direction.</p> -->
+        <p>A train is the line I took when I first came to New York on our move-in day August last year. I got on an A train at
+          <span id="a-i" class="station">Howard Beach&ndash;JFK</span>
+          carrying my two suitcases and rode for about an hour until I finally arrived at
+          <span id="a-ii" class="station">Jay St&ndash;MetroTech</span>.
+          Because the train I took was one of the older models that doesn&rsquo;t automatically announce the stop, and I wasn&rsquo;t familiar with all the names of the stations (and I&rsquo;m still not), I had to keep checking the map on my phone to make sure I haven&rsquo;t missed my stop. I also got out of the station from the wrong exit that day and it took me quite some time to realize that I had been walking in the wrong direction.</p>
+      </div>
+      <div class="map a-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48425.83799048653!2d-73.86529042260177!3d40.66041917933763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2677a7523cfa7%3A0x79cc1b3e74e8c478!2sHoward%20Beach%20-%20JFK%20Subway%20Station!5e0!3m2!1sen!2sus!4v1584129228905!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map a-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48402.72202310746!2d-74.0222981226008!3d40.692250679334045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4b934481c7%3A0x4f37e8720aab325!2sJay%20St%20-%20MetroTech%20Station!5e0!3m2!1sen!2sus!4v1584129337347!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -91,7 +106,13 @@
       </a>
       <div class="name">D Train</div>
       <div class="words">
-        <p>I only took D train once late October last year when I went somewhere around <a href="https://goo.gl/maps/vjt5ZPkDf4qSZAgz9" target="_blank">62nd St</a> in southern Brooklyn to apply for a UK visa. The neighborhood over there looked quite rural and there really weren&rsquo;t any one on the street. It was hard to imagine that it was still a part of New York City instead of some random no-name town at the countryside. I was glad that the visa interview didn&rsquo;t take too long and I got back to my dorm before sunset. Otherwise I probably would have been quite worried about my safety in that neighborhood.</p>
+        <!-- <p>I only took D train once late October last year when I went somewhere around <a href="https://goo.gl/maps/vjt5ZPkDf4qSZAgz9" target="_blank">62nd St</a> in southern Brooklyn to apply for a UK visa. The neighborhood over there looked quite rural and there really weren&rsquo;t any one on the street. It was hard to imagine that it was still a part of New York City instead of some random no-name town at the countryside. I was glad that the visa interview didn&rsquo;t take too long and I got back to my dorm before sunset. Otherwise I probably would have been quite worried about my safety in that neighborhood.</p> -->
+        <p>I only took D train once late October last year when I went somewhere around
+          <span id="d-i" class="station">62nd St</span>
+          in southern Brooklyn to apply for a UK visa. The neighborhood over there looked quite rural and there really weren&rsquo;t any one on the street. It was hard to imagine that it was still a part of New York City instead of some random no-name town at the countryside. I was glad that the visa interview didn&rsquo;t take too long and I got back to my dorm before sunset. Otherwise I probably would have been quite worried about my safety in that neighborhood.</p>
+      </div>
+      <div class="map d-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48450.27810181782!2d-74.03184562260279!3d40.62674187934127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2453ae4d8bbbb%3A0x3a5726ca53856cf2!2s62%20Street%20Station!5e0!3m2!1sen!2sus!4v1584129888279!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -101,7 +122,13 @@
       </a>
       <div class="name">F Train</div>
       <div class="words">
-        <p>I usually don&rsquo;t take F train very often unless I go to <a href="https://goo.gl/maps/vW2WbjkeUnx4sczc8" target="_blank">Chinatown</a>, where F train is the only convenient route. I did, however, had a memorable experience when I took F train to uptown Manhattan on September 20th last year. I got up at around six to seven that day and got off at <a href="https://goo.gl/maps/EDg5Q7Sf3crZpjUY9" target="_blank">57th St</a> for the grand reopen of the iconic Apple Store on 5th Avenue. Hundreds, if not thousands of enthusiastic fans had already been waiting there when I arrived and I sadly didn&rsquo;t get the chance to take a selfie with Tim Cook (yeah the first dozens of people who got there actually had that privilege). Nonetheless, I got a souvenir bag and took a picture of Tim Cook waving us goodbye like 100ft away.</p>
+        <!-- <p>I usually don&rsquo;t take F train very often unless I go to <a href="https://goo.gl/maps/vW2WbjkeUnx4sczc8" target="_blank">Chinatown</a>, where F train is the only convenient route. I did, however, had a memorable experience when I took F train to uptown Manhattan on September 20th last year. I got up at around six to seven that day and got off at <a href="https://goo.gl/maps/EDg5Q7Sf3crZpjUY9" target="_blank">57th St</a> for the grand reopen of the iconic Apple Store on 5th Avenue. Hundreds, if not thousands of enthusiastic fans had already been waiting there when I arrived and I sadly didn&rsquo;t get the chance to take a selfie with Tim Cook (yeah the first dozens of people who got there actually had that privilege). Nonetheless, I got a souvenir bag and took a picture of Tim Cook waving us goodbye like 100ft away.</p> -->
+        <p>I usually don&rsquo;t take F train very often unless I go to Chinatown, where F train is the only convenient route. I did, however, had a memorable experience when I took F train to uptown Manhattan on September 20th last year. I got up at around six to seven that day and got off at
+          <span id="f-i" class="station">57th St</span>
+          for the grand reopen of the iconic Apple Store on 5th Avenue. Hundreds, if not thousands of enthusiastic fans had already been waiting there when I arrived and I sadly didn&rsquo;t get the chance to take a selfie with Tim Cook (yeah the first dozens of people who got there actually had that privilege). Nonetheless, I got a souvenir bag and took a picture of Tim Cook waving us goodbye like 100ft away.</p>
+      </div>
+      <div class="map f-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48350.44280245119!2d-74.01233232259862!3d40.7641652793263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f9fe99e63d%3A0xb399d392ada3b6b4!2s57%20Street!5e0!3m2!1sen!2sus!4v1584130074882!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -111,7 +138,13 @@
       </a>
       <div class="name">G Train</div>
       <div class="words">
-        <p>I think I only took G train a couple of times as well. Once there was an exhibition at MoMA PS1 in Long Island City and our professor asked us to visit there if we had time that weekend. It took me almost an hour waiting for the train at <a href="https://goo.gl/maps/yY3apFecTZYxTRCz5" target="_blank">Hoyt St</a> and getting over <a href="https://goo.gl/maps/beJxtsZxaFBb8kvy6" target="_blank">there</a>. Lots of people were at the exhibition on that sunny day and there was a gigantic tent with at least three to five hundred people squeezed inside. I didn&rsquo;t feel like staying at a place with so many people for too long and I took some awkward selfies as our professor had requested and left the exhibition in about half an hour.</p>
+        <!-- <p>I think I only took G train a couple of times as well. Once there was an exhibition at MoMA PS1 in Long Island City and our professor asked us to visit there if we had time that weekend. It took me almost an hour waiting for the train at <a href="https://goo.gl/maps/yY3apFecTZYxTRCz5" target="_blank">Hoyt St</a> and getting over <a href="https://goo.gl/maps/beJxtsZxaFBb8kvy6" target="_blank">there</a>. Lots of people were at the exhibition on that sunny day and there was a gigantic tent with at least three to five hundred people squeezed inside. I didn&rsquo;t feel like staying at a place with so many people for too long and I took some awkward selfies as our professor had requested and left the exhibition in about half an hour.</p> -->
+        <p>I think I only took G train a couple of times as well. Once there was an exhibition at MoMA PS1 in Long Island City and our professor asked us to visit there if we had time that weekend. It took me almost an hour waiting for the train and getting over
+          <span id="g-i" class="station">there</span>.
+          Lots of people were at the exhibition on that sunny day and there was a gigantic tent with at least three to five hundred people squeezed inside. I didn&rsquo;t feel like staying at a place with so many people for too long and I took some awkward selfies as our professor had requested and left the exhibition in about half an hour.</p>
+      </div>
+      <div class="map g-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12091.164324861791!2d-73.95739093219512!3d40.74462237932838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25925b8fb086f%3A0x604e1e280275e3a!2s21%20Street-Van%20Alst%20Station!5e0!3m2!1sen!2sus!4v1584130146056!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -121,7 +154,18 @@
       </a>
       <div class="name">R Train</div>
       <div class="words">
-        <p>I have always had some mixed feelings about R train. On one hand, it&rsquo;s very convenient taking R train to the Washington Square campus and getting off on <a href="https://goo.gl/maps/fa4TtFka4epCM8kg6" target="_blank">8th St&ndash;NYU</a>, but on the other hand, it&rsquo;s unreasonably slow comparing to A train or even C train and F train. Once I wanted to stop by at the Lady M on <a href="https://goo.gl/maps/C8eybgmWpYcXPN519" target="_blank">28th St</a> before going to Penn Station for my train (like actual Amtrak train) and I left at least forty minutes early, but I ended up sprinting from 28th St directly to 34th St and I had to run down the escalator in the opposite direction at Penn Station as the gate was supposedly already closed. If I got there literally a minute late I probably wouldn&rsquo;t have been able to catch my train.</p>
+        <!-- <p>I have always had some mixed feelings about R train. On one hand, it&rsquo;s very convenient taking R train to the Washington Square campus and getting off on <a href="https://goo.gl/maps/fa4TtFka4epCM8kg6" target="_blank">8th St&ndash;NYU</a>, but on the other hand, it&rsquo;s unreasonably slow comparing to A train or even C train and F train. Once I wanted to stop by at the Lady M on <a href="https://goo.gl/maps/C8eybgmWpYcXPN519" target="_blank">28th St</a> before going to Penn Station for my train (like actual Amtrak train) and I left at least forty minutes early, but I ended up sprinting from 28th St directly to 34th St and I had to run down the escalator in the opposite direction at Penn Station as the gate was supposedly already closed. If I got there literally a minute late I probably wouldn&rsquo;t have been able to catch my train.</p> -->
+        <p>I have always had some mixed feelings about R train. On one hand, it&rsquo;s very convenient taking R train to the Washington Square campus and getting off on
+          <span id="r-i" class="station">8th St&ndash;NYU</span>,
+          but on the other hand, it&rsquo;s unreasonably slow comparing to A train or even C train and F train. Once I wanted to stop by at the Lady M on
+          <span id="r-ii" class="station">28th St</span>
+          before going to Penn Station for my train (like actual Amtrak train) and I left at least forty minutes early, but I ended up sprinting from 28th St directly to 34th St and I had to run down the escalator in the opposite direction at Penn Station as the gate was supposedly already closed. If I got there literally a minute late I probably wouldn&rsquo;t have been able to catch my train.</p>
+      </div>
+      <div class="map r-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48375.28184105214!2d-74.02744223800518!3d40.7300101!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2599a4639db75%3A0xd4cdc6544e55f6d1!2s8%20Street%20Station!5e0!3m2!1sen!2sus!4v1584130179990!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map r-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48364.16468777156!2d-74.02375542259925!3d40.745299779328235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a6064b21ab%3A0xf2bf8d26d16d1dd5!2s28%20St%20Station!5e0!3m2!1sen!2sus!4v1584130219417!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -131,7 +175,18 @@
       </a>
       <div class="name">2 Train</div>
       <div class="words">
-        <p>I only took 2 train once and it was in October last year as well. My girlfriend was visiting New York City that weekend and she was staying at a hotel somewhere in downtown Brooklyn. I picked her up from <a href="https://goo.gl/maps/6tNr4Uc7n8mf9jaE7" target="_blank">Penn Station</a> and took 2 train to <a href="https://goo.gl/maps/AaznGmuwfwASbF2x9" target="_blank">Hoyt St</a>. The 2 train was really, really fast and it made like only two or three stops between 34th St and Fulton St (2 train&rsquo;s last stop in Manhattan). I&rsquo;d always thought of A train as an &ldquo;express&rdquo; train and only then did I realize that 2 train is the <i>real</i> &ldquo;express&rdquo; train.</p>
+        <!-- <p>I only took 2 train once and it was in October last year as well. My girlfriend was visiting New York City that weekend and she was staying at a hotel somewhere in downtown Brooklyn. I picked her up from <a href="https://goo.gl/maps/6tNr4Uc7n8mf9jaE7" target="_blank">Penn Station</a> and took 2 train to <a href="https://goo.gl/maps/AaznGmuwfwASbF2x9" target="_blank">Hoyt St</a>. The 2 train was really, really fast and it made like only two or three stops between 34th St and Fulton St (2 train&rsquo;s last stop in Manhattan). I&rsquo;d always thought of A train as an &ldquo;express&rdquo; train and only then did I realize that 2 train is the <i>real</i> &ldquo;express&rdquo; train.</p> -->
+        <p>I only took 2 train once and it was in October last year as well. My girlfriend was visiting New York City that weekend and she was staying at a hotel somewhere in downtown Brooklyn. I picked her up from
+          <span id="two-i" class="station">Penn Station</span>
+          and took 2 train to
+          <span id="two-ii" class="station">Hoyt St</span>.
+          The 2 train was really, really fast and it made like only two or three stops between 34th St and Fulton St (2 train&rsquo;s last stop in Manhattan). I&rsquo;d always thought of A train as an &ldquo;express&rdquo; train and only then did I realize that 2 train is the <i>real</i> &ldquo;express&rdquo; train.</p>
+      </div>
+      <div class="map two-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.512056218686!2d-74.02589230338631!3d40.750322294806544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae920208d7%3A0x5dddd28335694755!2s34%20St%20-%20Penn%20Station!5e0!3m2!1sen!2sus!4v1584130285030!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map two-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48403.96841440805!2d-74.02003932260092!3d40.69053487933435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4c9a84d941%3A0x6e86fa478512d5e4!2sHoyt%20St!5e0!3m2!1sen!2sus!4v1584130339516!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -141,7 +196,18 @@
       </a>
       <div class="name">7 Train</div>
       <div class="words">
-        <p>I also took 7 train once only and it was in September last year. My mom and my brother flew from San Francisco to New York to watch the US Open, which was hosted in Flushing. My brother and his tennis coach drove to the stadium in the morning that day and I joined them later in the afternoon by taking 7 train. It took me quite some time to get <a href="https://goo.gl/maps/xcPyWy9AHJJzdN579" target="_blank">there</a> from <a href="https://goo.gl/maps/vXcER6aRuwUDgaok7" target="_blank">Hudson Yards</a>, which is the 7 train&rsquo;s terminal on the other end, and when I finally went through security and met my brother and his coach at the stadium, the match they were watching had only a couple of games left.</p>
+        <!-- <p>I also took 7 train once only and it was in September last year. My mom and my brother flew from San Francisco to New York to watch the US Open, which was hosted in Flushing. My brother and his tennis coach drove to the stadium in the morning that day and I joined them later in the afternoon by taking 7 train. It took me quite some time to get <a href="https://goo.gl/maps/xcPyWy9AHJJzdN579" target="_blank">there</a> from <a href="https://goo.gl/maps/vXcER6aRuwUDgaok7" target="_blank">Hudson Yards</a>, which is the 7 train&rsquo;s terminal on the other end, and when I finally went through security and met my brother and his coach at the stadium, the match they were watching had only a couple of games left.</p> -->
+        <p>I also took 7 train once only and it was in September last year. My mom and my brother flew from San Francisco to New York to watch the US Open, which was hosted in Flushing. My brother and his tennis coach drove to the stadium in the morning that day and I joined them later in the afternoon by taking 7 train. It took me quite some time to get
+          <span id="seven-i" class="station">there</span>
+          from
+          <span id="seven-ii" class="station">Hudson Yards</span>,
+          which is the 7 train&rsquo;s terminal on the other end, and when I finally went through security and met my brother and his coach at the stadium, the match they were watching had only a couple of games left.</p>
+      </div>
+      <div class="map seven-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48357.30981930261!2d-73.88068118735873!3d40.7547250792259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fde3aae177b%3A0x7e647a665f3bfcf1!2sMets%20-%20Willets%20Point!5e0!3m2!1sen!2sus!4v1584130379639!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map seven-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48357.1307444048!2d-74.03602732259894!3d40.75497127932725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259b47e534965%3A0xe8042bdbaeaf9f1!2s34%20St%20-%20Hudson%20Yds!5e0!3m2!1sen!2sus!4v1584130407055!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -153,7 +219,13 @@
       </a>
       <div class="name">AirTrain</div>
       <div class="words">
-        <p>AirTrain is what I have been relying on to get to and back from JFK airport. I first took it when I flew from SFO and landed at JFK on our move-in day last August, and I took it again Thanksgiving last year when I flew to London and spent the break with my family there. Overall it was fairly convenient transferring between A train and AirTrain at <a href="https://goo.gl/maps/qQnLzgdWSwdgyTVY7" target="_blank">Howard Beach</a>, and there&rsquo;s always plentiful room on the trains to fit the baggage, but I think AirTrain&rsquo;s $7.75 fare is ridiculously high, considering it only covers a couple of miles within the airport area.</p>
+        <!-- <p>AirTrain is what I have been relying on to get to and back from JFK airport. I first took it when I flew from SFO and landed at JFK on our move-in day last August, and I took it again Thanksgiving last year when I flew to London and spent the break with my family there. Overall it was fairly convenient transferring between A train and AirTrain at <a href="https://goo.gl/maps/qQnLzgdWSwdgyTVY7" target="_blank">Howard Beach</a>, and there&rsquo;s always plentiful room on the trains to fit the baggage, but I think AirTrain&rsquo;s $7.75 fare is ridiculously high, considering it only covers a couple of miles within the airport area.</p> -->
+        <p>AirTrain is what I have been relying on to get to and back from JFK airport. I first took it when I flew from SFO and landed at JFK on our move-in day last August, and I took it again Thanksgiving last year when I flew to London and spent the break with my family there. Overall it was fairly convenient transferring between A train and AirTrain at
+          <span id="air-train-i" class="station">Howard Beach</span>,
+          and there&rsquo;s always plentiful room on the trains to fit the baggage, but I think AirTrain&rsquo;s $7.75 fare is ridiculously high, considering it only covers a couple of miles within the airport area.</p>
+      </div>
+      <div class="map air-train-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48425.39892536457!2d-73.86459968736216!3d40.66102397923596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c26770851c3d6b%3A0xdd2cab0b7060855e!2sHoward%20Beach%20Station!5e0!3m2!1sen!2sus!4v1584130448218!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -165,7 +237,18 @@
       </a>
       <div class="name">PATH</div>
       <div class="words">
-        <p>To be honest I have never taken PATH trains before. I have only sent my girlfriend off at the PATH station at <a href="https://goo.gl/maps/TqPc9FsBECXbWmAi9" target="_blank">World Trade Center</a> earlier this year when she visited New York again. She took the train the <a href="https://goo.gl/maps/UQ22AtcGWoxJr21r7" target="_blank">Grove St, NJ</a>, where her schoolmates who she carpooled with had decided to meet. The PATH trains were really not on schedule that day, probably because it was President&rsquo;s Day, and she told me that she waited for over twenty minutes at the station even though there was a train that was supposed to leave for New Jersey in five minutes.</p>
+        <!-- <p>To be honest I have never taken PATH trains before. I have only sent my girlfriend off at the PATH station at <a href="https://goo.gl/maps/TqPc9FsBECXbWmAi9" target="_blank">World Trade Center</a> earlier this year when she visited New York again. She took the train the <a href="https://goo.gl/maps/UQ22AtcGWoxJr21r7" target="_blank">Grove St, NJ</a>, where her schoolmates who she carpooled with had decided to meet. The PATH trains were really not on schedule that day, probably because it was President&rsquo;s Day, and she told me that she waited for over twenty minutes at the station even though there was a train that was supposed to leave for New Jersey in five minutes.</p> -->
+        <p>To be honest I have never taken PATH trains before. I have only sent my girlfriend off at the PATH station at
+          <span id="path-i" class="station">World Trade Center</span>
+          earlier this year when she visited New York again. She took the train to
+          <span id="path-ii" class="station">Grove St, NJ</span>,
+          where her schoolmates who she carpooled with had decided to meet. The PATH trains were really not on schedule that day, probably because it was President&rsquo;s Day, and she told me that she waited for over twenty minutes at the station even though there was a train that was supposed to leave for New Jersey in five minutes.</p>
+      </div>
+      <div class="map path-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48388.682050927564!2d-74.04647278736043!3d40.71157417923054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a197b9fec67%3A0xdf170c5ccb9d0b00!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sus!4v1584130591775!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map path-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48382.844581000165!2d-74.07766298736007!3d40.71960617922963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b20ff7fe13%3A0x50875f6c08c8e0c0!2sGrove%20Street%20Path%20Trains!5e0!3m2!1sen!2sus!4v1584130624004!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -177,7 +260,18 @@
       </a>
       <div class="name">NJ Transit</div>
       <div class="words">
-        <p>New Jersey Transit is another line that I have only taken for a couple of times, and technically it doesn&rsquo;t even support MetroCard payment as far as I know. Anyway, I took New Jersey Transit to <a href="https://goo.gl/maps/tpyhprjEfDP4SPct8" target="_blank">Newark airport</a> on a Friday night last September to pick up my mom and my brother, with whom I watch the US Open in Flushing later that weekend. The fare was around $15, but I think that&rsquo;s quite reasonable, considering it covers the dozens of miles between <a href="https://goo.gl/maps/hVd4kHW2DBEKRbtp6" target="_blank">New York Penn Station</a> and <a href="https://goo.gl/maps/tpyhprjEfDP4SPct8" target="_blank">Newark airport</a>. My ride, however, was quite crowded and I had to stand all the way until I got off the train.</p>
+        <!-- <p>New Jersey Transit is another line that I have only taken for a couple of times, and technically it doesn&rsquo;t even support MetroCard payment as far as I know. Anyway, I took New Jersey Transit to <a href="https://goo.gl/maps/tpyhprjEfDP4SPct8" target="_blank">Newark airport</a> on a Friday night last September to pick up my mom and my brother, with whom I watch the US Open in Flushing later that weekend. The fare was around $15, but I think that&rsquo;s quite reasonable, considering it covers the dozens of miles between <a href="https://goo.gl/maps/hVd4kHW2DBEKRbtp6" target="_blank">New York Penn Station</a> and <a href="https://goo.gl/maps/tpyhprjEfDP4SPct8" target="_blank">Newark airport</a>. My ride, however, was quite crowded and I had to stand all the way until I got off the train.</p> -->
+        <p>New Jersey Transit is another line that I have only taken for a couple of times, and technically it doesn&rsquo;t even support MetroCard payment as far as I know. Anyway, I took New Jersey Transit to
+          <span id="nj-transit-i" class="station">Newark airport</span>
+          on a Friday night last September to pick up my mom and my brother, with whom I watch the US Open in Flushing later that weekend. The fare was around $15, but I think that&rsquo;s quite reasonable, considering it covers the dozens of miles between
+          <span id="nj-transit-ii" class="station">New York Penn Station</span>
+          and the airport. My ride, however, was quite crowded and I had to stand all the way until I got off the train.</p>
+      </div>
+      <div class="map nj-transit-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48393.91000173279!2d-74.22571763736063!3d40.70437972923129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c252fad6718b57%3A0x134945e87e9ce02a!2sNewark%20Liberty%20International%20Airport!5e0!3m2!1sen!2sus!4v1584130705743!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map nj-transit-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.33337226613!2d-74.02853792259907!3d40.750567979327634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae15b2adcb%3A0x7955420634fd7eba!2sPennsylvania%20Station!5e0!3m2!1sen!2sus!4v1584130788562!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -189,7 +283,18 @@
       </a>
       <div class="name">Amtrak</div>
       <div class="words">
-        <p>I have taken Amtrak for about five or six times, all to <a href="https://goo.gl/maps/5TysDTWX5REKadP17" target="_blank">Albany-Rensselaer</a> to visit my girlfriend who goes to school at RPI there. The first time I took Amtrak I didn&rsquo;t know that I could buy tickets online, so I went to <a href="https://goo.gl/maps/hVd4kHW2DBEKRbtp6" target="_blank">Penn Station</a> half an hour in advance and bought a regular $67 ticket. Later on, I became accustomed to checking the schedule and buying tickets online, so I don&rsquo;t have to leave so early and pay a premium for regular seats. One thing that surprised me when I first took the train was that no seats are assigned on the ticket and you can choose whichever seat you want, which is not the case back in China and many other European countries I&rsquo;ve been to.</p>
+        <!-- <p>I have taken Amtrak for about five or six times, all to <a href="https://goo.gl/maps/5TysDTWX5REKadP17" target="_blank">Albany-Rensselaer</a> to visit my girlfriend who goes to school at RPI there. The first time I took Amtrak I didn&rsquo;t know that I could buy tickets online, so I went to <a href="https://goo.gl/maps/hVd4kHW2DBEKRbtp6" target="_blank">Penn Station</a> half an hour in advance and bought a regular $67 ticket. Later on, I became accustomed to checking the schedule and buying tickets online, so I don&rsquo;t have to leave so early and pay a premium for regular seats. One thing that surprised me when I first took the train was that no seats are assigned on the ticket and you can choose whichever seat you want, which is not the case back in China and many other European countries I&rsquo;ve been to.</p> -->
+        <p>I have taken Amtrak for about five or six times, all to
+          <span id="amtrak-i" class="station">Albany-Rensselaer</span>
+          to visit my girlfriend who goes to school at RPI there. The first time I took Amtrak I didn&rsquo;t know that I could buy tickets online, so I went to
+          <span id="amtrak-ii" class="station">Penn Station</span>
+          half an hour in advance and bought a regular $67 ticket. Later on, I became accustomed to checking the schedule and buying tickets online, so I don&rsquo;t have to leave so early and pay a premium for regular seats. One thing that surprised me when I first took the train was that no seats are assigned on the ticket and you can choose whichever seat you want, which is not the case back in China and many other European countries I&rsquo;ve been to.</p>
+      </div>
+      <div class="map amtrak-i hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46959.28713648861!2d-73.77631192253993!3d42.641104479169016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de09f3643e848f%3A0xf5cbdf5b36290c84!2sAlbany-Rensselaer!5e0!3m2!1sen!2sus!4v1584130814617!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="map amtrak-ii hide">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.33337226613!2d-74.02853792259907!3d40.750567979327634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae15b2adcb%3A0x7955420634fd7eba!2sPennsylvania%20Station!5e0!3m2!1sen!2sus!4v1584130788562!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
     </div>
   </div>

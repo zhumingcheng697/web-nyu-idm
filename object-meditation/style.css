@@ -33,7 +33,7 @@ body, body.forcedDarkMode {
   color: red;
   text-align: center;
   font-family: helvetica, sans-serif;
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 body.forcedLightMode {
@@ -63,6 +63,10 @@ audio {
   pointer-events: none;
 }
 
+#title:not(.hide), #center-container:not(.hide), #memories > div:not(.hide), #note-container:not(.hide), #color-mode:not(.hide) {
+  transition-delay: 0.12s;
+}
+
 /* .three-rows {
   display: grid;
   grid-template-rows: 35% 30% 35%;
@@ -85,13 +89,47 @@ audio {
   grid-row: 3/span 1;
 } */
 
+#mask {
+  transition-duration: 0.3s;
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  top: 0%;
+  height: 100%;
+  background-color: #0009;
+  z-index: 10;
+}
+
+#cancel, body.forcedDarkMode #cancel {
+  position: absolute;
+  right: 15%;
+  top: 5%;
+  margin-top: 5.25em;
+  margin-right: 1em;
+  z-index: 21;
+  color: #fff;
+  font-weight: bolder;
+  background-color: #333c;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body.forcedLightMode #cancel {
+  color: #444;
+  background-color: #eeec;
+}
+
 #color-mode {
   position: absolute;
   height: 55px;
   width: 55px;
   right: 30px;
   top: 30px;
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 #color-mode img {
@@ -119,7 +157,7 @@ audio {
   font-size: 2.8em;
   object-fit: cover;
   z-index: 9;
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 #memories .big-logo img {
@@ -130,7 +168,7 @@ audio {
 }
 
 #memories div {
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 #memories .name {
@@ -162,16 +200,34 @@ audio {
   line-height: 1.55em;
 }
 
-#memories .words a, body.forcedDarkMode #memories .words a {
+#memories .words .station, body.forcedDarkMode #memories .words .station {
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   filter: brightness(1.25);
   text-decoration: none;
+  display: inline-block;
 }
 
-body.forcedLightMode #memories .words a {
+body.forcedLightMode #memories .words .station {
   filter: brightness(0.925);
+}
+
+#memories .map {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 5%;
+  margin-top: 4.25em;
+  bottom: 4.5em;
+  z-index: 20;
+}
+
+#memories .map iframe {
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 
 #icon-grid {
@@ -183,7 +239,7 @@ body.forcedLightMode #memories .words a {
   align-items: center;
   width: 450px;
   margin: auto;
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 #metro-card-container {
@@ -191,7 +247,7 @@ body.forcedLightMode #memories .words a {
   width: 100%;
   transform: scale(0.8);
   height: 100%;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   z-index: 3;
 }
 
@@ -199,7 +255,7 @@ body.forcedLightMode #memories .words a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: filter 0.3s;
+  transition-duration: 0.3s;
   animation-name: scaling;
   animation-duration: 1.6s;
   animation-direction: alternate;
@@ -216,11 +272,11 @@ body.forcedLightMode #memories .words a {
   /* border-radius: 15px; */
   top: 15%;
   bottom: 12%;
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
 
 #note-container {
-  transition: opacity 0.3s;
+  transition-duration:  0.3s;
   margin-bottom: 5em;
   position: absolute;
   left: 7%;
@@ -236,7 +292,7 @@ body.forcedLightMode #memories .words a {
 
 #notes {
   color: var(--firstTxtColor);
-  transition: 0.3s;
+  transition-duration: 0.3s;
   margin: 1.8em 2em;
   font-family: "Source Code Pro", monospace;
   font-size: 1em;
@@ -248,7 +304,7 @@ body.forcedLightMode #memories .words a {
 
 #title {
   position: absolute;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   width: 100%;
   left: 0%;
   bottom: 6%;
@@ -265,7 +321,7 @@ body.forcedLightMode #memories .words a {
   margin: auto;
   grid-column: 1/span 1;
   grid-row: 2/span 1;
-  transition: ease-in-out 0.3s;
+  transition-duration: 0.3s;
   font-size: 1.2em;
   line-height: 1.5;
 }
@@ -284,7 +340,7 @@ body.forcedLightMode #memories .words a {
 
 #footer {
   position: absolute;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   width: 90%;
   left: 5%;
   bottom: 3%;
@@ -392,7 +448,7 @@ body.grabbing #color-mode *, body.grabbing #footer p {
   height: 48px;
   border-radius: 50%;
   font-weight: bold;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   cursor: pointer;
   font-size: 1.4em;
   object-fit: cover;
@@ -413,6 +469,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 }
 
 @media (hover: none) {
+  #cancel.tapped, body.forcedDarkMode #cancel.tapped {
+    background-color: #333e;
+  }
+
+  body.forcedLightMode #cancel.tapped {
+    background-color: #fffd;
+  }
+
   #center-container:not(.tapped) div.icon {
     pointer-events: none;
     opacity: 0;
@@ -436,11 +500,11 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     color: var(--secondTxtColor);
   }
 
-  #memories .words a.tapped, body.forcedDarkMode #memories .words a.tapped{
+  #memories .words .station.tapped, body.forcedDarkMode #memories .words .station.tapped{
     filter: brightness(1.5);
   }
 
-  body.forcedLightMode #memories .words a.tapped {
+  body.forcedLightMode #memories .words .station.tapped {
     filter: brightness(0.7);
   }
 
@@ -458,6 +522,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 }
 
 @media (hover: hover) {
+  #cancel:hover, body.forcedDarkMode #cancel:hover {
+    background-color: #333e;
+  }
+
+  body.forcedLightMode #cancel:hover {
+    background-color: #fffd;
+  }
+
   #center-container:not(:hover) div.icon {
     pointer-events: none;
     opacity: 0;
@@ -477,11 +549,11 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     animation-play-state: paused;
   }
 
-  #memories .words a:hover, body.forcedDarkMode #memories .words a:hover {
+  #memories .words .station:hover, body.forcedDarkMode #memories .words .station:hover {
     filter: brightness(1.5);
   }
 
-  body.forcedLightMode #memories .words a:hover {
+  body.forcedLightMode #memories .words .station:hover {
     filter: brightness(0.7);
   }
 
@@ -524,6 +596,15 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.45em;
   }
 
+  #memories .map {
+    left: 8%;
+    right: 8%;
+  }
+
+  #cancel {
+    right: 8%;
+  }
+
   #note-container {
     margin-bottom: 4.5em;
     left: 5%;
@@ -559,6 +640,17 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-top: 2.5em;
     right: 10%;
     line-height: 1.35em;
+  }
+
+  #memories .map {
+    margin-top: 2em;
+    left: 5%;
+    right: 5%;
+  }
+
+  #cancel {
+    right: 5%;
+    margin-top: 3em;
   }
 
   #note-container {
@@ -631,6 +723,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.3em;
   }
 
+  #memories .map {
+    margin-top: 150px;
+  }
+
+  #cancel {
+    margin-top: 166px;
+  }
+
   #note-container {
     margin-bottom: 3.5em;
   }
@@ -689,6 +789,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     right: 25px;
   }
 
+  #memories .map {
+    margin-top: 135px;
+  }
+
+  #cancel {
+    margin-top: 151px;
+  }
+
   #note-container {
     margin-bottom: 3em;
   }
@@ -726,30 +834,43 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     --thirdTxtColor: #774;
   }
 
+  #cancel {
+    color: #444;
+    background-color: #eeec;
+  }
+
   div.icon, #memories .big-logo {
     filter: brightness(1);
   }
 
-  #memories .words a {
+  #memories .words .station {
     filter: brightness(0.9);
   }
 
   @media (hover: none) {
+    #cancel.tapped {
+      background-color: #fffd;
+    }
+
     div.icon.tapped, #memories .big-logo.tapped {
       filter: brightness(0.925);
     }
 
-    #memories .words a.tapped {
+    #memories .words .station.tapped {
       filter: brightness(0.7);
     }
   }
 
   @media (hover: hover) {
+    #cancel:hover {
+      background-color: #fffd;
+    }
+
     body:not(.grabbing) div.icon:hover, #memories .big-logo:hover {
       filter: brightness(0.925);
     }
 
-    #memories .words a:hover {
+    #memories .words .station:hover {
       filter: brightness(0.7);
     }
   }

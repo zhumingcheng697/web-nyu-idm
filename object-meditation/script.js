@@ -96,14 +96,14 @@ function isInRect(x, y) {
 // }
 */
 
-document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words a").forEach(element => {
+document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words .station, #cancel").forEach(element => {
   element.addEventListener("touchstart", () => {
     element.classList.add("tapped");
   });
 });
 
 document.addEventListener("touchend", touchend => {
-  document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words a").forEach(element => {
+  document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words .station, #cancel").forEach(element => {
     element.classList.remove("tapped");
   });
 });
@@ -208,6 +208,32 @@ document.addEventListener("touchstart", () => {
   isAudioLoaded = true;
 });
 
+document.addEventListener('keydown', key => {
+  if (key.keyCode === 27) {
+    if (!document.querySelector("#note-container").classList.contains("hide")) {
+      document.querySelector("#center-container").classList.remove("hide");
+      document.querySelector("#footer p").innerHTML = "view my notes.md";
+      document.querySelector("#note-container").classList.add("hide");
+      document.querySelector("#color-mode").classList.remove("hide");
+    } else if (document.querySelector("#title").classList.contains("hide")) {
+      if (document.querySelector("#mask").classList.contains("hide")) {
+        document.querySelector("#footer p").innerHTML = "view my notes.md";
+        document.querySelector("#title").classList.remove("hide");
+        document.querySelector("#center-container").classList.remove("hide");
+        document.querySelectorAll("#memories > div").forEach(element => {
+          element.classList.add("hide")
+        });
+      } else {
+        document.querySelector("#mask").classList.add("hide");
+        document.querySelector("#cancel").classList.add("hide");
+        document.querySelectorAll("#memories .map").forEach(element => {
+          element.classList.add("hide")
+        });
+      }
+    }
+  }
+});
+
 document.addEventListener("click", click => {
   let clickedElement = click.target;
 
@@ -247,13 +273,27 @@ document.addEventListener("click", click => {
         document.querySelector("#color-mode").classList.add("hide");
       }
     } else {
-      if (document.querySelector("#title").classList.contains("hide") && !Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words a")).includes(clickedElement)) {
-        document.querySelector("#footer p").innerHTML = "view my notes.md";
-        document.querySelector("#title").classList.remove("hide");
-        document.querySelector("#center-container").classList.remove("hide");
-        document.querySelectorAll("#memories > div").forEach(element => {
-          element.classList.add("hide")
-        });
+      if (document.querySelector("#title").classList.contains("hide")) {
+        if (!Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words .station, #memories .map")).includes(clickedElement) && document.querySelector("#mask").classList.contains("hide")) {
+          document.querySelector("#footer p").innerHTML = "view my notes.md";
+          document.querySelector("#title").classList.remove("hide");
+          document.querySelector("#center-container").classList.remove("hide");
+          document.querySelectorAll("#memories > div").forEach(element => {
+            element.classList.add("hide")
+          });
+        } else {
+          if (clickedElement.classList.contains("station") && clickedElement.id && document.querySelector("#mask").classList.contains("hide")) {
+            document.querySelector("#mask").classList.remove("hide");
+            document.querySelector("#cancel").classList.remove("hide");
+            document.querySelector(`#memories .map.${clickedElement.id}`).classList.remove("hide");
+          } else {
+            document.querySelector("#mask").classList.add("hide");
+            document.querySelector("#cancel").classList.add("hide");
+            document.querySelectorAll("#memories .map").forEach(element => {
+              element.classList.add("hide")
+            });
+          }
+        }
       } else {
         if (isInRect(click.clientX, click.clientY) && window.matchMedia("(hover: none)").matches && !document.querySelector("#center-container").classList.contains("tapped") && !document.querySelector("#center-container").classList.contains("hide")) {
           document.querySelector("#center-container").classList.add("tapped");
