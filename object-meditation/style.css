@@ -157,6 +157,21 @@ audio {
   line-height: 1.55em;
 }
 
+#memories .words a, body.forcedDarkMode #memories .words a {
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  filter: brightness(1.25);
+  text-decoration: none;
+}
+
+body.forcedLightMode #memories .words a {
+  filter: brightness(0.925);
+}
+
 #icon-grid {
   display: flex;
   flex-wrap: wrap;
@@ -424,6 +439,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     color: var(--secondTxtColor);
   }
 
+  #memories .words a.tapped, body.forcedDarkMode #memories .words a.tapped{
+    filter: brightness(1.5);
+  }
+
+  body.forcedLightMode #memories .words a.tapped {
+    filter: brightness(0.7);
+  }
+
   div.icon.tapped {
     transform: scale(1.1);
   }
@@ -455,6 +478,19 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #center-container:hover #metro-card {
     animation-play-state: paused;
+  }
+
+  #memories .words a:hover, body.forcedDarkMode #memories .words a:hover {
+    filter: brightness(1.5);
+  }
+
+  body.forcedLightMode #memories .words a:hover {
+    filter: brightness(0.7);
+  }
+
+  #memories .words a:not(:hover) span.map {
+    opacity: 0;
+    pointer-events: none;
   }
 
   body:not(.grabbing) #footer p:hover {
@@ -702,15 +738,27 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     filter: brightness(1);
   }
 
+  #memories .words a {
+    filter: brightness(0.9);
+  }
+
   @media (hover: none) {
     div.icon.tapped, #memories .big-logo.tapped {
       filter: brightness(0.925);
+    }
+
+    #memories .words a.tapped {
+      filter: brightness(0.7);
     }
   }
 
   @media (hover: hover) {
     body:not(.grabbing) div.icon:hover, #memories .big-logo:hover {
       filter: brightness(0.925);
+    }
+
+    #memories .words a:hover {
+      filter: brightness(0.7);
     }
   }
 }

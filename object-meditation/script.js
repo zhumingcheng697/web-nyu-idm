@@ -96,14 +96,14 @@ function isInRect(x, y) {
 // }
 */
 
-document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
+document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words a").forEach(element => {
   element.addEventListener("touchstart", () => {
     element.classList.add("tapped");
   });
 });
 
 document.addEventListener("touchend", touchend => {
-  document.querySelectorAll("#footer p, div.icon, div.big-logo").forEach(element => {
+  document.querySelectorAll("#footer p, div.icon, div.big-logo, #memories .words a").forEach(element => {
     element.classList.remove("tapped");
   });
 });
@@ -247,7 +247,7 @@ document.addEventListener("click", click => {
         document.querySelector("#color-mode").classList.add("hide");
       }
     } else {
-      if (document.querySelector("#title").classList.contains("hide") && !Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p")).includes(clickedElement)) {
+      if (document.querySelector("#title").classList.contains("hide") && !Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words a")).includes(clickedElement)) {
         document.querySelector("#footer p").innerHTML = "view my notes.md";
         document.querySelector("#title").classList.remove("hide");
         document.querySelector("#center-container").classList.remove("hide");
