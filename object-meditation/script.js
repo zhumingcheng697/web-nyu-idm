@@ -7,6 +7,27 @@ let isAutoPlayWarned = false;
 // Currently the swipe game is disabled.
 let isSwipeGameEnabled = false;
 
+let mapUrls = {
+  "a-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48425.83799048653!2d-73.86529042260177!3d40.66041917933763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2677a7523cfa7%3A0x79cc1b3e74e8c478!2sHoward%20Beach%20-%20JFK%20Subway%20Station!5e0!3m2!1sen!2sus!4v1584129228905!5m2!1sen!2sus",
+  "a-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48402.72202310746!2d-74.0222981226008!3d40.692250679334045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4b934481c7%3A0x4f37e8720aab325!2sJay%20St%20-%20MetroTech%20Station!5e0!3m2!1sen!2sus!4v1584129337347!5m2!1sen!2sus",
+  "d-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48450.27810181782!2d-74.03184562260279!3d40.62674187934127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2453ae4d8bbbb%3A0x3a5726ca53856cf2!2s62%20Street%20Station!5e0!3m2!1sen!2sus!4v1584129888279!5m2!1sen!2sus",
+  "f-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48350.44280245119!2d-74.01233232259862!3d40.7641652793263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f9fe99e63d%3A0xb399d392ada3b6b4!2s57%20Street!5e0!3m2!1sen!2sus!4v1584130074882!5m2!1sen!2sus",
+  "g-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12091.164324861791!2d-73.95739093219512!3d40.74462237932838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25925b8fb086f%3A0x604e1e280275e3a!2s21%20Street-Van%20Alst%20Station!5e0!3m2!1sen!2sus!4v1584130146056!5m2!1sen!2sus",
+  "r-i": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48375.28184105214!2d-74.02744223800518!3d40.7300101!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2599a4639db75%3A0xd4cdc6544e55f6d1!2s8%20Street%20Station!5e0!3m2!1sen!2sus!4v1584130179990!5m2!1sen!2sus",
+  "r-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48364.16468777156!2d-74.02375542259925!3d40.745299779328235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a6064b21ab%3A0xf2bf8d26d16d1dd5!2s28%20St%20Station!5e0!3m2!1sen!2sus!4v1584130219417!5m2!1sen!2sus",
+  "two-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.512056218686!2d-74.02589230338631!3d40.750322294806544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae920208d7%3A0x5dddd28335694755!2s34%20St%20-%20Penn%20Station!5e0!3m2!1sen!2sus!4v1584130285030!5m2!1sen!2sus",
+  "two-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48403.96841440805!2d-74.02003932260092!3d40.69053487933435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4c9a84d941%3A0x6e86fa478512d5e4!2sHoyt%20St!5e0!3m2!1sen!2sus!4v1584130339516!5m2!1sen!2sus",
+  "seven-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48357.30981930261!2d-73.88068118735873!3d40.7547250792259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fde3aae177b%3A0x7e647a665f3bfcf1!2sMets%20-%20Willets%20Point!5e0!3m2!1sen!2sus!4v1584130379639!5m2!1sen!2sus",
+  "seven-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48357.1307444048!2d-74.03602732259894!3d40.75497127932725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259b47e534965%3A0xe8042bdbaeaf9f1!2s34%20St%20-%20Hudson%20Yds!5e0!3m2!1sen!2sus!4v1584130407055!5m2!1sen!2sus",
+  "air-train-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48425.39892536457!2d-73.86459968736216!3d40.66102397923596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c26770851c3d6b%3A0xdd2cab0b7060855e!2sHoward%20Beach%20Station!5e0!3m2!1sen!2sus!4v1584130448218!5m2!1sen!2sus",
+  "path-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48388.682050927564!2d-74.04647278736043!3d40.71157417923054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a197b9fec67%3A0xdf170c5ccb9d0b00!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sus!4v1584130591775!5m2!1sen!2sus",
+  "path-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48382.844581000165!2d-74.07766298736007!3d40.71960617922963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b20ff7fe13%3A0x50875f6c08c8e0c0!2sGrove%20Street%20Path%20Trains!5e0!3m2!1sen!2sus!4v1584130624004!5m2!1sen!2sus",
+  "nj-transit-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48393.91000173279!2d-74.22571763736063!3d40.70437972923129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c252fad6718b57%3A0x134945e87e9ce02a!2sNewark%20Liberty%20International%20Airport!5e0!3m2!1sen!2sus!4v1584130705743!5m2!1sen!2sus",
+  "nj-transit-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.33337226613!2d-74.02853792259907!3d40.750567979327634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae15b2adcb%3A0x7955420634fd7eba!2sPennsylvania%20Station!5e0!3m2!1sen!2sus!4v1584130788562!5m2!1sen!2sus",
+  "amtrak-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46959.28713648861!2d-73.77631192253993!3d42.641104479169016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de09f3643e848f%3A0xf5cbdf5b36290c84!2sAlbany-Rensselaer!5e0!3m2!1sen!2sus!4v1584130814617!5m2!1sen!2sus",
+  "amtrak-ii": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48360.33337226613!2d-74.02853792259907!3d40.750567979327634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ae15b2adcb%3A0x7955420634fd7eba!2sPennsylvania%20Station!5e0!3m2!1sen!2sus!4v1584130788562!5m2!1sen!2sus"
+};
+
 let isInLightMode;
 if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") || document.cookie.includes("colorMode=forcedDarkMode"))) {
   isInLightMode = document.cookie.includes("colorMode=forcedLightMode") ? true : false;
@@ -226,6 +247,7 @@ document.addEventListener('keydown', key => {
       } else {
         document.querySelector("#mask").classList.add("hide");
         document.querySelector("#cancel").classList.add("hide");
+        document.querySelector("#map").classList.add("hide");
         document.querySelectorAll("#memories .map").forEach(element => {
           element.classList.add("hide")
         });
@@ -274,7 +296,7 @@ document.addEventListener("click", click => {
       }
     } else {
       if (document.querySelector("#title").classList.contains("hide")) {
-        if (!Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words .station, #memories .map")).includes(clickedElement) && document.querySelector("#mask").classList.contains("hide")) {
+        if (!Array.from(document.querySelectorAll("#memories .name, #memories .big-logo, #memories .big-logo img, #memories .words p, #memories .words .station, #memories .map, #cancel, #map")).includes(clickedElement) && document.querySelector("#mask").classList.contains("hide")) {
           document.querySelector("#footer p").innerHTML = "view my notes.md";
           document.querySelector("#title").classList.remove("hide");
           document.querySelector("#center-container").classList.remove("hide");
@@ -283,12 +305,16 @@ document.addEventListener("click", click => {
           });
         } else {
           if (clickedElement.classList.contains("station") && clickedElement.id && document.querySelector("#mask").classList.contains("hide")) {
+            document.querySelector("#map").innerHTML = "<iframe src=\"" + mapUrls[clickedElement.id] + "\" allowfullscreen></iframe>";
             document.querySelector("#mask").classList.remove("hide");
             document.querySelector("#cancel").classList.remove("hide");
-            document.querySelector(`#memories .map.${clickedElement.id}`).classList.remove("hide");
+            document.querySelector("#map").classList.remove("hide");
+            // document.querySelector(`#memories .map.${clickedElement.id}`).classList.remove("hide");
           } else {
+            document.querySelector("#map").innerHTML = "";
             document.querySelector("#mask").classList.add("hide");
             document.querySelector("#cancel").classList.add("hide");
+            document.querySelector("#map").classList.add("hide");
             document.querySelectorAll("#memories .map").forEach(element => {
               element.classList.add("hide")
             });

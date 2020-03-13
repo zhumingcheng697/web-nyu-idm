@@ -102,7 +102,7 @@ audio {
 
 #cancel, body.forcedDarkMode #cancel {
   position: absolute;
-  right: 15%;
+  right: 16%;
   top: 5%;
   margin-top: 5.25em;
   margin-right: 1em;
@@ -193,6 +193,8 @@ body.forcedLightMode #cancel {
   right: 20%;
   bottom: 4.5em;
   overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: scroll;
   text-align: left;
   /* color: var(--firstTxtColor); */
   font-size: 1.2em;
@@ -213,17 +215,18 @@ body.forcedLightMode #memories .words .station {
   filter: brightness(0.925);
 }
 
-#memories .map {
+#memories .map, #map {
   position: absolute;
-  left: 15%;
-  right: 15%;
+  left: 16%;
+  right: 16%;
   top: 5%;
   margin-top: 4.25em;
   bottom: 4.5em;
   z-index: 20;
+  border-radius: 10px;
 }
 
-#memories .map iframe {
+#memories .map iframe, #map iframe {
   border-radius: 10px;
   border: none;
   width: 100%;
@@ -288,6 +291,8 @@ body.forcedLightMode #memories .words .station {
   overflow: scroll;
   border-radius: 10px;
   z-index: 5;
+  margin-left: env(safe-area-inset-left);
+  margin-right: env(safe-area-inset-right);
 }
 
 #notes {
@@ -596,7 +601,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.45em;
   }
 
-  #memories .map {
+  #memories .map, #map {
     left: 8%;
     right: 8%;
   }
@@ -642,7 +647,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.35em;
   }
 
-  #memories .map {
+  #memories .map, #map {
     margin-top: 2em;
     left: 5%;
     right: 5%;
@@ -723,7 +728,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     line-height: 1.3em;
   }
 
-  #memories .map {
+  #memories .map, #map {
     margin-top: 150px;
   }
 
@@ -789,7 +794,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     right: 25px;
   }
 
-  #memories .map {
+  #memories .map, #map {
     margin-top: 135px;
   }
 
