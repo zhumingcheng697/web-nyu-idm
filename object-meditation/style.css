@@ -485,11 +485,6 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     filter: brightness(0.7);
   }
 
-  #memories .words a:not(:hover) span.map {
-    opacity: 0;
-    pointer-events: none;
-  }
-
   body:not(.grabbing) #footer p:hover {
     color: var(--secondTxtColor);
   }
