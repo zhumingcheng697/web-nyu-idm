@@ -176,7 +176,7 @@ body.forcedLightMode #cancel {
   overflow-y: scroll;
   text-align: left;
   /* color: var(--firstTxtColor); */
-  font-size: 14.5pt;
+  font-size: 1.2em;
   z-index: 8;
   line-height: 1.55em;
 }
@@ -188,8 +188,8 @@ body.forcedLightMode #cancel {
   transition-property: filter;
   filter: brightness(1.25);
   text-decoration: none;
-  display: inline-block;
-  font-size: 14.5pt;
+  display: inline;
+  white-space: nowrap;
 }
 
 body.forcedLightMode #memories .words .station {
@@ -696,12 +696,8 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-top: 155px;
     left: 10%;
     right: 10%;
-    font-size: 13.5pt;
+    font-size: 1.1em;
     line-height: 1.3em;
-  }
-
-  #memories .words .station {
-    font-size: 13.5pt;
   }
 
   #map-container {
@@ -765,13 +761,9 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #memories .words {
     margin-top: 140px;
-    font-size: 12.5pt;
+    font-size: 1.05em;
     left: 25px;
     right: 25px;
-  }
-
-  #memories .words .station {
-    font-size: 12.5pt;
   }
 
   #map-container {
