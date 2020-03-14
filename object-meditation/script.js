@@ -307,7 +307,7 @@ document.addEventListener("click", click => {
             document.querySelector("#cancel").classList.remove("hide");
             document.querySelector("#map-container").classList.remove("hide");
           } else {
-            document.querySelector("#map").innerHTML = "";
+            setTimeout(() => { document.querySelector("#map").innerHTML = "" }, 1000);
             document.querySelector("#mask").classList.add("hide");
             document.querySelector("#cancel").classList.add("hide");
             document.querySelector("#map-container").classList.add("hide");

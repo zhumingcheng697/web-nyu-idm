@@ -189,6 +189,7 @@ body.forcedLightMode #cancel {
   filter: brightness(1.25);
   text-decoration: none;
   display: inline-block;
+  font-size: 1em;
 }
 
 body.forcedLightMode #memories .words .station {
@@ -197,6 +198,7 @@ body.forcedLightMode #memories .words .station {
 
 #map-container {
   position: absolute;
+  transition: 0.3s;
   left: 16%;
   right: 16%;
   top: 5%;
