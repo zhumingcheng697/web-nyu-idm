@@ -344,7 +344,6 @@ body.forcedLightMode #memories .words .station {
 }
 
 #footer p {
-  transition-duration: 0.3s;
   font-family: Georgia, serif;
   display: inline;
   font-size: 1.45em;
