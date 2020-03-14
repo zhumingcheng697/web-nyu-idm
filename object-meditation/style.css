@@ -60,6 +60,7 @@ audio {
 
 .hide {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -92,6 +93,7 @@ audio {
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 #cancel, body.forcedDarkMode #cancel {
@@ -205,7 +207,7 @@ body.forcedLightMode #memories .words .station {
 
 #map-container {
   position: absolute;
-  transition: 0.3s;
+  transition-duration: 0.3s;
   left: 16%;
   right: 16%;
   top: 5%;
@@ -342,6 +344,7 @@ body.forcedLightMode #memories .words .station {
 }
 
 #footer p {
+  transition-duration: 0.3s;
   font-family: Georgia, serif;
   display: inline;
   font-size: 1.45em;
