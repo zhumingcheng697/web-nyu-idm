@@ -231,7 +231,6 @@ document.addEventListener('keydown', key => {
     if (!document.querySelector("#note-container").classList.contains("hide")) {
       document.querySelector("#center-container").classList.remove("hide");
       document.querySelector("#footer p").innerHTML = "view my notes.md";
-      document.querySelector("#note-bg").classList.add("hide");
       document.querySelector("#note-container").classList.add("hide");
       document.querySelector("#color-mode").classList.remove("hide");
     } else if (document.querySelector("#title").classList.contains("hide")) {
@@ -274,7 +273,6 @@ document.addEventListener("click", click => {
       if (!document.querySelector("#note-container").classList.contains("hide")) {
         document.querySelector("#center-container").classList.remove("hide");
         document.querySelector("#footer p").innerHTML = "view my notes.md";
-        document.querySelector("#note-bg").classList.add("hide");
         document.querySelector("#note-container").classList.add("hide");
         document.querySelector("#color-mode").classList.remove("hide");
       } else if (document.querySelector("#title").classList.contains("hide")) {
@@ -287,7 +285,6 @@ document.addEventListener("click", click => {
       } else {
         document.querySelector("#center-container").classList.add("hide");
         document.querySelector("#footer p").innerHTML = "back to home";
-        document.querySelector("#note-bg").classList.remove("hide");
         document.querySelector("#note-container").classList.remove("hide");
         document.querySelector("#color-mode").classList.add("hide");
       }
