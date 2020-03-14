@@ -295,7 +295,9 @@ body.forcedLightMode #memories .words .station {
   top: 2em;
   text-align: left;
   bottom: 10%;
-  overflow: scroll;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
   z-index: 5;
   background-color: var(--secondBgColor);
   border-radius: 10px;
@@ -595,10 +597,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-bottom: 4.5em;
     left: 5%;
     right: 5%;
-  }
-
-  #notes {
-    margin: 1.1em 1.25em;
+    padding: 1.1em 1.25em;
   }
 }
 
@@ -641,10 +640,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #notes {
     margin-bottom: 4em;
-  }
-
-  #notes {
-    margin: 3% 4%;
+    padding: 3% 4%;
     font-size: 0.95em;
   }
 
@@ -719,9 +715,6 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #notes {
     margin-bottom: 3.5em;
-  }
-
-  #notes {
     font-size: 0.9em;
   }
 
@@ -754,10 +747,6 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     font-size: 1.1em;
   }
 
-  #notes {
-    margin-bottom: 3.5em;
-  }
-
   #memories .big-logo {
     margin-top: 10px;
     left: 25px;
@@ -785,9 +774,6 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   #notes {
     margin-bottom: 3em;
-  }
-
-  #notes {
     font-size: 0.85em;
   }
 
