@@ -269,8 +269,20 @@ body.forcedLightMode #memories .words .station {
   transition-duration: 0.3s;
 }
 
+#note-bg {
+  transition-duration: 0.3s;
+  margin-bottom: 5em;
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 2em;
+  bottom: 10%;
+  background-color: var(--secondBgColor);
+  border-radius: 10px;
+}
+
 #note-container {
-  transition-duration:  0.3s;
+  transition-duration: 0.3s;
   margin-bottom: 5em;
   position: absolute;
   left: 7%;
@@ -278,9 +290,7 @@ body.forcedLightMode #memories .words .station {
   top: 2em;
   text-align: left;
   bottom: 10%;
-  background-color: var(--secondBgColor);
   overflow: scroll;
-  border-radius: 10px;
   z-index: 5;
 }
 
@@ -582,7 +592,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     right: 8%;
   }
 
-  #note-container {
+  #note-bg, #note-container {
     margin-bottom: 4.5em;
     left: 5%;
     right: 5%;
@@ -630,7 +640,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-top: 3em;
   }
 
-  #note-container {
+  #note-bg, #note-container {
     margin-bottom: 4em;
   }
 
@@ -708,7 +718,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-top: 166px;
   }
 
-  #note-container {
+  #note-bg, #note-container {
     margin-bottom: 3.5em;
   }
 
@@ -745,7 +755,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     font-size: 1.1em;
   }
 
-  #note-container {
+  #note-bg, #note-container {
     margin-bottom: 3.5em;
   }
 
@@ -774,7 +784,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     margin-top: 151px;
   }
 
-  #note-container {
+  #note-bg, #note-container {
     margin-bottom: 3em;
   }
 

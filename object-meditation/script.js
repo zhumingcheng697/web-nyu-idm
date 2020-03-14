@@ -1,4 +1,4 @@
-let xCord, yCord, pageY, startTime;
+let xCord, yCord, pageY, startTime, timeOutId;
 let shouldPlay = false;
 let isAudioLoaded = false;
 let isCookieWarned = false;
@@ -40,7 +40,6 @@ function switchColorMode() {
   document.body.classList.remove("forcedDarkMode", "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
-  console.log(document.cookie);
   document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   if (!isCookieWarned && !document.cookie.includes("colorMode=forcedLightMode") && !document.cookie.includes("colorMode=forcedDarkMode")) {
     alert("Your browser has disabled cookies. Turn it on to explore all features.");
@@ -155,7 +154,7 @@ document.addEventListener("mouseup", mouseup => {
     let shouldWork;
     if (xCord - mouseup.clientX >= 80 && Math.abs(yCord - mouseup.clientY) <= 40 && (new Date()).valueOf() - startTime.valueOf() <= 500 && Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() >= 200) {
       shouldWork = (Math.random() <= 0.9);
-    } else if ((Math.abs(xCord - mouseup.clientX) <= 40 && Math.abs(yCord - mouseup.clientY) <= 20) || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 15) {
+    } else if ((Math.abs(xCord - mouseup.clientX) <= 40 && Math.abs(yCord - mouseup.clientY) <= 20) || Math.abs(Math.abs(pageY - mouseup.pageY) - Math.abs(yCord - mouseup.clientY)) >= 10) {
       shouldPlay = false;
       return;
     } else {
@@ -182,7 +181,7 @@ document.addEventListener("touchend", touchend => {
     let shouldWork;
     if (xCord - touchend.changedTouches[0].clientX >= 80 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 40 && Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) <= 30 && (new Date()).valueOf() - startTime.valueOf() <= 500 && (new Date()).valueOf() - startTime.valueOf() >= 100) {
       shouldWork = (Math.random() <= 0.9);
-    } else if ((Math.abs(xCord - touchend.changedTouches[0].clientX) <= 40 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 15) {
+    } else if ((Math.abs(xCord - touchend.changedTouches[0].clientX) <= 40 && Math.abs(yCord - touchend.changedTouches[0].clientY) <= 20) || Math.abs(Math.abs(pageY - touchend.changedTouches[0].pageY) - Math.abs(yCord - touchend.changedTouches[0].clientY)) >= 10) {
       shouldPlay = false;
       return;
     } else {
@@ -232,6 +231,7 @@ document.addEventListener('keydown', key => {
     if (!document.querySelector("#note-container").classList.contains("hide")) {
       document.querySelector("#center-container").classList.remove("hide");
       document.querySelector("#footer p").innerHTML = "view my notes.md";
+      document.querySelector("#note-bg").classList.add("hide");
       document.querySelector("#note-container").classList.add("hide");
       document.querySelector("#color-mode").classList.remove("hide");
     } else if (document.querySelector("#title").classList.contains("hide")) {
@@ -243,6 +243,7 @@ document.addEventListener('keydown', key => {
           element.classList.add("hide")
         });
       } else {
+        timeOutId = setTimeout(() => { document.querySelector("#map").innerHTML = "" }, 500);
         document.querySelector("#mask").classList.add("hide");
         document.querySelector("#cancel").classList.add("hide");
         document.querySelector("#map-container").classList.add("hide");
@@ -273,6 +274,7 @@ document.addEventListener("click", click => {
       if (!document.querySelector("#note-container").classList.contains("hide")) {
         document.querySelector("#center-container").classList.remove("hide");
         document.querySelector("#footer p").innerHTML = "view my notes.md";
+        document.querySelector("#note-bg").classList.add("hide");
         document.querySelector("#note-container").classList.add("hide");
         document.querySelector("#color-mode").classList.remove("hide");
       } else if (document.querySelector("#title").classList.contains("hide")) {
@@ -283,9 +285,9 @@ document.addEventListener("click", click => {
           element.classList.add("hide")
         });
       } else {
-        document.querySelector("#note-container").scrollTop = 0;
         document.querySelector("#center-container").classList.add("hide");
         document.querySelector("#footer p").innerHTML = "back to home";
+        document.querySelector("#note-bg").classList.remove("hide");
         document.querySelector("#note-container").classList.remove("hide");
         document.querySelector("#color-mode").classList.add("hide");
       }
@@ -300,12 +302,13 @@ document.addEventListener("click", click => {
           });
         } else {
           if (clickedElement.classList.contains("station") && clickedElement.id && document.querySelector("#mask").classList.contains("hide")) {
+            clearTimeout(timeOutId);
             document.querySelector("#map").innerHTML = "<iframe src=\"" + mapUrls[clickedElement.id] + "\" allowfullscreen></iframe>";
             document.querySelector("#mask").classList.remove("hide");
             document.querySelector("#cancel").classList.remove("hide");
             document.querySelector("#map-container").classList.remove("hide");
           } else {
-            setTimeout(() => { document.querySelector("#map").innerHTML = "" }, 1000);
+            timeOutId = setTimeout(() => { document.querySelector("#map").innerHTML = "" }, 500);
             document.querySelector("#mask").classList.add("hide");
             document.querySelector("#cancel").classList.add("hide");
             document.querySelector("#map-container").classList.add("hide");
