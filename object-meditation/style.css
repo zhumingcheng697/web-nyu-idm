@@ -280,6 +280,8 @@ body.forcedLightMode #memories .words .station {
 
 #note-container {
   transition-duration: 0.3s;
+  width: 100%;
+  height: 100%;
 }
 
 #note-view {
