@@ -3,9 +3,7 @@ let shouldPlay = false;
 let isAudioLoaded = false;
 let isCookieWarned = false;
 let isAutoPlayWarned = false;
-
-// Currently the swipe game is disabled.
-let isSwipeGameEnabled = false;
+let isSwipeGameEnabled = true;
 
 let mapUrls = {
   "a-i": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48425.83799048653!2d-73.86529042260177!3d40.66041917933763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2677a7523cfa7%3A0x79cc1b3e74e8c478!2sHoward%20Beach%20-%20JFK%20Subway%20Station!5e0!3m2!1sen!2sus!4v1584129228905!5m2!1sen!2sus",
@@ -167,7 +165,7 @@ document.addEventListener("mouseup", mouseup => {
     let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.07).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         if (!isAutoPlayWarned) {
           alert("Your browser has disabled auto-play. Turn it on to explore all features.");
@@ -194,7 +192,7 @@ document.addEventListener("touchend", touchend => {
     let playPromise = document.querySelector(shouldWork ? "#one_beep" : "#two_beep").play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.04).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
+        alert(shouldWork ? `Paid $2.75\nBal $${(2.74 - Math.random()*0.07).toFixed(2)}`.toUpperCase() : "Please swipe again".toUpperCase());
       }).catch(() => {
         if (!isAutoPlayWarned) {
           alert("Your browser has disabled auto-play. Turn it on to explore all features.");
