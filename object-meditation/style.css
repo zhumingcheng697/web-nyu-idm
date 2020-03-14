@@ -78,22 +78,25 @@ audio {
   z-index: 10;
 }
 
-#cancel, body.forcedDarkMode #cancel {
+#cancel {
   position: absolute;
   right: 16%;
   top: 5%;
   margin-top: 5.25em;
   margin-right: 1em;
   z-index: 21;
-  color: #fff;
   font-weight: bolder;
-  background-color: #333c;
   width: 28px;
   height: 28px;
   line-height: 28px;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
+}
+
+#cancel, body.forcedDarkMode #cancel {
+  color: #fff;
+  background-color: #333c;
 }
 
 body.forcedLightMode #cancel {
@@ -181,7 +184,7 @@ body.forcedLightMode #cancel {
   line-height: 1.55em;
 }
 
-#memories .words .station, body.forcedDarkMode #memories .words .station {
+#memories .words .station {
   font-weight: bold;
   cursor: pointer;
   transition-duration: 0.3s;
@@ -190,6 +193,10 @@ body.forcedLightMode #cancel {
   text-decoration: none;
   display: inline;
   white-space: nowrap;
+}
+
+#memories .words .station, body.forcedDarkMode #memories .words .station {
+  filter: brightness(1.25);
 }
 
 body.forcedLightMode #memories .words .station {
@@ -624,14 +631,14 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   }
 
   #map-container {
-    margin-top: 2em;
+    margin-top: 2.4em;
     left: 5%;
     right: 5%;
   }
 
   #cancel {
     right: 5%;
-    margin-top: 3em;
+    margin-top: 3.4em;
   }
 
   #note-view {
