@@ -177,8 +177,6 @@ body.forcedLightMode #cancel {
   right: 20%;
   bottom: 4.5em;
   overflow: scroll;
-  overflow-x: scroll;
-  overflow-y: scroll;
   text-align: left;
   /* color: var(--firstTxtColor); */
   font-size: 1.2em;
@@ -296,8 +294,6 @@ body.forcedLightMode #memories .words .station {
   text-align: left;
   bottom: 10%;
   overflow: scroll;
-  overflow-x: scroll;
-  overflow-y: scroll;
   z-index: 5;
   background-color: var(--secondBgColor);
   border-radius: 10px;
