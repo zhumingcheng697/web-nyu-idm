@@ -464,7 +464,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   #center-container:not(.tapped) div.icon {
     pointer-events: none;
     opacity: 0;
-    margin: -25px 10px;
+    margin: -25px 12px;
     transform: scale(0);
   }
 
@@ -517,7 +517,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
   #center-container:not(:hover) div.icon {
     pointer-events: none;
     opacity: 0;
-    margin: -25px 10px;
+    margin: -25px 12px;
     transform: scale(0);
   }
 
@@ -652,13 +652,13 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
 
   @media (hover: none) {
     #center-container:not(.tapped) div.icon {
-      margin: -25px 8px;
+      margin: -25px 10px;
     }
   }
 
   @media (hover: hover) {
     #center-container:not(:hover) div.icon {
-      margin: -25px 8px;
+      margin: -25px 10px;
     }
   }
 
@@ -666,7 +666,7 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     width: 300px;
   }
 
-  div.icon, div.icon.big-margin {
+  div.icon {
     margin: 12px 10px;
   }
 }
@@ -729,8 +729,20 @@ body.forcedLightMode div.icon, body.forcedLightMode #memories .big-logo {
     left: 5%;
   }
 
-  div.icon, div.icon.big-margin {
+  div.icon {
     margin: 8px 8px;
+  }
+
+  @media (hover: none) {
+    #center-container:not(.tapped) div.icon {
+      margin: -25px 8px;
+    }
+  }
+
+  @media (hover: hover) {
+    #center-container:not(:hover) div.icon {
+      margin: -25px 8px;
+    }
   }
 }
 
