@@ -33,14 +33,17 @@ if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") ||
 } else {
   isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 }
-document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+// document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
 
 function switchColorMode() {
   isInLightMode = !isInLightMode;
   document.body.classList.remove("forcedDarkMode", "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
-  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+  // document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+  document.querySelector(`#${!isInLightMode ? `light` : `dark`}`).classList.add("hide");
+  document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
   if (!isCookieWarned && !document.cookie.includes("colorMode=forcedLightMode") && !document.cookie.includes("colorMode=forcedDarkMode")) {
     alert("Your browser has disabled cookies. Turn it on to explore all features.");
     isCookieWarned = true;
@@ -205,7 +208,9 @@ document.addEventListener("touchend", touchend => {
 
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   isInLightMode = match.matches;
-  document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+  // document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
+  document.querySelector(`#${!isInLightMode ? `light` : `dark`}`).classList.add("hide");
+  document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
   document.body.classList.remove("forcedLightMode", "forcedDarkMode");
   document.cookie = "colorMode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 });
@@ -267,7 +272,7 @@ document.addEventListener("click", click => {
     }
 
   } else {
-    if (clickedElement === document.querySelector("#color-mode img")) {
+    if (clickedElement === document.querySelector("#color-mode img:not(.hide)")) {
       switchColorMode();
     } else if (clickedElement === document.querySelector("#footer p")) {
       if (!document.querySelector("#note-container").classList.contains("hide")) {

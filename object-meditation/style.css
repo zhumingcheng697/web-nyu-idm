@@ -286,7 +286,7 @@ body.forcedLightMode #memories .words .station {
   color: var(--firstTxtColor);
   transition-duration: 0.3s;
   padding: 1.8em 2em;
-  font-family: "Source Code Pro", monospace;
+  font-family: Courier, monospace;
   font-size: 1em;
   margin-bottom: 5em;
   position: absolute;

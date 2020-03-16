@@ -4,14 +4,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-32.png?v=2" sizes="32x32">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-64.png?v=2" sizes="64x64">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-128.png?v=2" sizes="128x128">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-192.png?v=2" sizes="192x192">
-  <link rel="icon" type="image/png" href="assets/favicons/favicon-196.png?v=2" sizes="196x196">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png?v=2">
-  <link rel="apple-touch-icon" sizes="167x167" href="assets/favicons/favicon-167.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180.png?v=2">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-64.png" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-128.png" sizes="128x128">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-196.png" sizes="196x196">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/favicons/favicon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180.png">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500&display=swap" rel="stylesheet">
   <title>My MetroCard</title>
 </head>
@@ -25,6 +25,8 @@
   <audio src="assets/two_beep.mp3" id="two_beep"></audio>
 
   <div class="unselectable" id="color-mode">
+    <img class="hide" id="light" src="assets/light.png">
+    <img class="hide" id="dark" src="assets/dark.png">
   </div>
 
   <div id="center-container">
@@ -233,7 +235,7 @@
   <div id="note-container" class="hide">
     <div id="notes">
       <b>What are some words that come to mind when I think of this object?</b>
-      <p>New York, Iconic, Torn, Indispensable</p>
+      <p>New York, Iconic, Torn, Indispensable.</p>
       <br>
       <b>Are there spatial places this object is associated with?</b>
       <p>New York, JFK Airport, Subway stations.</p>
@@ -242,10 +244,10 @@
       <p>Yellow background with blue text, red logo, and black magnetic strip on the front side, and blue and white graphics on the back side.</p>
       <br>
       <b>What does my object feel like?</b>
-      <p>Flexible, Smooth (expect for where the magnetic strip is on the back side)</p>
+      <p>Flexible, Smooth.</p>
       <br>
       <b>What does my object smell like?</b>
-      <p>Null.</p>
+      <p>Fatal Error: NullPointerException.</p>
       <br>
       <b>What does my object sound like?</b>
       <p>Ting!</p>
