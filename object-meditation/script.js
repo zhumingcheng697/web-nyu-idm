@@ -33,7 +33,6 @@ if (document.cookie && (document.cookie.includes("colorMode=forcedLightMode") ||
 } else {
   isInLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 }
-// document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
 document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
 
 function switchColorMode() {
@@ -41,7 +40,6 @@ function switchColorMode() {
   document.body.classList.remove("forcedDarkMode", "forcedLightMode");
   document.body.classList.add(isInLightMode ? "forcedLightMode" : "forcedDarkMode");
   document.cookie = `colorMode=${isInLightMode ? "forcedLightMode" : "forcedDarkMode"}; path=/;`;
-  // document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.querySelector(`#${!isInLightMode ? `light` : `dark`}`).classList.add("hide");
   document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
   if (!isCookieWarned && !document.cookie.includes("colorMode=forcedLightMode") && !document.cookie.includes("colorMode=forcedDarkMode")) {
@@ -208,7 +206,6 @@ document.addEventListener("touchend", touchend => {
 
 window.matchMedia("(prefers-color-scheme: light)").addListener(match => {
   isInLightMode = match.matches;
-  // document.querySelector("#color-mode").innerHTML = `<img src="assets/${isInLightMode ? `light` : `dark`}.png">`;
   document.querySelector(`#${!isInLightMode ? `light` : `dark`}`).classList.add("hide");
   document.querySelector(`#${isInLightMode ? `light` : `dark`}`).classList.remove("hide");
   document.body.classList.remove("forcedLightMode", "forcedDarkMode");
